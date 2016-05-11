@@ -26,6 +26,9 @@ print(helvetica.descent)
 print(page.width)
 print(page.height)
 
+page.width = page.height
+page.height = page.width
+
 hpdf:use "utfencodings"
 hpdf:use "jpencodings"
 hpdf:use "krencodings"
