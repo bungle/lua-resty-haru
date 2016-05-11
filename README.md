@@ -53,7 +53,7 @@ hpdf:save "demo.pdf"
 
 ## TODO
 
-#### Basic Functions
+##### Basic Functions
 
 * [x] HPDF_New
 * [x] HPDF_Free
@@ -69,7 +69,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_GetError
 * [ ] HPDF_ResetError
 
-#### Pages Handling
+##### Pages Handling
 
 * [ ] HPDF_SetPagesConfiguration
 * [ ] HPDF_SetPageLayout
@@ -81,7 +81,7 @@ hpdf:save "demo.pdf"
 * [x] HPDF_AddPage
 * [ ] HPDF_InsertPage
 
-#### Font Handling
+##### Font Handling
 
 * [ ] HPDF_AddPageLabel
 * [x] HPDF_GetFont
@@ -93,7 +93,7 @@ hpdf:save "demo.pdf"
 * [x] HPDF_UseCNSFonts
 * [x] HPDF_UseCNTFonts
 
-#### Encodings
+##### Encodings
 
 * [ ] HPDF_GetEncoder
 * [ ] HPDF_GetCurrentEncoder
@@ -104,7 +104,7 @@ hpdf:save "demo.pdf"
 * [x] HPDF_UseCNTEncodings
 * [x] HPDF_UseUTFEncodings
 
-#### Other Functions
+##### Other Functions
 
 * [ ] HPDF_CreateOutline
 * [x] HPDF_LoadPngImageFromFile
@@ -122,7 +122,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_SetEncryptionMode
 * [ ] HPDF_SetCompressionMode
 
-#### Page
+##### Page
 
 * [x] HPDF_Page_SetWidth
 * [x] HPDF_Page_SetHeight
@@ -168,7 +168,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_New_Content_Stream
 * [ ] HPDF_Page_Insert_Shared_Content_Stream
 
-#### Graphics
+##### Graphics
 
 * [ ] HPDF_Page_Arc
 * [x] HPDF_Page_BeginText
@@ -227,7 +227,7 @@ hpdf:save "demo.pdf"
 * [x] HPDF_Page_TextOut
 * [x] HPDF_Page_TextRect
 
-#### Fonts
+##### Fonts
 
 * [x] HPDF_Font_GetFontName
 * [x] HPDF_Font_GetEncodingName
@@ -240,14 +240,14 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Font_TextWidth
 * [ ] HPDF_Font_MeasureText
 
-#### Encodings
+##### Encodings
 
 * [ ] HPDF_Encoder_GetType
 * [ ] HPDF_Encoder_GetByteType
 * [ ] HPDF_Encoder_GetUnicode
 * [ ] HPDF_Encoder_GetWritingMode
 
-#### Annotations
+##### Annotations
 
 * [ ] HPDF_LinkAnnot_SetHighlightMode
 * [ ] HPDF_LinkAnnot_SetBorderStyle
@@ -255,12 +255,12 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_TextAnnot_SetOpened
 * [ ] HPDF_Annotation_SetBorderStyle
 
-#### Outline
+##### Outline
 
 * [ ] HPDF_Outline_SetOpened
 * [ ] HPDF_Outline_SetDestination
 
-#### Destination
+##### Destination
 
 * [ ] HPDF_Destination_SetXYZ
 * [ ] HPDF_Destination_SetFit
@@ -271,7 +271,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Destination_SetFitBH
 * [ ] HPDF_Destination_SetFitBV
 
-#### Image
+##### Image
 
 * [ ] HPDF_Image_GetSize
 * [x] HPDF_Image_GetWidth
