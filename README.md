@@ -56,11 +56,11 @@ hpdf:save "demo.pdf"
 
 ##### Basic Functions
 
-* [x] HPDF_New
-* [x] HPDF_Free
+* [x] ~~HPDF_New~~
+* [x] ~~HPDF_Free~~
 * [ ] HPDF_NewDoc
 * [ ] HPDF_FreeDoc
-* [x] HPDF_SaveToFile
+* [x] ~~HPDF_SaveToFile~~
 * [ ] HPDF_SaveToStream
 * [ ] HPDF_GetStreamSize
 * [ ] HPDF_ReadFromStream
@@ -79,42 +79,42 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_GetPageMode
 * [ ] HPDF_SetOpenAction
 * [ ] HPDF_GetCurrentPage
-* [x] HPDF_AddPage
+* [x] ~~HPDF_AddPage~~
 * [ ] HPDF_InsertPage
 
 ##### Font Handling
 
 * [ ] HPDF_AddPageLabel
-* [x] HPDF_GetFont
+* [x] ~~HPDF_GetFont~~
 * [ ] HPDF_LoadType1FontFromFile
 * [ ] HPDF_LoadTTFontFromFile
 * [ ] HPDF_LoadTTFontFromFile2
-* [x] HPDF_UseJPFonts
-* [x] HPDF_UseKRFonts
-* [x] HPDF_UseCNSFonts
-* [x] HPDF_UseCNTFonts
+* [x] ~~HPDF_UseJPFonts~~
+* [x] ~~HPDF_UseKRFonts~~
+* [x] ~~HPDF_UseCNSFonts~~
+* [x] ~~HPDF_UseCNTFonts~~
 
 ##### Encodings
 
 * [ ] HPDF_GetEncoder
 * [ ] HPDF_GetCurrentEncoder
 * [ ] HPDF_SetCurrentEncoder
-* [x] HPDF_UseJPEncodings
-* [x] HPDF_UseKREncodings
-* [x] HPDF_UseCNSEncodings
-* [x] HPDF_UseCNTEncodings
-* [x] HPDF_UseUTFEncodings
+* [x] ~~HPDF_UseJPEncodings~~
+* [x] ~~HPDF_UseKREncodings~~
+* [x] ~~HPDF_UseCNSEncodings~~
+* [x] ~~HPDF_UseCNTEncodings~~
+* [x] ~~HPDF_UseUTFEncodings~~
 
 ##### Other Functions
 
 * [ ] HPDF_CreateOutline
-* [x] HPDF_LoadPngImageFromFile
+* [x] ~~HPDF_LoadPngImageFromFile~~
 * [ ] HPDF_LoadPngImageFromFile2
 * [ ] HPDF_LoadRawImageFromFile
 * [ ] HPDF_LoadRawImageFromMem
 * [ ] HPDF_LoadPngImageFromMem
 * [ ] HPDF_LoadJpegImageFromMem
-* [x] HPDF_LoadJpegImageFromFile
+* [x] ~~HPDF_LoadJpegImageFromFile~~
 * [ ] HPDF_SetInfoAttr
 * [ ] HPDF_GetInfoAttr
 * [ ] HPDF_SetInfoDateAttr
@@ -125,12 +125,12 @@ hpdf:save "demo.pdf"
 
 ##### Page
 
-* [x] HPDF_Page_SetWidth
-* [x] HPDF_Page_SetHeight
+* [x] ~~HPDF_Page_SetWidth~~
+* [x] ~~HPDF_Page_SetHeight~~
 * [ ] HPDF_Page_SetSize
 * [ ] HPDF_Page_SetRotate
-* [x] HPDF_Page_GetWidth
-* [x] HPDF_Page_GetHeight
+* [x] ~~HPDF_Page_GetWidth~~
+* [x] ~~HPDF_Page_GetHeight~~
 * [ ] HPDF_Page_CreateDestination
 * [ ] HPDF_Page_CreateTextAnnot
 * [ ] HPDF_Page_CreateLinkAnnot
@@ -172,7 +172,7 @@ hpdf:save "demo.pdf"
 ##### Graphics
 
 * [ ] HPDF_Page_Arc
-* [x] HPDF_Page_BeginText
+* [x] ~~HPDF_Page_BeginText~~
 * [ ] HPDF_Page_Circle
 * [ ] HPDF_Page_Clip
 * [ ] HPDF_Page_ClosePath
@@ -183,10 +183,10 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_CurveTo
 * [ ] HPDF_Page_CurveTo2
 * [ ] HPDF_Page_CurveTo3
-* [x] HPDF_Page_DrawImage
+* [x] ~~HPDF_Page_DrawImage~~
 * [ ] HPDF_Page_Ellipse
 * [ ] HPDF_Page_EndPath
-* [x] HPDF_Page_EndText
+* [x] ~~HPDF_Page_EndText~~
 * [ ] HPDF_Page_Eoclip
 * [ ] HPDF_Page_Eofill
 * [ ] HPDF_Page_EofillStroke
@@ -225,17 +225,17 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_ShowTextNextLine
 * [ ] HPDF_Page_ShowTextNextLineEx
 * [ ] HPDF_Page_Stroke
-* [x] HPDF_Page_TextOut
-* [x] HPDF_Page_TextRect
+* [x] ~~HPDF_Page_TextOut~~
+* [x] ~~HPDF_Page_TextRect~~
 
 ##### Fonts
 
-* [x] HPDF_Font_GetFontName
-* [x] HPDF_Font_GetEncodingName
+* [x] ~~HPDF_Font_GetFontName~~
+* [x] ~~HPDF_Font_GetEncodingName~~
 * [ ] HPDF_Font_GetUnicodeWidth
 * [ ] HPDF_Font_GetBBox
-* [x] HPDF_Font_GetAscent
-* [x] HPDF_Font_GetDescent
+* [x] ~~HPDF_Font_GetAscent~~
+* [x] ~~HPDF_Font_GetDescent~~
 * [ ] HPDF_Font_GetXHeight
 * [ ] HPDF_Font_GetCapHeight
 * [ ] HPDF_Font_TextWidth
@@ -275,10 +275,10 @@ hpdf:save "demo.pdf"
 ##### Image
 
 * [ ] HPDF_Image_GetSize
-* [x] HPDF_Image_GetWidth
-* [x] HPDF_Image_GetHeight
-* [x] HPDF_Image_GetBitsPerComponent
-* [x] HPDF_Image_GetColorSpace
+* [x] ~~HPDF_Image_GetWidth~~
+* [x] ~~HPDF_Image_GetHeight~~
+* [x] ~~HPDF_Image_GetBitsPerComponent~~
+* [x] ~~HPDF_Image_GetColorSpace~~
 * [ ] HPDF_Image_SetColorMask
 * [ ] HPDF_Image_SetMaskImage
 
