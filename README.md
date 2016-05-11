@@ -1,6 +1,7 @@
 # lua-resty-haru
 
-LuaJIT FFI Bindings to Haru – Free PDF Library (WIP).
+LuaJIT FFI Bindings to Haru – Free PDF Library. This library is heavily work in progress as you can see on [TODO](#todo).
+Meanwhile checkout @tavikukko's [`lua-resty-hpdf`](https://github.com/tavikukko/lua-resty-hpdf).
 
 ## Synopsis
 
@@ -284,7 +285,6 @@ hpdf:save "demo.pdf"
 ## License
 
 `lua-resty-template` uses two clause BSD license.
-
 
 ```
 Copyright (c) 2016, Aapo Talvensaari
