@@ -22,6 +22,7 @@ print(helvetica.name)
 print(helvetica.encoding)
 print(helvetica.ascent)
 print(helvetica.descent)
+
 print(page.width)
 print(page.height)
 
