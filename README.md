@@ -284,7 +284,7 @@ hpdf:save "demo.pdf"
 
 ## License
 
-`lua-resty-template` uses two clause BSD license.
+`lua-resty-haru` uses two clause BSD license.
 
 ```
 Copyright (c) 2016, Aapo Talvensaari
