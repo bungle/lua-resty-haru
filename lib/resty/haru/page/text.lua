@@ -6,12 +6,39 @@ local setmetatable = setmetatable
 local type = type
 
 local text = {}
-text.__index = text
 
 local l = ffi_new("HPDF_UINT[1]", 0)
 
 function text.new(page)
     return setmetatable({ page = page, context = page.context }, text)
+end
+
+function text:__index(n)
+    local r
+    if n == "charspace" then
+        r = lib.HPDF_Page_GetCharSpace(self.context)
+    elseif n == "wordspace" then
+        r = lib.HPDF_Page_GetHeight(self.context)
+    elseif n == "horizontalscaling" then
+        r = lib.HPDF_Page_GetHorizontalScalling(self.context)
+    elseif n == "leading" then
+        r = lib.HPDF_Page_GetTextLeading(self.context)
+    elseif n == "renderingmode" then
+        r = lib.HPDF_Page_GetTextRenderingMode(self.context)
+    elseif n == "rise" then
+        r = lib.HPDF_Page_GetTextRise(self.context)
+    elseif n == "grayfill" then
+        r = lib.HPDF_Page_GetGrayFill(self.context)
+    elseif n == "graystroke" then
+        r = lib.HPDF_Page_GetGrayStroke(self.context)
+    else
+        return text[n]
+    end
+    if r == 0 then
+        return nil
+    else
+        return r
+    end
 end
 
 function text:begin()

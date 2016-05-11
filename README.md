@@ -6,6 +6,7 @@ Meanwhile checkout [@tavikukko](https://github.com/tavikukko)'s [`lua-resty-hpdf
 ## Synopsis
 
 ```lua
+local print     = print
 local haru      = require "resty.haru"
 local hpdf      = haru.new()
 local pages     = hpdf.pages
@@ -34,8 +35,18 @@ hpdf:use "krfonts"
 hpdf:use "cnsfonts"
 hpdf:use "cntfonts"
 
-text:begin()
 font:set(helvetica, 18)
+
+print(text.charspace)
+print(text.wordspace)
+print(text.horizontalscaling)
+print(text.leading)
+print(text.renderingmode)
+print(text.rise)
+print(text.grayfill)
+print(text.graystroke)
+
+text:begin()
 text:out(100, 100, "Hello")
 text:rect(200, 200, 400, 400, "World", "right")
 text:finish()
@@ -149,18 +160,18 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_GetMiterLimit
 * [ ] HPDF_Page_GetDash
 * [ ] HPDF_Page_GetFlat
-* [ ] HPDF_Page_GetCharSpace
-* [ ] HPDF_Page_GetWordSpace
-* [ ] HPDF_Page_GetHorizontalScalling
-* [ ] HPDF_Page_GetTextLeading
-* [ ] HPDF_Page_GetTextRenderingMode
-* [ ] HPDF_Page_GetTextRise
+* [x] ~~HPDF_Page_GetCharSpace~~
+* [x] ~~HPDF_Page_GetWordSpace~~
+* [x] ~~HPDF_Page_GetHorizontalScalling~~
+* [x] ~~HPDF_Page_GetTextLeading~~
+* [x] ~~HPDF_Page_GetTextRenderingMode~~
+* [x] ~~HPDF_Page_GetTextRise~~
 * [ ] HPDF_Page_GetRGBFill
 * [ ] HPDF_Page_GetRGBStroke
 * [ ] HPDF_Page_GetCMYKFill
 * [ ] HPDF_Page_GetCMYKStroke
-* [ ] HPDF_Page_GetGrayFill
-* [ ] HPDF_Page_GetGrayStroke
+* [x] ~~HPDF_Page_GetGrayFill~~
+* [x] ~~HPDF_Page_GetGrayStroke~~
 * [ ] HPDF_Page_GetStrokingColorSpace
 * [ ] HPDF_Page_GetFillingColorSpace
 * [ ] HPDF_Page_GetTextMatrix

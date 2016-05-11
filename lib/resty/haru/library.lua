@@ -50,14 +50,22 @@ HPDF_STATUS HPDF_Page_TextRect (HPDF_Page page, HPDF_REAL left, HPDF_REAL top, H
 HPDF_STATUS HPDF_Page_SetFontAndSize(HPDF_Page page, HPDF_Font font, HPDF_REAL size);
   HPDF_REAL HPDF_Page_GetWidth(HPDF_Page page);
   HPDF_REAL HPDF_Page_GetHeight(HPDF_Page page);
+  HPDF_REAL HPDF_Page_GetCharSpace(HPDF_Page page);
+  HPDF_REAL HPDF_Page_GetWordSpace(HPDF_Page page);
+  HPDF_REAL HPDF_Page_GetHorizontalScalling(HPDF_Page page);
+  HPDF_REAL HPDF_Page_GetTextLeading(HPDF_Page page);
+  HPDF_REAL HPDF_Page_GetTextRenderingMode(HPDF_Page page);
+  HPDF_REAL HPDF_Page_GetTextRise(HPDF_Page page);
+  HPDF_REAL HPDF_Page_GetGrayFill(HPDF_Page page);
+  HPDF_REAL HPDF_Page_GetGrayStroke(HPDF_Page page);
 HPDF_STATUS HPDF_Page_SetWidth(HPDF_Page page, HPDF_REAL value);
 HPDF_STATUS HPDF_Page_SetHeight(HPDF_Page page, HPDF_REAL value);
 HPDF_STATUS HPDF_Page_DrawImage(HPDF_Page page, HPDF_Image image, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
 HPDF_STATUS HPDF_UseJPEncodings(HPDF_Doc pdf);
 HPDF_STATUS HPDF_UseKREncodings(HPDF_Doc pdf);
 HPDF_STATUS HPDF_UseCNSEncodings(HPDF_Doc pdf);
-HPDF_STATUS HPDF_UseCNTEncodings (HPDF_Doc pdf);
-HPDF_STATUS HPDF_UseUTFEncodings (HPDF_Doc pdf);
+HPDF_STATUS HPDF_UseCNTEncodings(HPDF_Doc pdf);
+HPDF_STATUS HPDF_UseUTFEncodings(HPDF_Doc pdf);
 HPDF_STATUS HPDF_UseJPFonts(HPDF_Doc pdf);
 HPDF_STATUS HPDF_UseKRFonts(HPDF_Doc pdf);
 HPDF_STATUS HPDF_UseCNSFonts(HPDF_Doc pdf);
@@ -72,6 +80,7 @@ const char* HPDF_Font_GetEncodingName(HPDF_Font font);
   HPDF_UINT HPDF_Image_GetHeight(HPDF_Image image);
 const char* HPDF_Image_GetColorSpace(HPDF_Image image);
   HPDF_UINT HPDF_Image_GetBitsPerComponent(HPDF_Image image);
+
 ]]
 
 --[[
