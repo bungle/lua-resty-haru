@@ -25,7 +25,7 @@ hpdf:use "krfonts"
 hpdf:use "cnsfonts"
 hpdf:use "cntfonts"
 
--- Adding Page````
+-- Adding Page
 print(pages.current)
 local page = pages:add()
 print(pages.current)
@@ -56,9 +56,19 @@ print(text.leading)
 print(text.renderingmode)
 print(text.rise)
 text:begin()
-text:out(100, 100, "Hello")
-text:rect(200, 200, 400, 400, "World", "right")
+text:out(50, 400, "Hello")
+text:rect(0, 400, 150, 200, "World", "right")
 text:finish()
+
+-- Drawing Shapes
+page:circle(100, 100, 50)
+page:rectangle(150, 150, 100, 100)
+page:ellipse(300, 300, 75, 50)
+page:stroke()
+
+-- Drawing Lines
+page:arc(400, 400, 50, 180, 360)
+page:stroke()
 
 -- Loading Images
 local logo = images:load "logo.png"
@@ -69,7 +79,7 @@ print(logo.bitspercomponent)
 
 -- Drawing Image
 local image = page.image
-image:draw(logo, 300, 300)
+image:draw(logo, 450, 450, 100, 100)
 
 -- Saving PDF
 hpdf:save "demo.pdf"
@@ -195,9 +205,9 @@ hpdf:save "demo.pdf"
 
 ##### Graphics
 
-* [ ] HPDF_Page_Arc
+* [x] ~~HPDF_Page_Arc~~
 * [x] ~~HPDF_Page_BeginText~~
-* [ ] HPDF_Page_Circle
+* [x] ~~HPDF_Page_Circle~~
 * [ ] HPDF_Page_Clip
 * [ ] HPDF_Page_ClosePath
 * [ ] HPDF_Page_ClosePathStroke
@@ -208,7 +218,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_CurveTo2
 * [ ] HPDF_Page_CurveTo3
 * [x] ~~HPDF_Page_DrawImage~~
-* [ ] HPDF_Page_Ellipse
+* [x] ~~HPDF_Page_Ellipse~~
 * [ ] HPDF_Page_EndPath
 * [x] ~~HPDF_Page_EndText~~
 * [ ] HPDF_Page_Eoclip
@@ -224,7 +234,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_MoveTextPos2
 * [ ] HPDF_Page_MoveTo
 * [ ] HPDF_Page_MoveToNextLine
-* [ ] HPDF_Page_Rectangle
+* [x] ~~HPDF_Page_Rectangle~~
 * [ ] HPDF_Page_SetCharSpace
 * [ ] HPDF_Page_SetCMYKFill
 * [ ] HPDF_Page_SetCMYKStroke
@@ -248,7 +258,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_ShowText
 * [ ] HPDF_Page_ShowTextNextLine
 * [ ] HPDF_Page_ShowTextNextLineEx
-* [ ] HPDF_Page_Stroke
+* [x] ~~HPDF_Page_Stroke~~
 * [x] ~~HPDF_Page_TextOut~~
 * [x] ~~HPDF_Page_TextRect~~
 

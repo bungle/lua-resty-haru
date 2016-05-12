@@ -48,6 +48,7 @@ HPDF_STATUS HPDF_Page_BeginText(HPDF_Page page);
 HPDF_STATUS HPDF_Page_EndText(HPDF_Page page);
 HPDF_STATUS HPDF_Page_TextOut(HPDF_Page page, HPDF_REAL xpos, HPDF_REAL ypos, const char *text);
 HPDF_STATUS HPDF_Page_TextRect (HPDF_Page page, HPDF_REAL left, HPDF_REAL top, HPDF_REAL right, HPDF_REAL bottom, const char *text, HPDF_TextAlignment align, HPDF_UINT *len);
+HPDF_STATUS HPDF_Page_Stroke(HPDF_Page page);
 HPDF_STATUS HPDF_Page_SetFontAndSize(HPDF_Page page, HPDF_Font font, HPDF_REAL size);
 HPDF_STATUS HPDF_Page_Circle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius);
 HPDF_STATUS HPDF_Page_Rectangle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
@@ -164,8 +165,6 @@ HPDF_Page_SetSlideShow()
 HPDF_Page_New_Content_Stream()
 HPDF_Page_Insert_Shared_Content_Stream()
 Graphics:
-HPDF_Page_Arc()
-HPDF_Page_Circle()
 HPDF_Page_Clip()
 HPDF_Page_ClosePath()
 HPDF_Page_ClosePathStroke()
@@ -175,7 +174,6 @@ HPDF_Page_Concat()
 HPDF_Page_CurveTo()
 HPDF_Page_CurveTo2()
 HPDF_Page_CurveTo3()
-HPDF_Page_Ellipse()
 HPDF_Page_EndPath()
 HPDF_Page_Eoclip()
 HPDF_Page_Eofill()
@@ -190,7 +188,6 @@ HPDF_Page_MoveTextPos()
 HPDF_Page_MoveTextPos2()
 HPDF_Page_MoveTo()
 HPDF_Page_MoveToNextLine()
-HPDF_Page_Rectangle()
 HPDF_Page_SetCharSpace()
 HPDF_Page_SetCMYKFill()
 HPDF_Page_SetCMYKStroke()
@@ -214,7 +211,6 @@ HPDF_Page_SetWordSpace()
 HPDF_Page_ShowText()
 HPDF_Page_ShowTextNextLine()
 HPDF_Page_ShowTextNextLineEx()
-HPDF_Page_Stroke()
 Fonts:
 HPDF_Font_GetUnicodeWidth()
 HPDF_Font_GetBBox()
