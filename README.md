@@ -49,15 +49,20 @@ font:set(helvetica, 18)
 
 -- Writing Text
 local text = page.text
-print(text.charspace)
-print(text.wordspace)
-print(text.horizontalscaling)
-print(text.leading)
-print(text.renderingmode)
-print(text.rise)
+print("charspace:", text.charspace)
+print("wordspace:", text.wordspace)
+print("horizontalscaling:", text.horizontalscaling)
+print("leading:", text.leading)
+print("renderingmode:", text.renderingmode)
+print("rise:", text.rise)
 text:begin()
 text:out(50, 400, "Hello")
 text:rect(0, 400, 150, 200, "World", "right")
+
+text:pos(100, 100)
+text:show "Testing"
+text:show "... it works!"
+text:show("Hey, I'm on a new line!", true)
 text:finish()
 
 -- Drawing Shapes
@@ -72,6 +77,7 @@ page:stroke()
 
 -- Loading Images
 local logo = images:load "logo.png"
+print(logo)
 print(logo.width)
 print(logo.height)
 print(logo.colorspace)
@@ -83,7 +89,6 @@ image:draw(logo, 450, 450, 100, 100)
 
 -- Saving PDF
 hpdf:save "demo.pdf"
-
 ```
 
 ## TODO
@@ -255,9 +260,9 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_SetTextRenderingMode
 * [ ] HPDF_Page_SetTextRise
 * [ ] HPDF_Page_SetWordSpace
-* [ ] HPDF_Page_ShowText
-* [ ] HPDF_Page_ShowTextNextLine
-* [ ] HPDF_Page_ShowTextNextLineEx
+* [x] ~~HPDF_Page_ShowText~~
+* [x] ~~HPDF_Page_ShowTextNextLine~~
+* [x] ~~HPDF_Page_ShowTextNextLineEx~~
 * [x] ~~HPDF_Page_Stroke~~
 * [x] ~~HPDF_Page_TextOut~~
 * [x] ~~HPDF_Page_TextRect~~
