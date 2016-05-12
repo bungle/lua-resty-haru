@@ -6,29 +6,15 @@ Meanwhile checkout [@tavikukko](https://github.com/tavikukko)'s [`lua-resty-hpdf
 ## Synopsis
 
 ```lua
-local print     = print
-local haru      = require "resty.haru"
-local hpdf      = haru.new()
-local pages     = hpdf.pages
-local images    = hpdf.images
-local fonts     = hpdf.fonts
-local page      = pages:add()
-local text      = page.text
-local font      = page.font
-local image     = page.image
-local helvetica = fonts:get "Helvetica"
+-- Some Local Variable Declarations
+local print  = print
+local haru   = require "resty.haru"
+local hpdf   = haru.new()
+local pages  = hpdf.pages
+local images = hpdf.images
+local fonts  = hpdf.fonts
 
-print(helvetica.name)
-print(helvetica.encoding)
-print(helvetica.ascent)
-print(helvetica.descent)
-
-print(page.width)
-print(page.height)
-
-page.width = page.height
-page.height = page.width
-
+-- General Settings
 hpdf:use "utfencodings"
 hpdf:use "jpencodings"
 hpdf:use "krencodings"
@@ -39,8 +25,26 @@ hpdf:use "krfonts"
 hpdf:use "cnsfonts"
 hpdf:use "cntfonts"
 
+-- Adding Page
+local page = pages:add()
+print(page.width)
+print(page.height)
+page.width = page.height
+page.height = page.width
+
+-- Loading Font
+local helvetica = fonts:get "Helvetica"
+print(helvetica.name)
+print(helvetica.encoding)
+print(helvetica.ascent)
+print(helvetica.descent)
+
+-- Setting Font
+local font = page.font
 font:set(helvetica, 18)
 
+-- Writing Text
+local text = page.text
 print(text.charspace)
 print(text.wordspace)
 print(text.horizontalscaling)
@@ -49,20 +53,23 @@ print(text.renderingmode)
 print(text.rise)
 print(text.grayfill)
 print(text.graystroke)
-
 text:begin()
 text:out(100, 100, "Hello")
 text:rect(200, 200, 400, 400, "World", "right")
 text:finish()
 
+-- Loading Images
 local logo = images:load "logo.png"
-
 print(logo.width)
 print(logo.height)
 print(logo.colorspace)
 print(logo.bitspercomponent)
 
+-- Drawing Image
+local image = page.image
 image:draw(logo, 300, 300)
+
+-- Saving PDF
 hpdf:save "demo.pdf"
 
 ```
