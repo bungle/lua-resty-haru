@@ -58,8 +58,7 @@ print("rise:", text.rise)
 text:begin()
 text:out(50, 400, "Hello")
 text:rect(0, 400, 150, 200, "World", "right")
-
-text:pos(100, 100)
+text:move(100, 100)
 text:show "Testing"
 text:show "... it works!"
 text:show("Hey, I'm on a new line!", true)

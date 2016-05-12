@@ -54,7 +54,7 @@ function text:show(text, ws, cs)
     return r ~= 0 and r or nil
 end
 
-function text:pos(x, y)
+function text:move(x, y)
     local r = lib.HPDF_Page_MoveTextPos(self.context, x, y)
     return r ~= 0 and r or nil
 end
