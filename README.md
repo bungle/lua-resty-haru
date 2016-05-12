@@ -25,10 +25,14 @@ hpdf:use "krfonts"
 hpdf:use "cnsfonts"
 hpdf:use "cntfonts"
 
--- Adding Page
+-- Adding Page````
+print(pages.current)
 local page = pages:add()
+print(pages.current)
 print(page.width)
 print(page.height)
+print(page.grayfill)
+print(page.graystroke)
 page.width = page.height
 page.height = page.width
 
@@ -51,8 +55,6 @@ print(text.horizontalscaling)
 print(text.leading)
 print(text.renderingmode)
 print(text.rise)
-print(text.grayfill)
-print(text.graystroke)
 text:begin()
 text:out(100, 100, "Hello")
 text:rect(200, 200, 400, 400, "World", "right")
@@ -100,7 +102,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_SetPageMode
 * [ ] HPDF_GetPageMode
 * [ ] HPDF_SetOpenAction
-* [ ] HPDF_GetCurrentPage
+* [x] ~~HPDF_GetCurrentPage~~
 * [x] ~~HPDF_AddPage~~
 * [ ] HPDF_InsertPage
 

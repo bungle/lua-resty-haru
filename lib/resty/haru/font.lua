@@ -24,15 +24,10 @@ function font:__index(n)
     else
         return font[n]
     end
-
 end
 
 function font:__newindex(n, v)
-    if n == "xxx" then
-
-    else
-        rawset(self, n, v)
-    end
+    rawset(self, n, v)
 end
 
 return font

@@ -42,12 +42,17 @@ typedef enum _HPDF_TextAlignment {
        void HPDF_Free(HPDF_Doc pdf);
 HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
   HPDF_Page HPDF_AddPage(HPDF_Doc pdf);
-  HPDF_Font HPDF_GetFont (HPDF_Doc pdf, const char *font_name, const char *encoding_name);
+  HPDF_Font HPDF_GetFont(HPDF_Doc pdf, const char *font_name, const char *encoding_name);
+  HPDF_Page HPDF_GetCurrentPage(HPDF_Doc pdf);
 HPDF_STATUS HPDF_Page_BeginText(HPDF_Page page);
 HPDF_STATUS HPDF_Page_EndText(HPDF_Page page);
 HPDF_STATUS HPDF_Page_TextOut(HPDF_Page page, HPDF_REAL xpos, HPDF_REAL ypos, const char *text);
 HPDF_STATUS HPDF_Page_TextRect (HPDF_Page page, HPDF_REAL left, HPDF_REAL top, HPDF_REAL right, HPDF_REAL bottom, const char *text, HPDF_TextAlignment align, HPDF_UINT *len);
 HPDF_STATUS HPDF_Page_SetFontAndSize(HPDF_Page page, HPDF_Font font, HPDF_REAL size);
+HPDF_STATUS HPDF_Page_Circle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius);
+HPDF_STATUS HPDF_Page_Rectangle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
+HPDF_STATUS HPDF_Page_Arc(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius, HPDF_REAL ang1, HPDF_REAL ang2);
+HPDF_STATUS HPDF_Page_Ellipse  (HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL x_radius, HPDF_REAL y_radius);
   HPDF_REAL HPDF_Page_GetWidth(HPDF_Page page);
   HPDF_REAL HPDF_Page_GetHeight(HPDF_Page page);
   HPDF_REAL HPDF_Page_GetCharSpace(HPDF_Page page);
@@ -102,7 +107,6 @@ HPDF_GetPageLayout()
 HPDF_SetPageMode()
 HPDF_GetPageMode()
 HPDF_SetOpenAction()
-HPDF_GetCurrentPage()
 HPDF_InsertPage()
 Font Handling:
 HPDF_AddPageLabel()

@@ -5,15 +5,15 @@ local alignment = require "resty.haru.enums".align
 local setmetatable = setmetatable
 local type = type
 
-local text = {}
+local path = {}
 
 local l = ffi_new("HPDF_UINT[1]", 0)
 
-function text.new(page)
-    return setmetatable({ page = page, context = page.context }, text)
+function path.new(page)
+    return setmetatable({ page = page, context = page.context }, path)
 end
 
-function text:__index(n)
+function path:__index(n)
     local r
     if n == "charspace" then
         return lib.HPDF_Page_GetCharSpace(self.context)
@@ -28,11 +28,11 @@ function text:__index(n)
     elseif n == "rise" then
         return lib.HPDF_Page_GetTextRise(self.context)
     else
-        return text[n]
+        return path[n]
     end
 end
 
-function text:begin()
+function path:begin()
     local r = lib.HPDF_Page_BeginText(self.context)
     if r == 0 then
         return self
@@ -41,7 +41,7 @@ function text:begin()
     end
 end
 
-function text:finish()
+function path:finish()
     local r = lib.HPDF_Page_EndText(self.context)
     if r == 0 then
         return self
@@ -50,7 +50,7 @@ function text:finish()
     end
 end
 
-function text:out(x, y, text)
+function path:out(x, y, text)
     local r = lib.HPDF_Page_TextOut(self.context, x, y, text)
     if r == 0 then
         return self
@@ -59,7 +59,7 @@ function text:out(x, y, text)
     end
 end
 
-function text:rect(left, top, right, bottom, text, align)
+function path:rect(left, top, right, bottom, text, align)
     if type(align) == "string" then
         align = alignment[align]
     end
@@ -72,4 +72,4 @@ function text:rect(left, top, right, bottom, text, align)
     end
 end
 
-return text
+return path

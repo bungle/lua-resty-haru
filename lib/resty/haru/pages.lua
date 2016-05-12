@@ -3,10 +3,21 @@ local page = require "resty.haru.page"
 local setmetatable = setmetatable
 
 local pages = {}
-pages.__index = pages
 
 function pages.new(document)
     return setmetatable({ document = document, context = document.context }, pages)
+end
+
+function pages:__index(n)
+    if n == "current" then
+        local p = lib.HPDF_GetCurrentPage(self.context)
+        if p == nil then
+            return nil
+        end
+        return page.new(self.document, p)
+    else
+        return pages[n]
+    end
 end
 
 function pages:add()

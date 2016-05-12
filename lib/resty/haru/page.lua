@@ -10,9 +10,14 @@ local page = {}
 function page.new(document, context)
     local self = setmetatable({ document = document, context = context }, page)
     self.text = text.new(self)
+    self.path = text.new(path)
     self.font = font.new(self)
     self.image = image.new(self)
     return self
+end
+
+function page:circle(x, y, radius)
+
 end
 
 function page:__index(n)
@@ -21,6 +26,10 @@ function page:__index(n)
         r = lib.HPDF_Page_GetWidth(self.context)
     elseif n == "height" then
         r = lib.HPDF_Page_GetHeight(self.context)
+    elseif n == "grayfill" then
+        return lib.HPDF_Page_GetGrayFill(self.context)
+    elseif n == "graystroke" then
+        return lib.HPDF_Page_GetGrayStroke(self.context)
     else
         return page[n]
     end
