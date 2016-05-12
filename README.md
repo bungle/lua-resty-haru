@@ -234,7 +234,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_GRestore
 * [ ] HPDF_Page_GSave
 * [ ] HPDF_Page_LineTo
-* [ ] HPDF_Page_MoveTextPos
+* [x] ~~HPDF_Page_MoveTextPos~~
 * [ ] HPDF_Page_MoveTextPos2
 * [ ] HPDF_Page_MoveTo
 * [ ] HPDF_Page_MoveToNextLine
