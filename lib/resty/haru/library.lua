@@ -56,6 +56,8 @@ HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
   HPDF_Page HPDF_InsertPage(HPDF_Doc pdf, HPDF_Page target);
   HPDF_Font HPDF_GetFont(HPDF_Doc pdf, const char *font_name, const char *encoding_name);
   HPDF_Page HPDF_GetCurrentPage(HPDF_Doc pdf);
+HPDF_STATUS HPDF_Page_GSave(HPDF_Page page);
+HPDF_STATUS HPDF_Page_GRestore(HPDF_Page page);
 HPDF_STATUS HPDF_Page_MoveTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
 HPDF_STATUS HPDF_Page_MoveToNextLine(HPDF_Page page);
 HPDF_STATUS HPDF_Page_BeginText(HPDF_Page page);
@@ -207,8 +209,6 @@ HPDF_Page_EofillStroke()
 HPDF_Page_ExecuteXObject()
 HPDF_Page_Fill()
 HPDF_Page_FillStroke()
-HPDF_Page_GRestore()
-HPDF_Page_GSave()
 HPDF_Page_MoveTextPos2()
 HPDF_Page_SetCMYKFill()
 HPDF_Page_SetCMYKStroke()

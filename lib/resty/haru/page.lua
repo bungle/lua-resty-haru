@@ -16,6 +16,16 @@ function page.new(document, context)
     return setmetatable({ document = document, context = context }, page)
 end
 
+function page:gsave()
+    local r = lib.HPDF_Page_GSave(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:grestore()
+    local r = lib.HPDF_Page_GRestore(self.context)
+    return r ~= 0 and r or nil
+end
+
 function page:ln()
     local r = lib.HPDF_Page_MoveToNextLine(self.context)
     return r ~= 0 and r or nil
