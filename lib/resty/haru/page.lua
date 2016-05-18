@@ -14,6 +14,11 @@ function page.new(document, context)
     return setmetatable({ document = document, context = context }, page)
 end
 
+function page:move(x, y)
+    local r = lib.HPDF_Page_MoveTo(self.context, x, y)
+    return r ~= 0 and r or nil
+end
+
 function page:circle(x, y, r)
     local r = lib.HPDF_Page_Circle(self.context, x, y, r)
     return r ~= 0 and r or nil
@@ -31,6 +36,11 @@ end
 
 function page:ellipse(x, y, xr, yr)
     local r = lib.HPDF_Page_Ellipse(self.context, x, y, xr, yr)
+    return r ~= 0 and r or nil
+end
+
+function page:line(x, y)
+    local r = lib.HPDF_Page_LineTo(self.context, x, y)
     return r ~= 0 and r or nil
 end
 

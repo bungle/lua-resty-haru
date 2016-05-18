@@ -45,6 +45,7 @@ HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
   HPDF_Page HPDF_InsertPage(HPDF_Doc pdf, HPDF_Page target);
   HPDF_Font HPDF_GetFont(HPDF_Doc pdf, const char *font_name, const char *encoding_name);
   HPDF_Page HPDF_GetCurrentPage(HPDF_Doc pdf);
+HPDF_STATUS HPDF_Page_MoveTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
 HPDF_STATUS HPDF_Page_BeginText(HPDF_Page page);
 HPDF_STATUS HPDF_Page_EndText(HPDF_Page page);
 HPDF_STATUS HPDF_Page_TextOut(HPDF_Page page, HPDF_REAL xpos, HPDF_REAL ypos, const char *text);
@@ -58,7 +59,8 @@ HPDF_STATUS HPDF_Page_SetFontAndSize(HPDF_Page page, HPDF_Font font, HPDF_REAL s
 HPDF_STATUS HPDF_Page_Circle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius);
 HPDF_STATUS HPDF_Page_Rectangle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
 HPDF_STATUS HPDF_Page_Arc(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius, HPDF_REAL ang1, HPDF_REAL ang2);
-HPDF_STATUS HPDF_Page_Ellipse  (HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL x_radius, HPDF_REAL y_radius);
+HPDF_STATUS HPDF_Page_Ellipse(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL x_radius, HPDF_REAL y_radius);
+HPDF_STATUS HPDF_Page_LineTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
   HPDF_REAL HPDF_Page_GetWidth(HPDF_Page page);
   HPDF_REAL HPDF_Page_GetHeight(HPDF_Page page);
   HPDF_REAL HPDF_Page_GetCharSpace(HPDF_Page page);
@@ -187,9 +189,7 @@ HPDF_Page_Fill()
 HPDF_Page_FillStroke()
 HPDF_Page_GRestore()
 HPDF_Page_GSave()
-HPDF_Page_LineTo()
 HPDF_Page_MoveTextPos2()
-HPDF_Page_MoveTo()
 HPDF_Page_MoveToNextLine()
 HPDF_Page_SetCharSpace()
 HPDF_Page_SetCMYKFill()

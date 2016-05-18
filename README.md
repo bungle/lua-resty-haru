@@ -85,8 +85,13 @@ page:rectangle(150, 150, 100, 100)
 page:ellipse(300, 300, 75, 50)
 page:stroke()
 
--- Drawing Lines and Arcs
+-- Drawing Arcs
 page:arc(400, 400, 50, 180, 360)
+page:stroke()
+
+-- Drawing Lines
+page:move(200, 300)
+page:line(400, 300)
 page:stroke()
 
 -- Loading a Image
@@ -251,7 +256,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_LineTo
 * [x] ~~HPDF_Page_MoveTextPos~~
 * [ ] HPDF_Page_MoveTextPos2
-* [ ] HPDF_Page_MoveTo
+* [x] ~~HPDF_Page_MoveTo~~
 * [ ] HPDF_Page_MoveToNextLine
 * [x] ~~HPDF_Page_Rectangle~~
 * [ ] HPDF_Page_SetCharSpace
