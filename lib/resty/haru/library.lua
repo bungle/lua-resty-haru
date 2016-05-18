@@ -38,6 +38,17 @@ typedef enum _HPDF_TextAlignment {
     HPDF_TALIGN_CENTER,
     HPDF_TALIGN_JUSTIFY
 } HPDF_TextAlignment;
+typedef enum _HPDF_TextRenderingMode {
+    HPDF_FILL = 0,
+    HPDF_STROKE,
+    HPDF_FILL_THEN_STROKE,
+    HPDF_INVISIBLE,
+    HPDF_FILL_CLIPPING,
+    HPDF_STROKE_CLIPPING,
+    HPDF_FILL_STROKE_CLIPPING,
+    HPDF_CLIPPING,
+    HPDF_RENDERING_MODE_EOF
+} HPDF_TextRenderingMode;
    HPDF_Doc HPDF_New(HPDF_Error_Handler user_error_fn, void *user_data);
        void HPDF_Free(HPDF_Doc pdf);
 HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
@@ -46,6 +57,7 @@ HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
   HPDF_Font HPDF_GetFont(HPDF_Doc pdf, const char *font_name, const char *encoding_name);
   HPDF_Page HPDF_GetCurrentPage(HPDF_Doc pdf);
 HPDF_STATUS HPDF_Page_MoveTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
+HPDF_STATUS HPDF_Page_MoveToNextLine(HPDF_Page page);
 HPDF_STATUS HPDF_Page_BeginText(HPDF_Page page);
 HPDF_STATUS HPDF_Page_EndText(HPDF_Page page);
 HPDF_STATUS HPDF_Page_TextOut(HPDF_Page page, HPDF_REAL xpos, HPDF_REAL ypos, const char *text);
@@ -62,17 +74,25 @@ HPDF_STATUS HPDF_Page_Arc(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL ra
 HPDF_STATUS HPDF_Page_Ellipse(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL x_radius, HPDF_REAL y_radius);
 HPDF_STATUS HPDF_Page_LineTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
   HPDF_REAL HPDF_Page_GetWidth(HPDF_Page page);
-  HPDF_REAL HPDF_Page_GetHeight(HPDF_Page page);
-  HPDF_REAL HPDF_Page_GetCharSpace(HPDF_Page page);
-  HPDF_REAL HPDF_Page_GetWordSpace(HPDF_Page page);
-  HPDF_REAL HPDF_Page_GetHorizontalScalling(HPDF_Page page);
-  HPDF_REAL HPDF_Page_GetTextLeading(HPDF_Page page);
-  HPDF_REAL HPDF_Page_GetTextRenderingMode(HPDF_Page page);
-  HPDF_REAL HPDF_Page_GetTextRise(HPDF_Page page);
-  HPDF_REAL HPDF_Page_GetGrayFill(HPDF_Page page);
-  HPDF_REAL HPDF_Page_GetGrayStroke(HPDF_Page page);
 HPDF_STATUS HPDF_Page_SetWidth(HPDF_Page page, HPDF_REAL value);
+  HPDF_REAL HPDF_Page_GetHeight(HPDF_Page page);
 HPDF_STATUS HPDF_Page_SetHeight(HPDF_Page page, HPDF_REAL value);
+  HPDF_REAL HPDF_Page_GetCharSpace(HPDF_Page page);
+HPDF_STATUS HPDF_Page_SetCharSpace(HPDF_Page page, HPDF_REAL value);
+  HPDF_REAL HPDF_Page_GetWordSpace(HPDF_Page page);
+HPDF_STATUS HPDF_Page_SetWordSpace(HPDF_Page page, HPDF_REAL value);
+  HPDF_REAL HPDF_Page_GetHorizontalScalling(HPDF_Page page);
+HPDF_STATUS HPDF_Page_SetHorizontalScalling(HPDF_Page page, HPDF_REAL value);
+  HPDF_REAL HPDF_Page_GetTextLeading(HPDF_Page page);
+HPDF_STATUS HPDF_Page_SetTextLeading(HPDF_Page page, HPDF_REAL value);
+  HPDF_REAL HPDF_Page_GetTextRenderingMode(HPDF_Page page);
+HPDF_STATUS HPDF_Page_SetTextRenderingMode(HPDF_Page page, HPDF_TextRenderingMode mode);
+  HPDF_REAL HPDF_Page_GetTextRise(HPDF_Page page);
+HPDF_STATUS HPDF_Page_SetTextRise(HPDF_Page page, HPDF_REAL value);
+  HPDF_REAL HPDF_Page_GetGrayFill(HPDF_Page page);
+HPDF_STATUS HPDF_Page_SetGrayFill(HPDF_Page page, HPDF_REAL gray);
+  HPDF_REAL HPDF_Page_GetGrayStroke(HPDF_Page page);
+HPDF_STATUS HPDF_Page_SetGrayStroke(HPDF_Page page, HPDF_REAL gray);
 HPDF_STATUS HPDF_Page_DrawImage(HPDF_Page page, HPDF_Image image, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
 HPDF_STATUS HPDF_UseJPEncodings(HPDF_Doc pdf);
 HPDF_STATUS HPDF_UseKREncodings(HPDF_Doc pdf);
@@ -190,27 +210,17 @@ HPDF_Page_FillStroke()
 HPDF_Page_GRestore()
 HPDF_Page_GSave()
 HPDF_Page_MoveTextPos2()
-HPDF_Page_MoveToNextLine()
-HPDF_Page_SetCharSpace()
 HPDF_Page_SetCMYKFill()
 HPDF_Page_SetCMYKStroke()
 HPDF_Page_SetDash()
 HPDF_Page_SetExtGState()
-HPDF_Page_SetFontAndSize()
-HPDF_Page_SetGrayFill()
-HPDF_Page_SetGrayStroke()
-HPDF_Page_SetHorizontalScalling()
 HPDF_Page_SetLineCap()
 HPDF_Page_SetLineJoin()
 HPDF_Page_SetLineWidth()
 HPDF_Page_SetMiterLimit()
 HPDF_Page_SetRGBFill()
 HPDF_Page_SetRGBStroke()
-HPDF_Page_SetTextLeading()
 HPDF_Page_SetTextMatrix()
-HPDF_Page_SetTextRenderingMode()
-HPDF_Page_SetTextRise()
-HPDF_Page_SetWordSpace()
 Fonts:
 HPDF_Font_GetUnicodeWidth()
 HPDF_Font_GetBBox()

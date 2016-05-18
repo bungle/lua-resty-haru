@@ -1,7 +1,9 @@
 local ffi = require "ffi"
 local ffi_new = ffi.new
 local lib = require "resty.haru.library"
-local alignment = require "resty.haru.enums".align
+local enums = require "resty.haru.enums"
+local renderingmode = enums.textrenderingmode
+local alignment = enums.align
 local setmetatable = setmetatable
 local rawset = rawset
 local type = type
@@ -12,6 +14,11 @@ local page = {}
 
 function page.new(document, context)
     return setmetatable({ document = document, context = context }, page)
+end
+
+function page:ln()
+    local r = lib.HPDF_Page_MoveToNextLine(self.context)
+    return r ~= 0 and r or nil
 end
 
 function page:move(x, y)
@@ -134,10 +141,10 @@ function page:__index(n)
         return lib.HPDF_Page_GetHorizontalScalling(self.context)
     elseif n == "textleading" then
         return lib.HPDF_Page_GetTextLeading(self.context)
-    elseif n == "textrenderingmode" then
-        return lib.HPDF_Page_GetTextRenderingMode(self.context)
     elseif n == "textrise" then
         return lib.HPDF_Page_GetTextRise(self.context)
+    elseif n == "textrenderingmode" then
+        return lib.HPDF_Page_GetTextRenderingMode(self.context)
     else
         return page[n]
     end
@@ -149,10 +156,30 @@ function page:__index(n)
 end
 
 function page:__newindex(n, v)
+    local r
     if n == "width" then
-        lib.HPDF_Page_SetWidth(self.context, v)
+        r = lib.HPDF_Page_SetWidth(self.context, v)
     elseif n == "height" then
-        lib.HPDF_Page_SetHeight(self.context, v)
+        r = lib.HPDF_Page_SetHeight(self.context, v)
+    elseif n == "grayfill" then
+        r = lib.HPDF_Page_SetGrayFill(self.context, v)
+    elseif n == "graystroke" then
+        r = lib.HPDF_Page_SetGrayStroke(self.context, v)
+    elseif n == "charspace" then
+        r = lib.HPDF_Page_SetCharSpace(self.context, v)
+    elseif n == "wordspace" then
+        r = lib.HPDF_Page_SetWordSpace(self.context, v)
+    elseif n == "horizontalscaling" then
+        r = lib.HPDF_Page_SetHorizontalScalling(self.context, v)
+    elseif n == "textleading" then
+        r = lib.HPDF_Page_SetTextLeading(self.context, v)
+    elseif n == "textrise" then
+        r = lib.HPDF_Page_SetTextRise(self.context, v)
+    elseif n == "textrenderingmode" then
+        if type(v) == "string" then
+            v = alignment[v]
+        end
+        r = lib.HPDF_Page_SetTextRenderingMode(self.context, type(v) == "number" and v or renderingmode.fill)
     else
         rawset(self, n, v)
     end

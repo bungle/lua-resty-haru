@@ -37,12 +37,20 @@ print(page.charspace)
 print(page.wordspace)
 print(page.horizontalscaling)
 print(page.textleading)
-print(page.textrenderingmode)
 print(page.textrise)
+print(page.textrenderingmode)
 
 -- Setting Page Properties
-page.width = page.height
-page.height = page.width
+page.width             = page.height
+page.height            = page.height
+page.grayfill          = page.grayfill
+page.graystroke        = page.graystroke
+page.charspace         = page.charspace
+page.wordspace         = page.wordspace
+page.horizontalscaling = page.horizontalscaling
+page.textleading       = page.textleading
+page.textrise          = page.textrise
+page.textrenderingmode = page.textrenderingmode
 
 -- Inserting a new Page before existing
 page = pages:insert(page)
@@ -63,13 +71,14 @@ page:font(helvetica, 18)
 page:textbegin()
 page:text(50, 400, "Hello")
 page:text(0, 400, 150, 200, "World", "right")
-page:textmove(100, 100)
+page:textmove(100, 150)
 page:text "Testing"
+page:ln()
 page:text "... it works!"
 page:text("Hey, I'm on a new line!", true)
 page:textend()
 
--- Writing Text (Alternative)
+-- Writing Text (alternative)
 page:textbegin()
 page:textout(50, 450, "Hello")
 page:textrect(0, 450, 150, 200, "World", "right")
@@ -257,28 +266,28 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_MoveTextPos~~
 * [ ] HPDF_Page_MoveTextPos2
 * [x] ~~HPDF_Page_MoveTo~~
-* [ ] HPDF_Page_MoveToNextLine
+* [x] ~~HPDF_Page_MoveToNextLine~~
 * [x] ~~HPDF_Page_Rectangle~~
-* [ ] HPDF_Page_SetCharSpace
+* [x] ~~HPDF_Page_SetCharSpace~~
 * [ ] HPDF_Page_SetCMYKFill
 * [ ] HPDF_Page_SetCMYKStroke
 * [ ] HPDF_Page_SetDash
 * [ ] HPDF_Page_SetExtGState
-* [ ] HPDF_Page_SetFontAndSize
-* [ ] HPDF_Page_SetGrayFill
-* [ ] HPDF_Page_SetGrayStroke
-* [ ] HPDF_Page_SetHorizontalScalling
+* [x] ~~HPDF_Page_SetFontAndSize~~
+* [x] ~~HPDF_Page_SetGrayFill~~
+* [x] ~~HPDF_Page_SetGrayStroke~~
+* [x] ~~HPDF_Page_SetHorizontalScalling~~
 * [ ] HPDF_Page_SetLineCap
 * [ ] HPDF_Page_SetLineJoin
 * [ ] HPDF_Page_SetLineWidth
 * [ ] HPDF_Page_SetMiterLimit
 * [ ] HPDF_Page_SetRGBFill
 * [ ] HPDF_Page_SetRGBStroke
-* [ ] HPDF_Page_SetTextLeading
+* [x] ~~HPDF_Page_SetTextLeading~~
 * [ ] HPDF_Page_SetTextMatrix
-* [ ] HPDF_Page_SetTextRenderingMode
-* [ ] HPDF_Page_SetTextRise
-* [ ] HPDF_Page_SetWordSpace
+* [x] ~~HPDF_Page_SetTextRenderingMode~~
+* [x] ~~HPDF_Page_SetTextRise~~
+* [x] ~~HPDF_Page_SetWordSpace~~
 * [x] ~~HPDF_Page_ShowText~~
 * [x] ~~HPDF_Page_ShowTextNextLine~~
 * [x] ~~HPDF_Page_ShowTextNextLineEx~~
