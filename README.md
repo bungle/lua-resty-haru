@@ -42,7 +42,7 @@ print(page.textrenderingmode)
 
 -- Setting Page Properties
 page.width             = page.height
-page.height            = page.height
+page.height            = page.width
 page.grayfill          = page.grayfill
 page.graystroke        = page.graystroke
 page.charspace         = page.charspace
