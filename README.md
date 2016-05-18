@@ -61,9 +61,9 @@ page:font(helvetica, 18)
 
 -- Writing Text
 page:textbegin()
-page:textmove(100, 100)
 page:text(50, 400, "Hello")
 page:text(0, 400, 150, 200, "World", "right")
+page:textmove(100, 100)
 page:text "Testing"
 page:text "... it works!"
 page:text("Hey, I'm on a new line!", true)
@@ -71,9 +71,9 @@ page:textend()
 
 -- Writing Text (Alternative)
 page:textbegin()
-page:textmove(200, 600)
 page:textout(50, 450, "Hello")
 page:textrect(0, 450, 150, 200, "World", "right")
+page:textmove(100, 150)
 page:textshow "Testing"
 page:textshow "... it works!"
 page:textshow("Hey, I'm on a new line!", true)
