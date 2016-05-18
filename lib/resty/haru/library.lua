@@ -42,6 +42,7 @@ typedef enum _HPDF_TextAlignment {
        void HPDF_Free(HPDF_Doc pdf);
 HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
   HPDF_Page HPDF_AddPage(HPDF_Doc pdf);
+  HPDF_Page HPDF_InsertPage(HPDF_Doc pdf, HPDF_Page target);
   HPDF_Font HPDF_GetFont(HPDF_Doc pdf, const char *font_name, const char *encoding_name);
   HPDF_Page HPDF_GetCurrentPage(HPDF_Doc pdf);
 HPDF_STATUS HPDF_Page_BeginText(HPDF_Page page);
@@ -112,7 +113,6 @@ HPDF_GetPageLayout()
 HPDF_SetPageMode()
 HPDF_GetPageMode()
 HPDF_SetOpenAction()
-HPDF_InsertPage()
 Font Handling:
 HPDF_AddPageLabel()
 HPDF_LoadType1FontFromFile()

@@ -6,7 +6,7 @@ Meanwhile checkout [@tavikukko](https://github.com/tavikukko)'s [`lua-resty-hpdf
 ## Synopsis
 
 ```lua
--- Some Local Variable Declarations
+-- Some local variable declarations
 local print  = print
 local haru   = require "resty.haru"
 local hpdf   = haru.new()
@@ -25,44 +25,59 @@ hpdf:use "krfonts"
 hpdf:use "cnsfonts"
 hpdf:use "cntfonts"
 
--- Adding Page
-print(pages.current)
+-- Adding a Page
 local page = pages:add()
-print(pages.current)
+
+-- Page Properties
 print(page.width)
 print(page.height)
 print(page.grayfill)
 print(page.graystroke)
+print(page.charspace)
+print(page.wordspace)
+print(page.horizontalscaling)
+print(page.textleading)
+print(page.textrenderingmode)
+print(page.textrise)
+
+-- Setting Page Properties
 page.width = page.height
 page.height = page.width
 
--- Loading Font
+-- Inserting a new Page before existing
+page = pages:insert(page)
+
+-- Loading a Font
 local helvetica = fonts:get "Helvetica"
+
+-- Font Properties
 print(helvetica.name)
 print(helvetica.encoding)
 print(helvetica.ascent)
 print(helvetica.descent)
 
 -- Setting Font
-local font = page.font
-font:set(helvetica, 18)
+page:font(helvetica, 18)
 
 -- Writing Text
-local text = page.text
-print("charspace:", text.charspace)
-print("wordspace:", text.wordspace)
-print("horizontalscaling:", text.horizontalscaling)
-print("leading:", text.leading)
-print("renderingmode:", text.renderingmode)
-print("rise:", text.rise)
-text:begin()
-text:out(50, 400, "Hello")
-text:rect(0, 400, 150, 200, "World", "right")
-text:move(100, 100)
-text:show "Testing"
-text:show "... it works!"
-text:show("Hey, I'm on a new line!", true)
-text:finish()
+page:textbegin()
+page:textmove(100, 100)
+page:text(50, 400, "Hello")
+page:text(0, 400, 150, 200, "World", "right")
+page:text "Testing"
+page:text "... it works!"
+page:text("Hey, I'm on a new line!", true)
+page:textend()
+
+-- Writing Text (Alternative)
+page:textbegin()
+page:textmove(200, 600)
+page:textshow "Testing"
+page:textshow "... it works!"
+page:textshow("Hey, I'm on a new line!", true)
+page:textout(50, 450, "Hello")
+page:textrect(0, 450, 150, 200, "World", "right")
+page:textend()
 
 -- Drawing Shapes
 page:circle(100, 100, 50)
@@ -70,21 +85,21 @@ page:rectangle(150, 150, 100, 100)
 page:ellipse(300, 300, 75, 50)
 page:stroke()
 
--- Drawing Lines
+-- Drawing Lines and Arcs
 page:arc(400, 400, 50, 180, 360)
 page:stroke()
 
--- Loading Images
+-- Loading a Image
 local logo = images:load "logo.png"
-print(logo)
+
+-- Image Properties
 print(logo.width)
 print(logo.height)
 print(logo.colorspace)
 print(logo.bitspercomponent)
 
 -- Drawing Image
-local image = page.image
-image:draw(logo, 450, 450, 100, 100)
+page:image(logo, 450, 450, 100, 100)
 
 -- Saving PDF
 hpdf:save "demo.pdf"
@@ -118,7 +133,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_SetOpenAction
 * [x] ~~HPDF_GetCurrentPage~~
 * [x] ~~HPDF_AddPage~~
-* [ ] HPDF_InsertPage
+* [x] ~~HPDF_InsertPage~~
 
 ##### Font Handling
 

@@ -24,4 +24,8 @@ function pages:add()
     return page.new(self.document, lib.HPDF_AddPage(self.context))
 end
 
+function pages:insert(page)
+    return page.new(self.document, lib.HPDF_InsertPage(self.context, page.context))
+end
+
 return pages
