@@ -72,11 +72,11 @@ page:textend()
 -- Writing Text (Alternative)
 page:textbegin()
 page:textmove(200, 600)
+page:textout(50, 450, "Hello")
+page:textrect(0, 450, 150, 200, "World", "right")
 page:textshow "Testing"
 page:textshow "... it works!"
 page:textshow("Hey, I'm on a new line!", true)
-page:textout(50, 450, "Hello")
-page:textrect(0, 450, 150, 200, "World", "right")
 page:textend()
 
 -- Drawing Shapes
