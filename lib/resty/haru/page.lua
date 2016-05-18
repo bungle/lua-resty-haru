@@ -66,12 +66,12 @@ function page:stroke()
     return r ~= 0 and r or nil
 end
 
-function page:textbegin()
+function page:begintext()
     local r = lib.HPDF_Page_BeginText(self.context)
     return r ~= 0 and r or nil
 end
 
-function page:textend()
+function page:endtext()
     local r = lib.HPDF_Page_EndText(self.context)
     return r ~= 0 and r or nil
 end

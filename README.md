@@ -68,7 +68,7 @@ print(helvetica.descent)
 page:font(helvetica, 18)
 
 -- Writing Text
-page:textbegin()
+page:begintext()
 page:text(50, 400, "Hello")
 page:text(0, 400, 150, 200, "World", "right")
 page:textmove(100, 150)
@@ -76,17 +76,17 @@ page:text "Testing"
 page:ln()
 page:text "... it works!"
 page:text("Hey, I'm on a new line!", true)
-page:textend()
+page:endtext()
 
 -- Writing Text (alternative)
-page:textbegin()
+page:begintext()
 page:textout(50, 450, "Hello")
 page:textrect(0, 450, 150, 200, "World", "right")
 page:textmove(100, 150)
 page:textshow "Testing"
 page:textshow "... it works!"
 page:textshow("Hey, I'm on a new line!", true)
-page:textend()
+page:endtext()
 
 -- Drawing Shapes
 page:circle(100, 100, 50)
