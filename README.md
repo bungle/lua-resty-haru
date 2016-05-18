@@ -253,7 +253,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_FillStroke
 * [ ] HPDF_Page_GRestore
 * [ ] HPDF_Page_GSave
-* [ ] HPDF_Page_LineTo
+* [x] ~~HPDF_Page_LineTo~~
 * [x] ~~HPDF_Page_MoveTextPos~~
 * [ ] HPDF_Page_MoveTextPos2
 * [x] ~~HPDF_Page_MoveTo~~
