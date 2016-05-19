@@ -2,19 +2,21 @@ local lib = require "resty.haru.library"
 local pages = require "resty.haru.pages"
 local fonts = require "resty.haru.fonts"
 local images = require "resty.haru.images"
+local encoders = require "resty.haru.encoders"
 local ffi = require "ffi"
 local ffi_gc = ffi.gc
 local setmetatable = setmetatable
 local lower = string.lower
+local rawset = rawset
 
 local haru = {}
-haru.__index = haru
 
 function haru.new()
     local self = setmetatable({ context = ffi_gc(lib.HPDF_New(nil, nil), lib.HPDF_Free) }, haru)
     self.pages = pages.new(self)
     self.fonts = fonts.new(self)
     self.images = images.new(self)
+    self.encoders = encoders.new(self)
     return self
 end
 
@@ -55,5 +57,22 @@ function haru:save(file)
         return nil, r
     end
 end
+
+function haru:__index(n)
+    if n == "encoder" then
+        return self.encoders.current
+    else
+        return haru[n]
+    end
+end
+
+function haru:__newindex(n, v)
+    if n == "encoding" then
+        self.encoders.current = v
+    else
+        rawset(self, n, v)
+    end
+end
+
 
 return haru

@@ -49,72 +49,88 @@ typedef enum _HPDF_TextRenderingMode {
     HPDF_CLIPPING,
     HPDF_RENDERING_MODE_EOF
 } HPDF_TextRenderingMode;
-   HPDF_Doc HPDF_New(HPDF_Error_Handler user_error_fn, void *user_data);
-       void HPDF_Free(HPDF_Doc pdf);
-HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
-  HPDF_Page HPDF_AddPage(HPDF_Doc pdf);
-  HPDF_Page HPDF_InsertPage(HPDF_Doc pdf, HPDF_Page target);
-  HPDF_Font HPDF_GetFont(HPDF_Doc pdf, const char *font_name, const char *encoding_name);
-  HPDF_Page HPDF_GetCurrentPage(HPDF_Doc pdf);
-HPDF_STATUS HPDF_Page_GSave(HPDF_Page page);
-HPDF_STATUS HPDF_Page_GRestore(HPDF_Page page);
-HPDF_STATUS HPDF_Page_MoveTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
-HPDF_STATUS HPDF_Page_MoveToNextLine(HPDF_Page page);
-HPDF_STATUS HPDF_Page_BeginText(HPDF_Page page);
-HPDF_STATUS HPDF_Page_EndText(HPDF_Page page);
-HPDF_STATUS HPDF_Page_TextOut(HPDF_Page page, HPDF_REAL xpos, HPDF_REAL ypos, const char *text);
-HPDF_STATUS HPDF_Page_TextRect (HPDF_Page page, HPDF_REAL left, HPDF_REAL top, HPDF_REAL right, HPDF_REAL bottom, const char *text, HPDF_TextAlignment align, HPDF_UINT *len);
-HPDF_STATUS HPDF_Page_ShowText(HPDF_Page page, const char *text);
-HPDF_STATUS HPDF_Page_ShowTextNextLine(HPDF_Page page, const char *text);
-HPDF_STATUS HPDF_Page_ShowTextNextLineEx(HPDF_Page page, HPDF_REAL word_space, HPDF_REAL char_space, const char *text);
-HPDF_STATUS HPDF_Page_MoveTextPos(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
-HPDF_STATUS HPDF_Page_Stroke(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetFontAndSize(HPDF_Page page, HPDF_Font font, HPDF_REAL size);
-HPDF_STATUS HPDF_Page_Circle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius);
-HPDF_STATUS HPDF_Page_Rectangle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
-HPDF_STATUS HPDF_Page_Arc(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius, HPDF_REAL ang1, HPDF_REAL ang2);
-HPDF_STATUS HPDF_Page_Ellipse(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL x_radius, HPDF_REAL y_radius);
-HPDF_STATUS HPDF_Page_LineTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
-  HPDF_REAL HPDF_Page_GetWidth(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetWidth(HPDF_Page page, HPDF_REAL value);
-  HPDF_REAL HPDF_Page_GetHeight(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetHeight(HPDF_Page page, HPDF_REAL value);
-  HPDF_REAL HPDF_Page_GetCharSpace(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetCharSpace(HPDF_Page page, HPDF_REAL value);
-  HPDF_REAL HPDF_Page_GetWordSpace(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetWordSpace(HPDF_Page page, HPDF_REAL value);
-  HPDF_REAL HPDF_Page_GetHorizontalScalling(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetHorizontalScalling(HPDF_Page page, HPDF_REAL value);
-  HPDF_REAL HPDF_Page_GetTextLeading(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetTextLeading(HPDF_Page page, HPDF_REAL value);
-  HPDF_REAL HPDF_Page_GetTextRenderingMode(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetTextRenderingMode(HPDF_Page page, HPDF_TextRenderingMode mode);
-  HPDF_REAL HPDF_Page_GetTextRise(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetTextRise(HPDF_Page page, HPDF_REAL value);
-  HPDF_REAL HPDF_Page_GetGrayFill(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetGrayFill(HPDF_Page page, HPDF_REAL gray);
-  HPDF_REAL HPDF_Page_GetGrayStroke(HPDF_Page page);
-HPDF_STATUS HPDF_Page_SetGrayStroke(HPDF_Page page, HPDF_REAL gray);
-HPDF_STATUS HPDF_Page_DrawImage(HPDF_Page page, HPDF_Image image, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
-HPDF_STATUS HPDF_UseJPEncodings(HPDF_Doc pdf);
-HPDF_STATUS HPDF_UseKREncodings(HPDF_Doc pdf);
-HPDF_STATUS HPDF_UseCNSEncodings(HPDF_Doc pdf);
-HPDF_STATUS HPDF_UseCNTEncodings(HPDF_Doc pdf);
-HPDF_STATUS HPDF_UseUTFEncodings(HPDF_Doc pdf);
-HPDF_STATUS HPDF_UseJPFonts(HPDF_Doc pdf);
-HPDF_STATUS HPDF_UseKRFonts(HPDF_Doc pdf);
-HPDF_STATUS HPDF_UseCNSFonts(HPDF_Doc pdf);
-HPDF_STATUS HPDF_UseCNTFonts(HPDF_Doc pdf);
-const char* HPDF_Font_GetFontName(HPDF_Font font);
-const char* HPDF_Font_GetEncodingName(HPDF_Font font);
-   HPDF_INT HPDF_Font_GetAscent(HPDF_Font font);
-   HPDF_INT HPDF_Font_GetDescent(HPDF_Font font);
- HPDF_Image HPDF_LoadPngImageFromFile(HPDF_Doc pdf, const char *filename);
- HPDF_Image HPDF_LoadJpegImageFromFile(HPDF_Doc pdf, const char  *filename);
-  HPDF_UINT HPDF_Image_GetWidth(HPDF_Image image);
-  HPDF_UINT HPDF_Image_GetHeight(HPDF_Image image);
-const char* HPDF_Image_GetColorSpace(HPDF_Image image);
-  HPDF_UINT HPDF_Image_GetBitsPerComponent(HPDF_Image image);
+typedef enum _HPDF_EncoderType {
+    HPDF_ENCODER_TYPE_SINGLE_BYTE,
+    HPDF_ENCODER_TYPE_DOUBLE_BYTE,
+    HPDF_ENCODER_TYPE_UNINITIALIZED,
+    HPDF_ENCODER_UNKNOWN
+} HPDF_EncoderType;
+typedef enum _HPDF_WritingMode {
+    HPDF_WMODE_HORIZONTAL = 0,
+    HPDF_WMODE_VERTICAL,
+    HPDF_WMODE_EOF
+} HPDF_WritingMode;
+        HPDF_Doc HPDF_New(HPDF_Error_Handler user_error_fn, void *user_data);
+            void HPDF_Free(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
+       HPDF_Page HPDF_AddPage(HPDF_Doc pdf);
+       HPDF_Page HPDF_InsertPage(HPDF_Doc pdf, HPDF_Page target);
+       HPDF_Font HPDF_GetFont(HPDF_Doc pdf, const char *font_name, const char *encoding_name);
+       HPDF_Page HPDF_GetCurrentPage(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_Page_GSave(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_GRestore(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_MoveTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
+     HPDF_STATUS HPDF_Page_MoveToNextLine(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_BeginText(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_EndText(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_TextOut(HPDF_Page page, HPDF_REAL xpos, HPDF_REAL ypos, const char *text);
+     HPDF_STATUS HPDF_Page_TextRect (HPDF_Page page, HPDF_REAL left, HPDF_REAL top, HPDF_REAL right, HPDF_REAL bottom, const char *text, HPDF_TextAlignment align, HPDF_UINT *len);
+     HPDF_STATUS HPDF_Page_ShowText(HPDF_Page page, const char *text);
+     HPDF_STATUS HPDF_Page_ShowTextNextLine(HPDF_Page page, const char *text);
+     HPDF_STATUS HPDF_Page_ShowTextNextLineEx(HPDF_Page page, HPDF_REAL word_space, HPDF_REAL char_space, const char *text);
+     HPDF_STATUS HPDF_Page_MoveTextPos(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
+     HPDF_STATUS HPDF_Page_Stroke(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetFontAndSize(HPDF_Page page, HPDF_Font font, HPDF_REAL size);
+     HPDF_STATUS HPDF_Page_Circle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius);
+     HPDF_STATUS HPDF_Page_Rectangle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
+     HPDF_STATUS HPDF_Page_Arc(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius, HPDF_REAL ang1, HPDF_REAL ang2);
+     HPDF_STATUS HPDF_Page_Ellipse(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL x_radius, HPDF_REAL y_radius);
+     HPDF_STATUS HPDF_Page_LineTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
+       HPDF_REAL HPDF_Page_GetWidth(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetWidth(HPDF_Page page, HPDF_REAL value);
+       HPDF_REAL HPDF_Page_GetHeight(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetHeight(HPDF_Page page, HPDF_REAL value);
+       HPDF_REAL HPDF_Page_GetCharSpace(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetCharSpace(HPDF_Page page, HPDF_REAL value);
+       HPDF_REAL HPDF_Page_GetWordSpace(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetWordSpace(HPDF_Page page, HPDF_REAL value);
+       HPDF_REAL HPDF_Page_GetHorizontalScalling(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetHorizontalScalling(HPDF_Page page, HPDF_REAL value);
+       HPDF_REAL HPDF_Page_GetTextLeading(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetTextLeading(HPDF_Page page, HPDF_REAL value);
+       HPDF_REAL HPDF_Page_GetTextRenderingMode(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetTextRenderingMode(HPDF_Page page, HPDF_TextRenderingMode mode);
+       HPDF_REAL HPDF_Page_GetTextRise(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetTextRise(HPDF_Page page, HPDF_REAL value);
+       HPDF_REAL HPDF_Page_GetGrayFill(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetGrayFill(HPDF_Page page, HPDF_REAL gray);
+       HPDF_REAL HPDF_Page_GetGrayStroke(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetGrayStroke(HPDF_Page page, HPDF_REAL gray);
+     HPDF_STATUS HPDF_Page_DrawImage(HPDF_Page page, HPDF_Image image, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
+     HPDF_STATUS HPDF_UseJPEncodings(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_UseKREncodings(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_UseCNSEncodings(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_UseCNTEncodings(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_UseUTFEncodings(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_UseJPFonts(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_UseKRFonts(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_UseCNSFonts(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_UseCNTFonts(HPDF_Doc pdf);
+     const char* HPDF_Font_GetFontName(HPDF_Font font);
+     const char* HPDF_Font_GetEncodingName(HPDF_Font font);
+        HPDF_INT HPDF_Font_GetAscent(HPDF_Font font);
+        HPDF_INT HPDF_Font_GetDescent(HPDF_Font font);
+      HPDF_Image HPDF_LoadPngImageFromFile(HPDF_Doc pdf, const char *filename);
+      HPDF_Image HPDF_LoadJpegImageFromFile(HPDF_Doc pdf, const char  *filename);
+       HPDF_UINT HPDF_Image_GetWidth(HPDF_Image image);
+       HPDF_UINT HPDF_Image_GetHeight(HPDF_Image image);
+     const char* HPDF_Image_GetColorSpace(HPDF_Image image);
+       HPDF_UINT HPDF_Image_GetBitsPerComponent(HPDF_Image image);
+    HPDF_Encoder HPDF_GetEncoder(HPDF_Doc pdf, const char  *encoding_name);
+    HPDF_Encoder HPDF_GetCurrentEncoder(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_SetCurrentEncoder(HPDF_Doc pdf, const char *encoding_name);
+HPDF_EncoderType HPDF_Encoder_GetType(HPDF_Encoder encoder);
+HPDF_WritingMode HPDF_Encoder_GetWritingMode(HPDF_Encoder encoder);
 
 ]]
 
@@ -142,10 +158,6 @@ HPDF_AddPageLabel()
 HPDF_LoadType1FontFromFile()
 HPDF_LoadTTFontFromFile()
 HPDF_LoadTTFontFromFile2()
-Encodings:
-HPDF_GetEncoder()
-HPDF_GetCurrentEncoder()
-HPDF_SetCurrentEncoder()
 Other Functions:
 HPDF_CreateOutline()
 HPDF_LoadPngImageFromFile2()
@@ -229,10 +241,8 @@ HPDF_Font_GetCapHeight()
 HPDF_Font_TextWidth()
 HPDF_Font_MeasureText()
 Encodings:
-HPDF_Encoder_GetType()
 HPDF_Encoder_GetByteType()
 HPDF_Encoder_GetUnicode()
-HPDF_Encoder_GetWritingMode()
 Annotations:
 HPDF_LinkAnnot_SetHighlightMode()
 HPDF_LinkAnnot_SetBorderStyle()

@@ -2,7 +2,6 @@ local lib = require "resty.haru.library"
 local ffi = require "ffi"
 local ffi_str = ffi.string
 local setmetatable = setmetatable
-local rawset = rawset
 
 local font = {}
 font.__index = font
@@ -24,10 +23,6 @@ function font:__index(n)
     else
         return font[n]
     end
-end
-
-function font:__newindex(n, v)
-    rawset(self, n, v)
 end
 
 return font

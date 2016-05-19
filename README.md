@@ -7,12 +7,13 @@ Meanwhile checkout [@tavikukko](https://github.com/tavikukko)'s [`lua-resty-hpdf
 
 ```lua
 -- Some local variable declarations
-local print  = print
-local haru   = require "resty.haru"
-local hpdf   = haru.new()
-local pages  = hpdf.pages
-local images = hpdf.images
-local fonts  = hpdf.fonts
+local print    = print
+local haru     = require "resty.haru"
+local hpdf     = haru.new()
+local pages    = hpdf.pages
+local fonts    = hpdf.fonts
+local images   = hpdf.images
+local encoders = hpdf.encoders
 
 -- General Settings
 hpdf:use "utfencodings"
@@ -24,6 +25,23 @@ hpdf:use "jpfonts"
 hpdf:use "krfonts"
 hpdf:use "cnsfonts"
 hpdf:use "cntfonts"
+
+-- Setting Encoding
+hpdf.encoding = "UTF-8"
+
+-- Current Encoder
+local encoder = hpdf.encoder
+
+-- Encoder Properties
+print(encoder.type)
+print(encoder.writingmode)
+
+-- Getting an Encoder
+local gbeuch = encoders:get "GB-EUC-H"
+
+-- Encoder Properties
+print(gbeuch.type)
+print(gbeuch.writingmode)
 
 -- Adding a Page
 local page = pages:add()
@@ -64,7 +82,7 @@ print(helvetica.encoding)
 print(helvetica.ascent)
 print(helvetica.descent)
 
--- Setting Font
+-- Setting a Font
 page:font(helvetica, 18)
 
 -- Writing Text
@@ -163,9 +181,9 @@ hpdf:save "demo.pdf"
 
 ##### Encodings
 
-* [ ] HPDF_GetEncoder
-* [ ] HPDF_GetCurrentEncoder
-* [ ] HPDF_SetCurrentEncoder
+* [x] ~~HPDF_GetEncoder~~
+* [x] ~~HPDF_GetCurrentEncoder~~
+* [x] ~~HPDF_SetCurrentEncoder~~
 * [x] ~~HPDF_UseJPEncodings~~
 * [x] ~~HPDF_UseKREncodings~~
 * [x] ~~HPDF_UseCNSEncodings~~
@@ -310,10 +328,10 @@ hpdf:save "demo.pdf"
 
 ##### Encodings
 
-* [ ] HPDF_Encoder_GetType
+* [x] ~~HPDF_Encoder_GetType~~
 * [ ] HPDF_Encoder_GetByteType
 * [ ] HPDF_Encoder_GetUnicode
-* [ ] HPDF_Encoder_GetWritingMode
+* [x] ~~HPDF_Encoder_GetWritingMode~~
 
 ##### Annotations
 

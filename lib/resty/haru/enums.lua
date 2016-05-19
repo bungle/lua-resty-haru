@@ -1,5 +1,4 @@
 local lib = require "resty.haru.library"
-
 return {
     align = {
         left               = lib.HPDF_TALIGN_LEFT,
