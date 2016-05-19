@@ -7,6 +7,7 @@ typedef unsigned long HPDF_STATUS;
 typedef float HPDF_REAL;
 typedef signed int HPDF_INT;
 typedef unsigned int HPDF_UINT;
+typedef signed int HPDF_BOOL;
 typedef void *HPDF_HANDLE;
 typedef HPDF_HANDLE HPDF_Doc;
 typedef HPDF_HANDLE HPDF_Page;
@@ -116,6 +117,7 @@ typedef enum _HPDF_WritingMode {
      HPDF_STATUS HPDF_UseKRFonts(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseCNSFonts(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseCNTFonts(HPDF_Doc pdf);
+     const char* HPDF_LoadTTFontFromFile (HPDF_Doc pdf, const char *file_name, HPDF_BOOL embedding);
      const char* HPDF_Font_GetFontName(HPDF_Font font);
      const char* HPDF_Font_GetEncodingName(HPDF_Font font);
         HPDF_INT HPDF_Font_GetAscent(HPDF_Font font);
@@ -156,7 +158,6 @@ HPDF_SetOpenAction()
 Font Handling:
 HPDF_AddPageLabel()
 HPDF_LoadType1FontFromFile()
-HPDF_LoadTTFontFromFile()
 HPDF_LoadTTFontFromFile2()
 Other Functions:
 HPDF_CreateOutline()

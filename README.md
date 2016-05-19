@@ -26,8 +26,28 @@ hpdf:use "krfonts"
 hpdf:use "cnsfonts"
 hpdf:use "cntfonts"
 
--- Setting Encoding
+-- Setting Encoding (for UTF-8 you will need to use TrueType fonts)
 hpdf.encoding = "UTF-8"
+
+-- Loading a Font
+local helvetica = fonts:get "Helvetica"
+
+-- Font Properties
+print(helvetica.name)
+print(helvetica.encoding)
+print(helvetica.ascent)
+print(helvetica.descent)
+
+-- Loading a TTF Font
+local name = fonts:load("DejaVuSans.ttf", true)
+print(name)
+local dejavu = fonts:get(name, "UTF-8")
+
+-- Font Properties
+print(dejavu.name)
+print(dejavu.encoding)
+print(dejavu.ascent)
+print(dejavu.descent)
 
 -- Current Encoder
 local encoder = hpdf.encoder
@@ -73,26 +93,17 @@ page.textrenderingmode = page.textrenderingmode
 -- Inserting a new Page before existing
 page = pages:insert(page)
 
--- Loading a Font
-local helvetica = fonts:get "Helvetica"
-
--- Font Properties
-print(helvetica.name)
-print(helvetica.encoding)
-print(helvetica.ascent)
-print(helvetica.descent)
-
 -- Setting a Font
-page:font(helvetica, 18)
+page:font(dejavu, 18)
 
 -- Writing Text
 page:begintext()
 page:text(50, 400, "Hello")
 page:text(0, 400, 150, 200, "World", "right")
-page:textmove(100, 150)
+page:textmove(100, 300)
 page:text "Testing"
 page:ln()
-page:text "... it works!"
+page:text "... it works - How about UTF-8 ÄÖÅäöå€!"
 page:text("Hey, I'm on a new line!", true)
 page:endtext()
 
@@ -172,7 +183,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_AddPageLabel
 * [x] ~~HPDF_GetFont~~
 * [ ] HPDF_LoadType1FontFromFile
-* [ ] HPDF_LoadTTFontFromFile
+* [x] ~~HPDF_LoadTTFontFromFile~~
 * [ ] HPDF_LoadTTFontFromFile2
 * [x] ~~HPDF_UseJPFonts~~
 * [x] ~~HPDF_UseKRFonts~~
