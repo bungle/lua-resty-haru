@@ -6,8 +6,12 @@ local encoders = require "resty.haru.encoders"
 local enums = require "resty.haru.enums"
 local pagelayout = enums.pagelayout
 local pagemode = enums.pagemode
+local compressionmode = enums.compressionmode
+local permission = enums.permission
+local infotype = enums.infotype
 local ffi = require "ffi"
 local ffi_gc = ffi.gc
+local ffi_str = ffi.string
 local setmetatable = setmetatable
 local lower = string.lower
 local rawset = rawset
@@ -70,6 +74,8 @@ function haru:__index(n)
         return tonumber(lib.HPDF_GetPageLayout(self.context))
     elseif n == "pagemode" then
         return tonumber(lib.HPDF_GetPageMode(self.context))
+    elseif infotype[n] then
+        return ffi_str(lib.HPDF_GetInfoAttr(self.context, infotype[n]))
     else
         return haru[n]
     end
@@ -88,9 +94,24 @@ function haru:__newindex(n, v)
             v = pagemode[v]
         end
         lib.HPDF_SetPageMode(self.context, v)
+    elseif n == "permission" then
+        if type(v) == "string" then
+            v = permission[v]
+        end
+        lib.HPDF_SetPermission(self.context, v)
+    elseif infotype[n] then
+        if (type(v) == "table") then
+            -- TODO: lib.HPDF_SetInfoDateAttr(self.context, infotype[n])...)
+        else
+            lib.HPDF_SetInfoAttr(self.context, infotype[n], v)
+        end
+    elseif n == "compressionmode" then
+        if type(v) == "string" then
+            v = compressionmode[v]
+        end
+        lib.HPDF_SetCompressionMode(self.context, v)
     else
         rawset(self, n, v)
     end
 end
-
 return haru

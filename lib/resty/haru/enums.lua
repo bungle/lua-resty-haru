@@ -37,5 +37,33 @@ return {
         thumbs             = lib.HPDF_PAGE_MODE_USE_THUMBS,
         fullscreen         = lib.HPDF_PAGE_MODE_FULL_SCREEN,
         eof                = lib.HPDF_PAGE_MODE_EOF
+    },
+    infotype = {
+        creationdate       =  lib.HPDF_INFO_CREATION_DATE,
+        modificationdate   = lib.HPDF_INFO_MOD_DATE,
+        author             = lib.HPDF_INFO_AUTHOR,
+        creator            = lib.HPDF_INFO_CREATOR,
+        producer           = lib.HPDF_INFO_PRODUCER,
+        title              = lib.HPDF_INFO_TITLE,
+        subject            = lib.HPDF_INFO_SUBJECT,
+        keywords           = lib.HPDF_INFO_KEYWORDS,
+        trapped            = lib.HPDF_INFO_TRAPPED,
+        gtspdfx            = lib.HPDF_INFO_GTS_PDFX,
+        eof                = lib.HPDF_INFO_EOF
+    },
+    compressionmode = {
+        none               = 0x00,
+        text               = 0x01,
+        image              = 0x02,
+        metadata           = 0x04,
+        all                = 0x0F,
+        mask               = 0xFF
+    },
+    permission = {
+        read               = 0,
+        print              = 4,
+        all                = 8,
+        copy               = 16,
+        edit               = 32
     }
 }

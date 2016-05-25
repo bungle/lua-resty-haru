@@ -26,14 +26,25 @@ hpdf:use "krfonts"
 hpdf:use "cnsfonts"
 hpdf:use "cntfonts"
 
+-- Setting General Properties
+hpdf.encoding        = "UTF-8"
+hpdf.pagelayout      = "single"
+hpdf.pagemode        = "outline"
+hpdf.compressionmode = "all"
+hpdf.author          = "@bungle"
+hpdf.creator         = "lua-resty-haru"
+hpdf.title           = "Demo"
+hpdf.subject         = "Testing FFI Bindings"
+hpdf.keywords        = "openresty pdf haru lua luajit ffi"
+
 -- General Properties
 print(hpdf.pagelayout)
 print(hpdf.pagemode)
-
--- Setting General Properties
-hpdf.encoding   = "UTF-8"
-hpdf.pagelayout = "single"
-hpdf.pagemode   = "outline"
+print(hpdf.author)
+print(hpdf.creator)
+print(hpdf.title)
+print(hpdf.subject)
+print(hpdf.keywords)
 
 -- Loading a Font
 local helvetica = fonts:get "Helvetica"
@@ -217,13 +228,13 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_LoadPngImageFromMem
 * [ ] HPDF_LoadJpegImageFromMem
 * [x] ~~HPDF_LoadJpegImageFromFile~~
-* [ ] HPDF_SetInfoAttr
-* [ ] HPDF_GetInfoAttr
+* [x] ~~HPDF_SetInfoAttr~~
+* [x] ~~HPDF_GetInfoAttr~~
 * [ ] HPDF_SetInfoDateAttr
 * [ ] HPDF_SetPassword
-* [ ] HPDF_SetPermission
+* [x] ~~HPDF_SetPermission~~
 * [ ] HPDF_SetEncryptionMode
-* [ ] HPDF_SetCompressionMode
+* [x] ~~HPDF_SetCompressionMode~~
 
 ##### Page
 

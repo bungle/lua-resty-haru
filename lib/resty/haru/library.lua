@@ -77,6 +77,30 @@ typedef enum _HPDF_PageMode {
     HPDF_PAGE_MODE_FULL_SCREEN,
     HPDF_PAGE_MODE_EOF
 } HPDF_PageMode;
+typedef enum _HPDF_InfoType {
+    HPDF_INFO_CREATION_DATE = 0,
+    HPDF_INFO_MOD_DATE,
+    HPDF_INFO_AUTHOR,
+    HPDF_INFO_CREATOR,
+    HPDF_INFO_PRODUCER,
+    HPDF_INFO_TITLE,
+    HPDF_INFO_SUBJECT,
+    HPDF_INFO_KEYWORDS,
+    HPDF_INFO_TRAPPED,
+    HPDF_INFO_GTS_PDFX,
+    HPDF_INFO_EOF
+} HPDF_InfoType;
+typedef struct _HPDF_Date {
+    HPDF_INT    year;
+    HPDF_INT    month;
+    HPDF_INT    day;
+    HPDF_INT    hour;
+    HPDF_INT    minutes;
+    HPDF_INT    seconds;
+    char        ind;
+    HPDF_INT    off_hour;
+    HPDF_INT    off_minutes;
+} HPDF_Date;
         HPDF_Doc HPDF_New(HPDF_Error_Handler user_error_fn, void *user_data);
             void HPDF_Free(HPDF_Doc pdf);
      HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
@@ -88,6 +112,11 @@ typedef enum _HPDF_PageMode {
      HPDF_STATUS HPDF_SetPageLayout(HPDF_Doc pdf, HPDF_PageLayout layout);
    HPDF_PageMode HPDF_GetPageMode(HPDF_Doc pdf);
      HPDF_STATUS HPDF_SetPageMode(HPDF_Doc pdf, HPDF_PageMode mode);
+     const char* HPDF_GetInfoAttr(HPDF_Doc pdf, HPDF_InfoType type);
+     HPDF_STATUS HPDF_SetInfoAttr(HPDF_Doc pdf, HPDF_InfoType type, const char *value);
+     HPDF_STATUS HPDF_SetInfoDateAttr(HPDF_Doc pdf, HPDF_InfoType type, HPDF_Date value);
+     HPDF_STATUS HPDF_SetPermission(HPDF_Doc pdf, HPDF_UINT permission);
+     HPDF_STATUS HPDF_SetCompressionMode(HPDF_Doc pdf, HPDF_UINT mode);
      HPDF_STATUS HPDF_Page_GSave(HPDF_Page page);
      HPDF_STATUS HPDF_Page_GRestore(HPDF_Page page);
      HPDF_STATUS HPDF_Page_MoveTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
@@ -182,13 +211,9 @@ HPDF_LoadRawImageFromFile()
 HPDF_LoadRawImageFromMem()
 HPDF_LoadPngImageFromMem()
 HPDF_LoadJpegImageFromMem()
-HPDF_SetInfoAttr()
-HPDF_GetInfoAttr()
 HPDF_SetInfoDateAttr()
 HPDF_SetPassword()
-HPDF_SetPermission()
 HPDF_SetEncryptionMode()
-HPDF_SetCompressionMode()
 Page:
 HPDF_Page_SetSize()
 HPDF_Page_SetRotate()
