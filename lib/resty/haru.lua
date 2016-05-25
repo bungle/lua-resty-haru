@@ -3,11 +3,16 @@ local pages = require "resty.haru.pages"
 local fonts = require "resty.haru.fonts"
 local images = require "resty.haru.images"
 local encoders = require "resty.haru.encoders"
+local enums = require "resty.haru.enums"
+local pagelayout = enums.pagelayout
+local pagemode = enums.pagemode
 local ffi = require "ffi"
 local ffi_gc = ffi.gc
 local setmetatable = setmetatable
 local lower = string.lower
 local rawset = rawset
+local tonumber = tonumber
+local type = type
 
 local haru = {}
 
@@ -61,6 +66,10 @@ end
 function haru:__index(n)
     if n == "encoder" then
         return self.encoders.current
+    elseif n == "pagelayout" then
+        return tonumber(lib.HPDF_GetPageLayout(self.context))
+    elseif n == "pagemode" then
+        return tonumber(lib.HPDF_GetPageMode(self.context))
     else
         return haru[n]
     end
@@ -69,10 +78,19 @@ end
 function haru:__newindex(n, v)
     if n == "encoding" then
         self.encoders.current = v
+    elseif n == "pagelayout" then
+        if type(v) == "string" then
+            v = pagelayout[v]
+        end
+        lib.HPDF_SetPageLayout(self.context, v)
+    elseif n == "pagemode" then
+        if type(v) == "string" then
+            v = pagemode[v]
+        end
+        lib.HPDF_SetPageMode(self.context, v)
     else
         rawset(self, n, v)
     end
 end
-
 
 return haru

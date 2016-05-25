@@ -26,8 +26,14 @@ hpdf:use "krfonts"
 hpdf:use "cnsfonts"
 hpdf:use "cntfonts"
 
--- Setting Encoding (for UTF-8 you will need to use TrueType fonts)
-hpdf.encoding = "UTF-8"
+-- General Properties
+print(hpdf.pagelayout)
+print(hpdf.pagemode)
+
+-- Setting General Properties
+hpdf.encoding   = "UTF-8"
+hpdf.pagelayout = "single"
+hpdf.pagemode   = "outline"
 
 -- Loading a Font
 local helvetica = fonts:get "Helvetica"
@@ -169,10 +175,10 @@ hpdf:save "demo.pdf"
 ##### Pages Handling
 
 * [ ] HPDF_SetPagesConfiguration
-* [ ] HPDF_SetPageLayout
-* [ ] HPDF_GetPageLayout
-* [ ] HPDF_SetPageMode
-* [ ] HPDF_GetPageMode
+* [x] ~~HPDF_SetPageLayout~~
+* [x] ~~HPDF_GetPageLayout~~
+* [x] ~~HPDF_SetPageMode~~
+* [x] ~~HPDF_GetPageMode~~
 * [ ] HPDF_SetOpenAction
 * [x] ~~HPDF_GetCurrentPage~~
 * [x] ~~HPDF_AddPage~~

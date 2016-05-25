@@ -61,6 +61,22 @@ typedef enum _HPDF_WritingMode {
     HPDF_WMODE_VERTICAL,
     HPDF_WMODE_EOF
 } HPDF_WritingMode;
+typedef enum _HPDF_PageLayout {
+    HPDF_PAGE_LAYOUT_SINGLE = 0,
+    HPDF_PAGE_LAYOUT_ONE_COLUMN,
+    HPDF_PAGE_LAYOUT_TWO_COLUMN_LEFT,
+    HPDF_PAGE_LAYOUT_TWO_COLUMN_RIGHT,
+    HPDF_PAGE_LAYOUT_TWO_PAGE_LEFT,
+    HPDF_PAGE_LAYOUT_TWO_PAGE_RIGHT,
+    HPDF_PAGE_LAYOUT_EOF
+} HPDF_PageLayout;
+typedef enum _HPDF_PageMode {
+    HPDF_PAGE_MODE_USE_NONE = 0,
+    HPDF_PAGE_MODE_USE_OUTLINE,
+    HPDF_PAGE_MODE_USE_THUMBS,
+    HPDF_PAGE_MODE_FULL_SCREEN,
+    HPDF_PAGE_MODE_EOF
+} HPDF_PageMode;
         HPDF_Doc HPDF_New(HPDF_Error_Handler user_error_fn, void *user_data);
             void HPDF_Free(HPDF_Doc pdf);
      HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
@@ -68,6 +84,10 @@ typedef enum _HPDF_WritingMode {
        HPDF_Page HPDF_InsertPage(HPDF_Doc pdf, HPDF_Page target);
        HPDF_Font HPDF_GetFont(HPDF_Doc pdf, const char *font_name, const char *encoding_name);
        HPDF_Page HPDF_GetCurrentPage(HPDF_Doc pdf);
+ HPDF_PageLayout HPDF_GetPageLayout(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_SetPageLayout(HPDF_Doc pdf, HPDF_PageLayout layout);
+   HPDF_PageMode HPDF_GetPageMode(HPDF_Doc pdf);
+     HPDF_STATUS HPDF_SetPageMode(HPDF_Doc pdf, HPDF_PageMode mode);
      HPDF_STATUS HPDF_Page_GSave(HPDF_Page page);
      HPDF_STATUS HPDF_Page_GRestore(HPDF_Page page);
      HPDF_STATUS HPDF_Page_MoveTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
@@ -150,10 +170,6 @@ HPDF_GetError()
 HPDF_ResetError()
 Pages Handling:
 HPDF_SetPagesConfiguration()
-HPDF_SetPageLayout()
-HPDF_GetPageLayout()
-HPDF_SetPageMode()
-HPDF_GetPageMode()
 HPDF_SetOpenAction()
 Font Handling:
 HPDF_AddPageLabel()
