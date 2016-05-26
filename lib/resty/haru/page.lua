@@ -261,6 +261,10 @@ function page:__index(n)
         return lib.HPDF_Page_GetGMode(self.context);
     elseif n == "gdepth" then
         return lib.HPDF_Page_GetGStateDepth(self.context);
+    elseif n == "strokingcolorspace" then
+        return tonumber(lib.HPDF_Page_GetStrokingColorSpace(self.context));
+    elseif n == "fillingcolorspace" then
+        return tonumber(lib.HPDF_Page_GetFillingColorSpace(self.context));
     else
         return page[n]
     end

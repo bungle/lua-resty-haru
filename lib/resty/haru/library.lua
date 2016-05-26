@@ -122,6 +122,20 @@ typedef enum _HPDF_LineJoin {
     HPDF_BEVEL_JOIN,
     HPDF_LINEJOIN_EOF
 } HPDF_LineJoin;
+typedef enum _HPDF_ColorSpace {
+    HPDF_CS_DEVICE_GRAY = 0,
+    HPDF_CS_DEVICE_RGB,
+    HPDF_CS_DEVICE_CMYK,
+    HPDF_CS_CAL_GRAY,
+    HPDF_CS_CAL_RGB,
+    HPDF_CS_LAB,
+    HPDF_CS_ICC_BASED,
+    HPDF_CS_SEPARATION,
+    HPDF_CS_DEVICE_N,
+    HPDF_CS_INDEXED,
+    HPDF_CS_PATTERN,
+    HPDF_CS_EOF
+} HPDF_ColorSpace;
 typedef struct _HPDF_Date {
     HPDF_INT    year;
     HPDF_INT    month;
@@ -220,6 +234,8 @@ typedef struct _HPDF_Point {
      HPDF_STATUS HPDF_Page_EofillStroke(HPDF_Page page);
      HPDF_STATUS HPDF_Page_Fill(HPDF_Page page);
      HPDF_STATUS HPDF_Page_FillStroke(HPDF_Page page);
+ HPDF_ColorSpace HPDF_Page_GetStrokingColorSpace(HPDF_Page page);
+ HPDF_ColorSpace HPDF_Page_GetFillingColorSpace(HPDF_Page page);
      HPDF_STATUS HPDF_UseJPEncodings(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseKREncodings(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseCNSEncodings(HPDF_Doc pdf);
@@ -293,8 +309,6 @@ HPDF_Page_GetRGBFill()
 HPDF_Page_GetRGBStroke()
 HPDF_Page_GetCMYKFill()
 HPDF_Page_GetCMYKStroke()
-HPDF_Page_GetStrokingColorSpace()
-HPDF_Page_GetFillingColorSpace()
 HPDF_Page_GetTextMatrix()
 HPDF_Page_SetSlideShow()
 HPDF_Page_New_Content_Stream()

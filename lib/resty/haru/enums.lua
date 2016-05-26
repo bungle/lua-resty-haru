@@ -96,6 +96,20 @@ return {
         round              = lib.HPDF_ROUND_JOIN,
         bevel              = lib.HPDF_BEVEL_JOIN,
         eof                = lib.HPDF_LINEJOIN_EOF
+    },
+    colorspace = {
+        gray               = lib.HPDF_CS_DEVICE_GRAY,
+        rgb                = lib.HPDF_CS_DEVICE_RGB,
+        cmyk               = lib.HPDF_CS_DEVICE_CMYK,
+        rgbgray            = lib.HPDF_CS_CAL_GRAY,
+        rgbcal             = lib.HPDF_CS_CAL_RGB,
+        lab                = lib.HPDF_CS_LAB,
+        icc                = lib.HPDF_CS_ICC_BASED,
+        separation         = lib.HPDF_CS_SEPARATION,
+        n                  = lib.HPDF_CS_DEVICE_N,
+        indexed            = lib.HPDF_CS_INDEXED,
+        pattern            = lib.HPDF_CS_PATTERN,
+        eof                = lib.HPDF_CS_EOF
     }
 }
 

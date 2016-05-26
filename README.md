@@ -117,6 +117,8 @@ print(page.linejoin)
 print(page.flatness)
 print(page.gmode)
 print(page.gdepth)
+print(page.strokingcolorspace)
+print(page.fillingcolorspace)
 
 local x, y = page:pos()
 print(x, y)
@@ -125,20 +127,20 @@ local x, y = page:textpos()
 print(x, y)
 
 -- Setting Page Properties
-page.width             = page.height
-page.height            = page.width
-page.grayfill          = page.grayfill
-page.graystroke        = page.graystroke
-page.charspace         = page.charspace
-page.wordspace         = page.wordspace
-page.horizontalscaling = page.horizontalscaling
-page.textleading       = page.textleading
-page.textrise          = page.textrise
-page.textrenderingmode = page.textrenderingmode
-page.linewidth         = page.linewidth
-page.miterlimit        = page.miterlimit
-page.linecap           = page.linecap
-page.linejoin          = page.linejoin
+page.width              = page.height
+page.height             = page.width
+page.grayfill           = page.grayfill
+page.graystroke         = page.graystroke
+page.charspace          = page.charspace
+page.wordspace          = page.wordspace
+page.horizontalscaling  = page.horizontalscaling
+page.textleading        = page.textleading
+page.textrise           = page.textrise
+page.textrenderingmode  = page.textrenderingmode
+page.linewidth          = page.linewidth
+page.miterlimit         = page.miterlimit
+page.linecap            = page.linecap
+page.linejoin           = page.linejoin
 
 -- Setting Page Size
 page:size("a4", "landscape")
@@ -317,8 +319,8 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_GetCMYKStroke
 * [x] ~~HPDF_Page_GetGrayFill~~
 * [x] ~~HPDF_Page_GetGrayStroke~~
-* [ ] HPDF_Page_GetStrokingColorSpace
-* [ ] HPDF_Page_GetFillingColorSpace
+* [x] ~~HPDF_Page_GetStrokingColorSpace~~
+* [x] ~~HPDF_Page_GetFillingColorSpace~~
 * [ ] HPDF_Page_GetTextMatrix
 * [x] ~~HPDF_Page_GetGStateDepth~~
 * [ ] HPDF_Page_SetSlideShow
