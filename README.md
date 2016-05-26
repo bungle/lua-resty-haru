@@ -68,6 +68,8 @@ print(helvetica.name)
 print(helvetica.encoding)
 print(helvetica.ascent)
 print(helvetica.descent)
+print(helvetica.xheight)
+print(helvetica.capheight)
 
 -- Loading a TTF Font
 local name = fonts:load("DejaVuSans.ttf", true)
@@ -79,8 +81,6 @@ print(dejavu.name)
 print(dejavu.encoding)
 print(dejavu.ascent)
 print(dejavu.descent)
-print(helvetica.xheight)
-print(helvetica.capheight)
 
 -- Current Encoder
 local encoder = hpdf.encoder
@@ -110,6 +110,12 @@ print(page.horizontalscaling)
 print(page.textleading)
 print(page.textrise)
 print(page.textrenderingmode)
+
+local x, y = page:pos()
+print(x, y)
+
+local x, y = page:textpos()
+print(x, y)
 
 -- Setting Page Properties
 page.width             = page.height
@@ -173,6 +179,8 @@ page:stroke()
 
 -- Loading a Image
 local logo = images:load "logo.png"
+local w, h = logo:size()
+print(w, h)
 
 -- Image Properties
 print(logo.width)
@@ -273,8 +281,8 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_TextWidth~~
 * [ ] HPDF_Page_MeasureText
 * [ ] HPDF_Page_GetGMode
-* [ ] HPDF_Page_GetCurrentPos
-* [ ] HPDF_Page_GetCurrentTextPos
+* [x] ~~HPDF_Page_GetCurrentPos~~
+* [x] ~~HPDF_Page_GetCurrentTextPos~~
 * [ ] HPDF_Page_GetCurrentFont
 * [ ] HPDF_Page_GetCurrentFontSize
 * [ ] HPDF_Page_GetTransMatrix
@@ -409,7 +417,7 @@ hpdf:save "demo.pdf"
 
 ##### Image
 
-* [ ] HPDF_Image_GetSize
+* [x] ~~HPDF_Image_GetSize~~
 * [x] ~~HPDF_Image_GetWidth~~
 * [x] ~~HPDF_Image_GetHeight~~
 * [x] ~~HPDF_Image_GetBitsPerComponent~~

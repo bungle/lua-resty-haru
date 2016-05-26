@@ -9,6 +9,11 @@ function image.new(document, context)
     return setmetatable({ document = document, context = context }, image)
 end
 
+function image:size()
+    local size = lib.HPDF_Image_GetSize(self.context)
+    return size.x, size.y
+end
+
 function image:__index(n)
     local r
     if n == "width" then

@@ -120,6 +120,10 @@ typedef struct _HPDF_Date {
     HPDF_INT    off_hour;
     HPDF_INT    off_minutes;
 } HPDF_Date;
+typedef struct _HPDF_Point {
+    HPDF_REAL  x;
+    HPDF_REAL  y;
+} HPDF_Point;
         HPDF_Doc HPDF_New(HPDF_Error_Handler user_error_fn, void *user_data);
             void HPDF_Free(HPDF_Doc pdf);
      HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
@@ -178,6 +182,8 @@ typedef struct _HPDF_Date {
        HPDF_REAL HPDF_Page_GetGrayStroke(HPDF_Page page);
      HPDF_STATUS HPDF_Page_SetGrayStroke(HPDF_Page page, HPDF_REAL gray);
      HPDF_STATUS HPDF_Page_DrawImage(HPDF_Page page, HPDF_Image image, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
+      HPDF_Point HPDF_Page_GetCurrentPos(HPDF_Page page);
+      HPDF_Point HPDF_Page_GetCurrentTextPos(HPDF_Page page);
      HPDF_STATUS HPDF_UseJPEncodings(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseKREncodings(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseCNSEncodings(HPDF_Doc pdf);
@@ -200,6 +206,7 @@ typedef struct _HPDF_Date {
        HPDF_UINT HPDF_Image_GetHeight(HPDF_Image image);
      const char* HPDF_Image_GetColorSpace(HPDF_Image image);
        HPDF_UINT HPDF_Image_GetBitsPerComponent(HPDF_Image image);
+      HPDF_Point HPDF_Image_GetSize(HPDF_Image image);
     HPDF_Encoder HPDF_GetEncoder(HPDF_Doc pdf, const char  *encoding_name);
     HPDF_Encoder HPDF_GetCurrentEncoder(HPDF_Doc pdf);
      HPDF_STATUS HPDF_SetCurrentEncoder(HPDF_Doc pdf, const char *encoding_name);
@@ -244,8 +251,6 @@ HPDF_Page_CreateLinkAnnot()
 HPDF_Page_CreateURILinkAnnot()
 HPDF_Page_MeasureText()
 HPDF_Page_GetGMode()
-HPDF_Page_GetCurrentPos()
-HPDF_Page_GetCurrentTextPos()
 HPDF_Page_GetCurrentFont()
 HPDF_Page_GetCurrentFontSize()
 HPDF_Page_GetTransMatrix()
@@ -322,7 +327,6 @@ HPDF_Destination_SetFitB()
 HPDF_Destination_SetFitBH()
 HPDF_Destination_SetFitBV()
 Image:
-HPDF_Image_GetSize()
 HPDF_Image_SetColorMask()
 HPDF_Image_SetMaskImage()
 -- ]]

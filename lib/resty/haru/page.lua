@@ -38,6 +38,12 @@ function page:move(x, y)
     return r ~= 0 and r or nil
 end
 
+function page:pos()
+    local pos = lib.HPDF_Page_GetCurrentPos(self.context)
+    return pos.x, pos.y
+end
+
+
 function page:circle(x, y, r)
     local r = lib.HPDF_Page_Circle(self.context, x, y, r)
     return r ~= 0 and r or nil
@@ -123,6 +129,11 @@ end
 function page:textwidth(text)
     local r = lib.HPDF_Page_TextWidth(self.context, text)
     return r ~= 0 and r or nil
+end
+
+function page:textpos()
+    local pos = lib.HPDF_Page_GetCurrentTextPos(self.context)
+    return pos.x, pos.y
 end
 
 function page:image(image, x, y, w, h)
