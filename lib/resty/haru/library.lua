@@ -77,6 +77,25 @@ typedef enum _HPDF_PageMode {
     HPDF_PAGE_MODE_FULL_SCREEN,
     HPDF_PAGE_MODE_EOF
 } HPDF_PageMode;
+typedef enum _HPDF_PageSizes {
+    HPDF_PAGE_SIZE_LETTER = 0,
+    HPDF_PAGE_SIZE_LEGAL,
+    HPDF_PAGE_SIZE_A3,
+    HPDF_PAGE_SIZE_A4,
+    HPDF_PAGE_SIZE_A5,
+    HPDF_PAGE_SIZE_B4,
+    HPDF_PAGE_SIZE_B5,
+    HPDF_PAGE_SIZE_EXECUTIVE,
+    HPDF_PAGE_SIZE_US4x6,
+    HPDF_PAGE_SIZE_US4x8,
+    HPDF_PAGE_SIZE_US5x7,
+    HPDF_PAGE_SIZE_COMM10,
+    HPDF_PAGE_SIZE_EOF
+} HPDF_PageSizes;
+typedef enum _HPDF_PageDirection {
+    HPDF_PAGE_PORTRAIT = 0,
+    HPDF_PAGE_LANDSCAPE
+} HPDF_PageDirection;
 typedef enum _HPDF_InfoType {
     HPDF_INFO_CREATION_DATE = 0,
     HPDF_INFO_MOD_DATE,
@@ -136,6 +155,7 @@ typedef struct _HPDF_Date {
      HPDF_STATUS HPDF_Page_Arc(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius, HPDF_REAL ang1, HPDF_REAL ang2);
      HPDF_STATUS HPDF_Page_Ellipse(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL x_radius, HPDF_REAL y_radius);
      HPDF_STATUS HPDF_Page_LineTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
+     HPDF_STATUS HPDF_Page_SetSize(HPDF_Page page, HPDF_PageSizes size, HPDF_PageDirection direction);
        HPDF_REAL HPDF_Page_GetWidth(HPDF_Page page);
      HPDF_STATUS HPDF_Page_SetWidth(HPDF_Page page, HPDF_REAL value);
        HPDF_REAL HPDF_Page_GetHeight(HPDF_Page page);
@@ -214,7 +234,6 @@ HPDF_LoadJpegImageFromMem()
 HPDF_SetPassword()
 HPDF_SetEncryptionMode()
 Page:
-HPDF_Page_SetSize()
 HPDF_Page_SetRotate()
 HPDF_Page_CreateDestination()
 HPDF_Page_CreateTextAnnot()

@@ -121,6 +121,9 @@ page.textleading       = page.textleading
 page.textrise          = page.textrise
 page.textrenderingmode = page.textrenderingmode
 
+-- Setting Page Size
+page:size("a4", "landscape")
+
 -- Inserting a new Page before existing
 page = pages:insert(page)
 
@@ -254,7 +257,7 @@ hpdf:save "demo.pdf"
 
 * [x] ~~HPDF_Page_SetWidth~~
 * [x] ~~HPDF_Page_SetHeight~~
-* [ ] HPDF_Page_SetSize
+* [x] ~~HPDF_Page_SetSize~~
 * [ ] HPDF_Page_SetRotate
 * [x] ~~HPDF_Page_GetWidth~~
 * [x] ~~HPDF_Page_GetHeight~~

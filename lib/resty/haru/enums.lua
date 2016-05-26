@@ -38,6 +38,25 @@ return {
         fullscreen         = lib.HPDF_PAGE_MODE_FULL_SCREEN,
         eof                = lib.HPDF_PAGE_MODE_EOF
     },
+    pagesize = {
+        letter             = lib.HPDF_PAGE_SIZE_LETTER,
+        legal              = lib.HPDF_PAGE_SIZE_LEGAL,
+        a3                 = lib.HPDF_PAGE_SIZE_A3,
+        a4                 = lib.HPDF_PAGE_SIZE_A4,
+        a5                 = lib.HPDF_PAGE_SIZE_A5,
+        b4                 = lib.HPDF_PAGE_SIZE_B4,
+        b5                 = lib.HPDF_PAGE_SIZE_B5,
+        executive          = lib.HPDF_PAGE_SIZE_EXECUTIVE,
+        us4x6              = lib.HPDF_PAGE_SIZE_US4x6,
+        us4x8              = lib.HPDF_PAGE_SIZE_US4x8,
+        us5x7              = lib.HPDF_PAGE_SIZE_US5x7,
+        comm10             = lib.HPDF_PAGE_SIZE_COMM10,
+        eof                = lib.HPDF_PAGE_SIZE_EOF
+    },
+    pagedirection = {
+        portrait           = lib.HPDF_PAGE_PORTRAIT,
+        landscape          = lib.HPDF_PAGE_LANDSCAPE
+    },
     infotype = {
         creationdate       =  lib.HPDF_INFO_CREATION_DATE,
         modificationdate   = lib.HPDF_INFO_MOD_DATE,
@@ -67,3 +86,4 @@ return {
         edit               = 32
     }
 }
+

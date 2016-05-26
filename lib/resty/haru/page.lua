@@ -4,6 +4,8 @@ local lib = require "resty.haru.library"
 local enums = require "resty.haru.enums"
 local renderingmode = enums.textrenderingmode
 local alignment = enums.align
+local pagesize = enums.pagesize
+local pagedirection = enums.pagedirection
 local setmetatable = setmetatable
 local rawset = rawset
 local type = type
@@ -126,6 +128,21 @@ end
 
 function page:font(font, size)
     local r = lib.HPDF_Page_SetFontAndSize(self.context, font.context, size)
+    if r == 0 then
+        return self
+    else
+        return nil, r
+    end
+end
+
+function page:size(size, direction)
+    if type(size) == "string" then
+        size = pagesize[size]
+    end
+    if type(direction) == "string" then
+        direction = pagedirection[direction]
+    end
+    local r = lib.HPDF_Page_SetSize(self.context, size, direction)
     if r == 0 then
         return self
     else
