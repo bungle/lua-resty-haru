@@ -192,6 +192,8 @@ typedef struct _HPDF_Date {
      const char* HPDF_Font_GetEncodingName(HPDF_Font font);
         HPDF_INT HPDF_Font_GetAscent(HPDF_Font font);
         HPDF_INT HPDF_Font_GetDescent(HPDF_Font font);
+       HPDF_UINT HPDF_Font_GetXHeight(HPDF_Font font);
+       HPDF_UINT HPDF_Font_GetCapHeight(HPDF_Font font);
       HPDF_Image HPDF_LoadPngImageFromFile(HPDF_Doc pdf, const char *filename);
       HPDF_Image HPDF_LoadJpegImageFromFile(HPDF_Doc pdf, const char  *filename);
        HPDF_UINT HPDF_Image_GetWidth(HPDF_Image image);
@@ -296,8 +298,6 @@ HPDF_Page_SetTextMatrix()
 Fonts:
 HPDF_Font_GetUnicodeWidth()
 HPDF_Font_GetBBox()
-HPDF_Font_GetXHeight()
-HPDF_Font_GetCapHeight()
 HPDF_Font_TextWidth()
 HPDF_Font_MeasureText()
 Encodings:

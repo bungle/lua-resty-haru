@@ -79,6 +79,8 @@ print(dejavu.name)
 print(dejavu.encoding)
 print(dejavu.ascent)
 print(dejavu.descent)
+print(helvetica.xheight)
+print(helvetica.capheight)
 
 -- Current Encoder
 local encoder = hpdf.encoder
@@ -369,8 +371,8 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Font_GetBBox
 * [x] ~~HPDF_Font_GetAscent~~
 * [x] ~~HPDF_Font_GetDescent~~
-* [ ] HPDF_Font_GetXHeight
-* [ ] HPDF_Font_GetCapHeight
+* [x] ~~HPDF_Font_GetXHeight~~
+* [x] ~~HPDF_Font_GetCapHeight~~
 * [ ] HPDF_Font_TextWidth
 * [ ] HPDF_Font_MeasureText
 

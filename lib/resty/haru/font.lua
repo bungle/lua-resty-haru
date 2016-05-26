@@ -20,6 +20,12 @@ function font:__index(n)
         return lib.HPDF_Font_GetAscent(self.context)
     elseif n == "descent" then
         return lib.HPDF_Font_GetDescent(self.context)
+    elseif n == "descent" then
+        return lib.HPDF_Font_GetDescent(self.context)
+    elseif n == "xheight" then
+        return lib.HPDF_Font_GetXHeight(self.context)
+    elseif n == "capheight" then
+        return lib.HPDF_Font_GetCapHeight(self.context)
     else
         return font[n]
     end
