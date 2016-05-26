@@ -44,7 +44,7 @@ hpdf.modificationdate = {
     hour        = 12,
     minutes     = 0,
     seconds     = 0,
-    ind         = '+',
+    ind         = "+",
     off_hour    = 2,
     off_minutes = 0
 }
