@@ -120,6 +120,11 @@ function page:textmove(x, y)
     return r ~= 0 and r or nil
 end
 
+function page:textwidth(text)
+    local r = lib.HPDF_Page_TextWidth(self.context, text)
+    return r ~= 0 and r or nil
+end
+
 function page:image(image, x, y, w, h)
     w = w or image.width
     h = h or image.height

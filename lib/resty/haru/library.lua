@@ -143,7 +143,8 @@ typedef struct _HPDF_Date {
      HPDF_STATUS HPDF_Page_BeginText(HPDF_Page page);
      HPDF_STATUS HPDF_Page_EndText(HPDF_Page page);
      HPDF_STATUS HPDF_Page_TextOut(HPDF_Page page, HPDF_REAL xpos, HPDF_REAL ypos, const char *text);
-     HPDF_STATUS HPDF_Page_TextRect (HPDF_Page page, HPDF_REAL left, HPDF_REAL top, HPDF_REAL right, HPDF_REAL bottom, const char *text, HPDF_TextAlignment align, HPDF_UINT *len);
+     HPDF_STATUS HPDF_Page_TextRect(HPDF_Page page, HPDF_REAL left, HPDF_REAL top, HPDF_REAL right, HPDF_REAL bottom, const char *text, HPDF_TextAlignment align, HPDF_UINT *len);
+       HPDF_REAL HPDF_Page_TextWidth(HPDF_Page page, const char *text);
      HPDF_STATUS HPDF_Page_ShowText(HPDF_Page page, const char *text);
      HPDF_STATUS HPDF_Page_ShowTextNextLine(HPDF_Page page, const char *text);
      HPDF_STATUS HPDF_Page_ShowTextNextLineEx(HPDF_Page page, HPDF_REAL word_space, HPDF_REAL char_space, const char *text);
@@ -186,7 +187,7 @@ typedef struct _HPDF_Date {
      HPDF_STATUS HPDF_UseKRFonts(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseCNSFonts(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseCNTFonts(HPDF_Doc pdf);
-     const char* HPDF_LoadTTFontFromFile (HPDF_Doc pdf, const char *file_name, HPDF_BOOL embedding);
+     const char* HPDF_LoadTTFontFromFile(HPDF_Doc pdf, const char *file_name, HPDF_BOOL embedding);
      const char* HPDF_Font_GetFontName(HPDF_Font font);
      const char* HPDF_Font_GetEncodingName(HPDF_Font font);
         HPDF_INT HPDF_Font_GetAscent(HPDF_Font font);
@@ -239,7 +240,6 @@ HPDF_Page_CreateDestination()
 HPDF_Page_CreateTextAnnot()
 HPDF_Page_CreateLinkAnnot()
 HPDF_Page_CreateURILinkAnnot()
-HPDF_Page_TextWidth()
 HPDF_Page_MeasureText()
 HPDF_Page_GetGMode()
 HPDF_Page_GetCurrentPos()

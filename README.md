@@ -151,6 +151,9 @@ page:textshow "... it works!"
 page:textshow("Hey, I'm on a new line!", true)
 page:endtext()
 
+-- Measuring Text
+print(page:textwidth("hello"))
+
 -- Drawing Shapes
 page:circle(100, 100, 50)
 page:rectangle(150, 150, 100, 100)
@@ -265,7 +268,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_CreateTextAnnot
 * [ ] HPDF_Page_CreateLinkAnnot
 * [ ] HPDF_Page_CreateURILinkAnnot
-* [ ] HPDF_Page_TextWidth
+* [x] ~~HPDF_Page_TextWidth~~
 * [ ] HPDF_Page_MeasureText
 * [ ] HPDF_Page_GetGMode
 * [ ] HPDF_Page_GetCurrentPos
