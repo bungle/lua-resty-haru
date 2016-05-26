@@ -27,15 +27,27 @@ hpdf:use "cnsfonts"
 hpdf:use "cntfonts"
 
 -- Setting General Properties
-hpdf.encoding        = "UTF-8"
-hpdf.pagelayout      = "single"
-hpdf.pagemode        = "outline"
-hpdf.compressionmode = "all"
-hpdf.author          = "@bungle"
-hpdf.creator         = "lua-resty-haru"
-hpdf.title           = "Demo"
-hpdf.subject         = "Testing FFI Bindings"
-hpdf.keywords        = "openresty pdf haru lua luajit ffi"
+hpdf.encoding         = "UTF-8"
+hpdf.pagelayout       = "single"
+hpdf.pagemode         = "outline"
+hpdf.compressionmode  = "all"
+hpdf.author           = "@bungle"
+hpdf.creator          = "lua-resty-haru"
+hpdf.title            = "Demo"
+hpdf.subject          = "Testing FFI Bindings"
+hpdf.keywords         = "openresty pdf haru lua luajit ffi"
+hpdf.creationdate     = { 2015, 1, 1, 12, 0, 0, '+', 2, 0 }
+hpdf.modificationdate = {
+    year        = 2015,
+    month       = 1,
+    day         = 1,
+    hour        = 12,
+    minutes     = 0,
+    seconds     = 0,
+    ind         = '+',
+    off_hour    = 2,
+    off_minutes = 0
+}
 
 -- General Properties
 print(hpdf.pagelayout)
@@ -45,6 +57,8 @@ print(hpdf.creator)
 print(hpdf.title)
 print(hpdf.subject)
 print(hpdf.keywords)
+print(hpdf.creationdate)
+print(hpdf.modificationdate)
 
 -- Loading a Font
 local helvetica = fonts:get "Helvetica"
@@ -230,7 +244,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_LoadJpegImageFromFile~~
 * [x] ~~HPDF_SetInfoAttr~~
 * [x] ~~HPDF_GetInfoAttr~~
-* [ ] HPDF_SetInfoDateAttr
+* [x] ~~HPDF_SetInfoDateAttr~~
 * [ ] HPDF_SetPassword
 * [x] ~~HPDF_SetPermission~~
 * [ ] HPDF_SetEncryptionMode

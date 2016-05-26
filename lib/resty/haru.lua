@@ -12,12 +12,16 @@ local infotype = enums.infotype
 local ffi = require "ffi"
 local ffi_gc = ffi.gc
 local ffi_str = ffi.string
+local ffi_new = ffi.new
 local setmetatable = setmetatable
 local lower = string.lower
+local byte = string.byte
 local rawset = rawset
 local tonumber = tonumber
 local type = type
 
+
+local date = ffi_new "HPDF_Date"
 local haru = {}
 
 function haru.new()
@@ -101,7 +105,16 @@ function haru:__newindex(n, v)
         lib.HPDF_SetPermission(self.context, v)
     elseif infotype[n] then
         if (type(v) == "table") then
-            -- TODO: lib.HPDF_SetInfoDateAttr(self.context, infotype[n])...)
+            date.year        = v.year        or v[1] or 0
+            date.month       = v.month       or v[2] or 0
+            date.day         = v.day         or v[3] or 0
+            date.hour        = v.hour        or v[4] or 0
+            date.minutes     = v.minutes     or v[5] or 0
+            date.seconds     = v.seconds     or v[6] or 0
+            date.ind         = byte(v.ind    or v[7] or " ")
+            date.off_hour    = v.off_hour    or v[8] or 0
+            date.off_minutes = v.off_minutes or v[9] or 0
+            lib.HPDF_SetInfoDateAttr(self.context, infotype[n], date)
         else
             lib.HPDF_SetInfoAttr(self.context, infotype[n], v)
         end

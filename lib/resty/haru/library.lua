@@ -211,7 +211,6 @@ HPDF_LoadRawImageFromFile()
 HPDF_LoadRawImageFromMem()
 HPDF_LoadPngImageFromMem()
 HPDF_LoadJpegImageFromMem()
-HPDF_SetInfoDateAttr()
 HPDF_SetPassword()
 HPDF_SetEncryptionMode()
 Page:
