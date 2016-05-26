@@ -323,25 +323,25 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_Arc~~
 * [x] ~~HPDF_Page_BeginText~~
 * [x] ~~HPDF_Page_Circle~~
-* [ ] HPDF_Page_Clip
-* [ ] HPDF_Page_ClosePath
-* [ ] HPDF_Page_ClosePathStroke
-* [ ] HPDF_Page_ClosePathEofillStroke
-* [ ] HPDF_Page_ClosePathFillStroke
+* [x] ~~HPDF_Page_Clip~~
+* [x] ~~HPDF_Page_ClosePath~~
+* [x] ~~HPDF_Page_ClosePathStroke~~
+* [x] ~~HPDF_Page_ClosePathEofillStroke~~
+* [x] ~~HPDF_Page_ClosePathFillStroke~~
 * [ ] HPDF_Page_Concat
 * [ ] HPDF_Page_CurveTo
 * [ ] HPDF_Page_CurveTo2
 * [ ] HPDF_Page_CurveTo3
 * [x] ~~HPDF_Page_DrawImage~~
 * [x] ~~HPDF_Page_Ellipse~~
-* [ ] HPDF_Page_EndPath
+* [x] ~~HPDF_Page_EndPath~~
 * [x] ~~HPDF_Page_EndText~~
-* [ ] HPDF_Page_Eoclip
-* [ ] HPDF_Page_Eofill
-* [ ] HPDF_Page_EofillStroke
+* [x] ~~HPDF_Page_Eoclip~~
+* [x] ~~HPDF_Page_Eofill~~
+* [x] ~~HPDF_Page_EofillStroke~~
 * [ ] HPDF_Page_ExecuteXObject
-* [ ] HPDF_Page_Fill
-* [ ] HPDF_Page_FillStroke
+* [x] ~~HPDF_Page_Fill~~
+* [x] ~~HPDF_Page_FillStroke~~
 * [x] ~~HPDF_Page_GRestore~~
 * [x] ~~HPDF_Page_GSave~~
 * [x] ~~HPDF_Page_LineTo~~

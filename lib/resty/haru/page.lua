@@ -28,6 +28,61 @@ function page:grestore()
     return r ~= 0 and r or nil
 end
 
+function page:clip()
+    local r = lib.HPDF_Page_Clip(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:eoclip()
+    local r = lib.HPDF_Page_Eoclip(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:fill()
+    local r = lib.HPDF_Page_Fill(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:fillstroke()
+    local r = lib.HPDF_Page_FillStroke(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:eofill()
+    local r = lib.HPDF_Page_Eofill(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:eofillstroke()
+    local r = lib.HPDF_Page_EofillStroke(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:closepath()
+    local r = lib.HPDF_Page_ClosePath(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:closepathstroke()
+    local r = lib.HPDF_Page_ClosePathStroke(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:closepathfillstroke()
+    local r = lib.HPDF_Page_ClosePathFillStroke(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:closepatheofillstroke()
+    local r = lib.HPDF_Page_ClosePathEofillStroke(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:endpath()
+    local r = lib.HPDF_Page_EndPath(self.context)
+    return r ~= 0 and r or nil
+end
+
 function page:ln()
     local r = lib.HPDF_Page_MoveToNextLine(self.context)
     return r ~= 0 and r or nil

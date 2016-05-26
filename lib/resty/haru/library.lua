@@ -191,6 +191,17 @@ typedef struct _HPDF_Point {
        HPDF_REAL HPDF_Page_GetFlat(HPDF_Page page);
      HPDF_UINT16 HPDF_Page_GetGMode(HPDF_Page page);
        HPDF_UINT HPDF_Page_GetGStateDepth(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_Clip(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_ClosePath(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_ClosePathStroke(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_ClosePathEoillStroke(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_ClosePathFillStroke(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_EndPath(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_EoClip(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_Eofill(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_EofillStroke(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_Fill(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_FillStroke(HPDF_Page page);
      HPDF_STATUS HPDF_UseJPEncodings(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseKREncodings(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseCNSEncodings(HPDF_Doc pdf);
@@ -273,22 +284,11 @@ HPDF_Page_SetSlideShow()
 HPDF_Page_New_Content_Stream()
 HPDF_Page_Insert_Shared_Content_Stream()
 Graphics:
-HPDF_Page_Clip()
-HPDF_Page_ClosePath()
-HPDF_Page_ClosePathStroke()
-HPDF_Page_ClosePathEofillStroke()
-HPDF_Page_ClosePathFillStroke()
 HPDF_Page_Concat()
 HPDF_Page_CurveTo()
 HPDF_Page_CurveTo2()
 HPDF_Page_CurveTo3()
-HPDF_Page_EndPath()
-HPDF_Page_Eoclip()
-HPDF_Page_Eofill()
-HPDF_Page_EofillStroke()
 HPDF_Page_ExecuteXObject()
-HPDF_Page_Fill()
-HPDF_Page_FillStroke()
 HPDF_Page_MoveTextPos2()
 HPDF_Page_SetCMYKFill()
 HPDF_Page_SetCMYKStroke()
