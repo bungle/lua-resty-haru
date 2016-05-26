@@ -110,6 +110,12 @@ print(page.horizontalscaling)
 print(page.textleading)
 print(page.textrise)
 print(page.textrenderingmode)
+print(page.fontsize)
+print(page.linewidth)
+print(page.miterlimit)
+print(page.flatness)
+print(page.gmode)
+print(page.gdepth)
 
 local x, y = page:pos()
 print(x, y)
@@ -280,18 +286,18 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_CreateURILinkAnnot
 * [x] ~~HPDF_Page_TextWidth~~
 * [ ] HPDF_Page_MeasureText
-* [ ] HPDF_Page_GetGMode
+* [x] ~~HPDF_Page_GetGMode~~
 * [x] ~~HPDF_Page_GetCurrentPos~~
 * [x] ~~HPDF_Page_GetCurrentTextPos~~
 * [ ] HPDF_Page_GetCurrentFont
-* [ ] HPDF_Page_GetCurrentFontSize
+* [x] ~~HPDF_Page_GetCurrentFontSize~~
 * [ ] HPDF_Page_GetTransMatrix
-* [ ] HPDF_Page_GetLineWidth
+* [x] ~~HPDF_Page_GetLineWidth~~
 * [ ] HPDF_Page_GetLineCap
 * [ ] HPDF_Page_GetLineJoin
-* [ ] HPDF_Page_GetMiterLimit
+* [x] ~~HPDF_Page_GetMiterLimit~~
 * [ ] HPDF_Page_GetDash
-* [ ] HPDF_Page_GetFlat
+* [x] ~~HPDF_Page_GetFlat~~
 * [x] ~~HPDF_Page_GetCharSpace~~
 * [x] ~~HPDF_Page_GetWordSpace~~
 * [x] ~~HPDF_Page_GetHorizontalScalling~~
@@ -307,7 +313,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_GetStrokingColorSpace
 * [ ] HPDF_Page_GetFillingColorSpace
 * [ ] HPDF_Page_GetTextMatrix
-* [ ] HPDF_Page_GetGStateDepth
+* [x] ~~HPDF_Page_GetGStateDepth~~
 * [ ] HPDF_Page_SetSlideShow
 * [ ] HPDF_Page_New_Content_Stream
 * [ ] HPDF_Page_Insert_Shared_Content_Stream

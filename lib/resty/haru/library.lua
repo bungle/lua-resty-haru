@@ -7,6 +7,7 @@ typedef unsigned long HPDF_STATUS;
 typedef float HPDF_REAL;
 typedef signed int HPDF_INT;
 typedef unsigned int HPDF_UINT;
+typedef unsigned short HPDF_UINT16;
 typedef signed int HPDF_BOOL;
 typedef void *HPDF_HANDLE;
 typedef HPDF_HANDLE HPDF_Doc;
@@ -184,6 +185,12 @@ typedef struct _HPDF_Point {
      HPDF_STATUS HPDF_Page_DrawImage(HPDF_Page page, HPDF_Image image, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
       HPDF_Point HPDF_Page_GetCurrentPos(HPDF_Page page);
       HPDF_Point HPDF_Page_GetCurrentTextPos(HPDF_Page page);
+       HPDF_REAL HPDF_Page_GetCurrentFontSize(HPDF_Page page);
+       HPDF_REAL HPDF_Page_GetLineWidth(HPDF_Page page);
+       HPDF_REAL HPDF_Page_GetMiterLimit(HPDF_Page page);
+       HPDF_REAL HPDF_Page_GetFlat(HPDF_Page page);
+     HPDF_UINT16 HPDF_Page_GetGMode(HPDF_Page page);
+       HPDF_UINT HPDF_Page_GetGStateDepth(HPDF_Page page);
      HPDF_STATUS HPDF_UseJPEncodings(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseKREncodings(HPDF_Doc pdf);
      HPDF_STATUS HPDF_UseCNSEncodings(HPDF_Doc pdf);
@@ -250,16 +257,11 @@ HPDF_Page_CreateTextAnnot()
 HPDF_Page_CreateLinkAnnot()
 HPDF_Page_CreateURILinkAnnot()
 HPDF_Page_MeasureText()
-HPDF_Page_GetGMode()
 HPDF_Page_GetCurrentFont()
-HPDF_Page_GetCurrentFontSize()
 HPDF_Page_GetTransMatrix()
-HPDF_Page_GetLineWidth()
 HPDF_Page_GetLineCap()
 HPDF_Page_GetLineJoin()
-HPDF_Page_GetMiterLimit()
 HPDF_Page_GetDash()
-HPDF_Page_GetFlat()
 HPDF_Page_GetRGBFill()
 HPDF_Page_GetRGBStroke()
 HPDF_Page_GetCMYKFill()
@@ -267,7 +269,6 @@ HPDF_Page_GetCMYKStroke()
 HPDF_Page_GetStrokingColorSpace()
 HPDF_Page_GetFillingColorSpace()
 HPDF_Page_GetTextMatrix()
-HPDF_Page_GetGStateDepth()
 HPDF_Page_SetSlideShow()
 HPDF_Page_New_Content_Stream()
 HPDF_Page_Insert_Shared_Content_Stream()

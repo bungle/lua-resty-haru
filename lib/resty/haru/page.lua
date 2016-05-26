@@ -43,7 +43,6 @@ function page:pos()
     return pos.x, pos.y
 end
 
-
 function page:circle(x, y, r)
     local r = lib.HPDF_Page_Circle(self.context, x, y, r)
     return r ~= 0 and r or nil
@@ -188,6 +187,18 @@ function page:__index(n)
         return lib.HPDF_Page_GetTextRise(self.context)
     elseif n == "textrenderingmode" then
         return lib.HPDF_Page_GetTextRenderingMode(self.context)
+    elseif n == "fontsize" then
+        return lib.HPDF_Page_GetCurrentFontSize(self.context);
+    elseif n == "linewidth" then
+        return lib.HPDF_Page_GetLineWidth(self.context);
+    elseif n == "miterlimit" then
+        return lib.HPDF_Page_GetMiterLimit(self.context);
+    elseif n == "flatness" then
+        return lib.HPDF_Page_GetFlat(self.context);
+    elseif n == "gmode" then
+        return lib.HPDF_Page_GetGMode(self.context);
+    elseif n == "gdepth" then
+        return lib.HPDF_Page_GetGStateDepth(self.context);
     else
         return page[n]
     end
