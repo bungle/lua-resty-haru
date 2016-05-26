@@ -134,6 +134,8 @@ page.horizontalscaling = page.horizontalscaling
 page.textleading       = page.textleading
 page.textrise          = page.textrise
 page.textrenderingmode = page.textrenderingmode
+page.linewidth         = page.linewidth
+page.miterlimit        = page.miterlimit
 
 -- Setting Page Size
 page:size("a4", "landscape")
@@ -361,8 +363,8 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_SetHorizontalScalling~~
 * [ ] HPDF_Page_SetLineCap
 * [ ] HPDF_Page_SetLineJoin
-* [ ] HPDF_Page_SetLineWidth
-* [ ] HPDF_Page_SetMiterLimit
+* [x] ~~HPDF_Page_SetLineWidth~~
+* [x] ~~HPDF_Page_SetMiterLimit~~
 * [ ] HPDF_Page_SetRGBFill
 * [ ] HPDF_Page_SetRGBStroke
 * [x] ~~HPDF_Page_SetTextLeading~~

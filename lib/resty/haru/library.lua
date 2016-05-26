@@ -187,7 +187,9 @@ typedef struct _HPDF_Point {
       HPDF_Point HPDF_Page_GetCurrentTextPos(HPDF_Page page);
        HPDF_REAL HPDF_Page_GetCurrentFontSize(HPDF_Page page);
        HPDF_REAL HPDF_Page_GetLineWidth(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetLineWidth(HPDF_Page page, HPDF_REAL line_width);
        HPDF_REAL HPDF_Page_GetMiterLimit(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetMiterLimit(HPDF_Page page, HPDF_REAL miter_limit);
        HPDF_REAL HPDF_Page_GetFlat(HPDF_Page page);
      HPDF_UINT16 HPDF_Page_GetGMode(HPDF_Page page);
        HPDF_UINT HPDF_Page_GetGStateDepth(HPDF_Page page);
@@ -296,8 +298,6 @@ HPDF_Page_SetDash()
 HPDF_Page_SetExtGState()
 HPDF_Page_SetLineCap()
 HPDF_Page_SetLineJoin()
-HPDF_Page_SetLineWidth()
-HPDF_Page_SetMiterLimit()
 HPDF_Page_SetRGBFill()
 HPDF_Page_SetRGBStroke()
 HPDF_Page_SetTextMatrix()

@@ -286,9 +286,13 @@ function page:__newindex(n, v)
         r = lib.HPDF_Page_SetTextRise(self.context, v)
     elseif n == "textrenderingmode" then
         if type(v) == "string" then
-            v = alignment[v]
+            v = renderingmode[v]
         end
         r = lib.HPDF_Page_SetTextRenderingMode(self.context, type(v) == "number" and v or renderingmode.fill)
+    elseif n == "linewidth" then
+        r = lib.HPDF_Page_SetLineWidth(self.context, v)
+    elseif n == "miterlimit" then
+        r = lib.HPDF_Page_SetMiterLimit(self.context, v)
     else
         rawset(self, n, v)
     end
