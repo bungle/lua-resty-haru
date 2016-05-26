@@ -110,6 +110,18 @@ typedef enum _HPDF_InfoType {
     HPDF_INFO_GTS_PDFX,
     HPDF_INFO_EOF
 } HPDF_InfoType;
+typedef enum _HPDF_LineCap {
+    HPDF_BUTT_END = 0,
+    HPDF_ROUND_END,
+    HPDF_PROJECTING_SCUARE_END,
+    HPDF_LINECAP_EOF
+} HPDF_LineCap;
+typedef enum _HPDF_LineJoin {
+    HPDF_MITER_JOIN = 0,
+    HPDF_ROUND_JOIN,
+    HPDF_BEVEL_JOIN,
+    HPDF_LINEJOIN_EOF
+} HPDF_LineJoin;
 typedef struct _HPDF_Date {
     HPDF_INT    year;
     HPDF_INT    month;
@@ -190,6 +202,10 @@ typedef struct _HPDF_Point {
      HPDF_STATUS HPDF_Page_SetLineWidth(HPDF_Page page, HPDF_REAL line_width);
        HPDF_REAL HPDF_Page_GetMiterLimit(HPDF_Page page);
      HPDF_STATUS HPDF_Page_SetMiterLimit(HPDF_Page page, HPDF_REAL miter_limit);
+    HPDF_LineCap HPDF_Page_GetLineCap(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetLineCap(HPDF_Page page, HPDF_LineCap line_cap);
+   HPDF_LineJoin HPDF_Page_GetLineJoin(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetLineJoin(HPDF_Page page, HPDF_LineJoin line_join);
        HPDF_REAL HPDF_Page_GetFlat(HPDF_Page page);
      HPDF_UINT16 HPDF_Page_GetGMode(HPDF_Page page);
        HPDF_UINT HPDF_Page_GetGStateDepth(HPDF_Page page);
@@ -272,8 +288,6 @@ HPDF_Page_CreateURILinkAnnot()
 HPDF_Page_MeasureText()
 HPDF_Page_GetCurrentFont()
 HPDF_Page_GetTransMatrix()
-HPDF_Page_GetLineCap()
-HPDF_Page_GetLineJoin()
 HPDF_Page_GetDash()
 HPDF_Page_GetRGBFill()
 HPDF_Page_GetRGBStroke()
@@ -296,8 +310,6 @@ HPDF_Page_SetCMYKFill()
 HPDF_Page_SetCMYKStroke()
 HPDF_Page_SetDash()
 HPDF_Page_SetExtGState()
-HPDF_Page_SetLineCap()
-HPDF_Page_SetLineJoin()
 HPDF_Page_SetRGBFill()
 HPDF_Page_SetRGBStroke()
 HPDF_Page_SetTextMatrix()

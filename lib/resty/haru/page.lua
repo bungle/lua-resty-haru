@@ -6,9 +6,12 @@ local renderingmode = enums.textrenderingmode
 local alignment = enums.align
 local pagesize = enums.pagesize
 local pagedirection = enums.pagedirection
+local linecap = enums.linecap
+local linejoin = enums.linejoin
 local setmetatable = setmetatable
 local rawset = rawset
 local type = type
+local tonumber = tonumber
 
 local l = ffi_new("HPDF_UINT[1]", 0)
 
@@ -248,6 +251,10 @@ function page:__index(n)
         return lib.HPDF_Page_GetLineWidth(self.context);
     elseif n == "miterlimit" then
         return lib.HPDF_Page_GetMiterLimit(self.context);
+    elseif n == "linecap" then
+        return tonumber(lib.HPDF_Page_GetLineCap(self.context));
+    elseif n == "linejoin" then
+        return tonumber(lib.HPDF_Page_GetLineJoin(self.context));
     elseif n == "flatness" then
         return lib.HPDF_Page_GetFlat(self.context);
     elseif n == "gmode" then
@@ -293,6 +300,16 @@ function page:__newindex(n, v)
         r = lib.HPDF_Page_SetLineWidth(self.context, v)
     elseif n == "miterlimit" then
         r = lib.HPDF_Page_SetMiterLimit(self.context, v)
+    elseif n == "linecap" then
+        if type(v) == "string" then
+            v = linecap[v]
+        end
+        lib.HPDF_Page_SetLineCap(self.context, v)
+    elseif n == "linejoin" then
+        if type(v) == "string" then
+            v = linejoin[v]
+        end
+        lib.HPDF_Page_SetLineJoin(self.context, v)
     else
         rawset(self, n, v)
     end

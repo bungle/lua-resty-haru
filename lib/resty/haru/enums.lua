@@ -84,6 +84,18 @@ return {
         all                = 8,
         copy               = 16,
         edit               = 32
+    },
+    linecap = {
+        butt               = lib.HPDF_BUTT_END,
+        round              = lib.HPDF_ROUND_END,
+        square             = lib.HPDF_PROJECTING_SCUARE_END,
+        eof                = lib.HPDF_LINECAP_EOF
+    },
+    linejoin = {
+        miter              = lib.HPDF_MITER_JOIN,
+        round              = lib.HPDF_ROUND_JOIN,
+        bevel              = lib.HPDF_BEVEL_JOIN,
+        eof                = lib.HPDF_LINEJOIN_EOF
     }
 }
 

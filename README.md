@@ -112,7 +112,8 @@ print(page.textrise)
 print(page.textrenderingmode)
 print(page.fontsize)
 print(page.linewidth)
-print(page.miterlimit)
+print(page.linecap)
+print(page.linejoin)
 print(page.flatness)
 print(page.gmode)
 print(page.gdepth)
@@ -136,6 +137,8 @@ page.textrise          = page.textrise
 page.textrenderingmode = page.textrenderingmode
 page.linewidth         = page.linewidth
 page.miterlimit        = page.miterlimit
+page.linecap           = page.linecap
+page.linejoin          = page.linejoin
 
 -- Setting Page Size
 page:size("a4", "landscape")
@@ -181,6 +184,8 @@ page:arc(400, 400, 50, 180, 360)
 page:stroke()
 
 -- Drawing Lines
+page.linewidth = 10
+page.linecap = "round"
 page:move(200, 300)
 page:line(400, 300)
 page:stroke()
@@ -295,8 +300,8 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_GetCurrentFontSize~~
 * [ ] HPDF_Page_GetTransMatrix
 * [x] ~~HPDF_Page_GetLineWidth~~
-* [ ] HPDF_Page_GetLineCap
-* [ ] HPDF_Page_GetLineJoin
+* [x] ~~HPDF_Page_GetLineCap~~
+* [x] ~~HPDF_Page_GetLineJoin~~
 * [x] ~~HPDF_Page_GetMiterLimit~~
 * [ ] HPDF_Page_GetDash
 * [x] ~~HPDF_Page_GetFlat~~
@@ -361,8 +366,8 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_SetGrayFill~~
 * [x] ~~HPDF_Page_SetGrayStroke~~
 * [x] ~~HPDF_Page_SetHorizontalScalling~~
-* [ ] HPDF_Page_SetLineCap
-* [ ] HPDF_Page_SetLineJoin
+* [x] ~~HPDF_Page_SetLineCap~~
+* [x] ~~HPDF_Page_SetLineJoin~~
 * [x] ~~HPDF_Page_SetLineWidth~~
 * [x] ~~HPDF_Page_SetMiterLimit~~
 * [ ] HPDF_Page_SetRGBFill
