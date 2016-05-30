@@ -11,6 +11,7 @@ local compressionmode = enums.compressionmode
 local encryptionmode = enums.encryptionmode
 local permission = enums.permission
 local infotype = enums.infotype
+local numberstyle = enums.numberstyle
 local ffi = require "ffi"
 local ffi_gc = ffi.gc
 local ffi_str = ffi.string
@@ -74,6 +75,18 @@ end
 
 function haru:outline(parent, title, encoder)
     return outline.new(lib.HPDF_CreateOutline(self.context, parent, title, type(encoder) == "table" and encoder.context or nil))
+end
+
+function haru:pagelabel(page, style, first, prefix)
+    if type(style) == "string" then
+        style = numberstyle[style]
+    end
+    local r = lib.HPDF_AddPageLabel(self.context, page or 0, style or numberstyle.decimal, first or 1, prefix or "");
+    if r == 0 then
+        return self
+    else
+        return nil, r
+    end
 end
 
 function haru:__index(n)

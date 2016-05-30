@@ -111,6 +111,14 @@ return {
         pattern            = lib.HPDF_CS_PATTERN,
         eof                = lib.HPDF_CS_EOF
     },
+    numberstyle = {
+        decimal            = lib.HPDF_PAGE_NUM_STYLE_DECIMAL,
+        upperroman         = lib.HPDF_PAGE_NUM_STYLE_UPPER_ROMAN,
+        lowerroman         = lib.HPDF_PAGE_NUM_STYLE_LOWER_ROMAN,
+        upperletters       = lib.HPDF_PAGE_NUM_STYLE_UPPER_LETTERS,
+        lowerletters       = lib.HPDF_PAGE_NUM_STYLE_LOWER_LETTERS,
+        eof                = lib.HPDF_PAGE_NUM_STYLE_EOF
+    },
     encryptionmode = {
         r2                 = lib.HPDF_ENCRYPT_R2,
         r3                 = lib.HPDF_ENCRYPT_R3

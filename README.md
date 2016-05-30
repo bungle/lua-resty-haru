@@ -277,6 +277,9 @@ hpdf.password    = {
     user  = "demo-user"
 }
 
+-- Setting Page Labels
+hpdf:pagelabel(0, "upperroman", 1, "");
+
 -- Saving PDF
 hpdf:save "demo.pdf"
 ```
@@ -313,7 +316,7 @@ hpdf:save "demo.pdf"
 
 ##### Font Handling
 
-* [ ] HPDF_AddPageLabel
+* [x] ~~HPDF_AddPageLabel~~ (why is this here?)
 * [x] ~~HPDF_GetFont~~
 * [ ] HPDF_LoadType1FontFromFile
 * [x] ~~HPDF_LoadTTFontFromFile~~

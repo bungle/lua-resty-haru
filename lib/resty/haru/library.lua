@@ -166,6 +166,14 @@ typedef enum  _HPDF_EncryptMode {
     HPDF_ENCRYPT_R2 = 2,
     HPDF_ENCRYPT_R3 = 3
 } HPDF_EncryptMode;
+typedef enum _HPDF_PageNumStyle {
+    HPDF_PAGE_NUM_STYLE_DECIMAL = 0,
+    HPDF_PAGE_NUM_STYLE_UPPER_ROMAN,
+    HPDF_PAGE_NUM_STYLE_LOWER_ROMAN,
+    HPDF_PAGE_NUM_STYLE_UPPER_LETTERS,
+    HPDF_PAGE_NUM_STYLE_LOWER_LETTERS,
+    HPDF_PAGE_NUM_STYLE_EOF
+} HPDF_PageNumStyle;
 typedef struct _HPDF_Date {
     HPDF_INT year;
     HPDF_INT month;
@@ -217,6 +225,7 @@ typedef struct _HPDF_CMYKColor {
      HPDF_STATUS HPDF_SetCompressionMode(HPDF_Doc pdf, HPDF_UINT mode);
      HPDF_STATUS HPDF_SetEncryptionMode(HPDF_Doc pdf, HPDF_EncryptMode mode, HPDF_UINT key_len);
      HPDF_STATUS HPDF_SetPassword(HPDF_Doc pdf, const char *owner_passwd, const char *user_passwd);
+     HPDF_STATUS HPDF_AddPageLabel(HPDF_Doc pdf, HPDF_UINT page_num, HPDF_PageNumStyle style, HPDF_UINT first_page, const char *prefix);
      HPDF_STATUS HPDF_Page_GSave(HPDF_Page page);
      HPDF_STATUS HPDF_Page_GRestore(HPDF_Page page);
      HPDF_STATUS HPDF_Page_MoveTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
@@ -361,7 +370,6 @@ Pages Handling:
 HPDF_SetPagesConfiguration()
 HPDF_SetOpenAction()
 Font Handling:
-HPDF_AddPageLabel()
 HPDF_LoadType1FontFromFile()
 HPDF_LoadTTFontFromFile2()
 Other Functions:
