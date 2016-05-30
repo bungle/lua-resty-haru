@@ -207,6 +207,7 @@ typedef struct _HPDF_CMYKColor {
      HPDF_STATUS HPDF_Page_Arc(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius, HPDF_REAL ang1, HPDF_REAL ang2);
      HPDF_STATUS HPDF_Page_Ellipse(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL x_radius, HPDF_REAL y_radius);
      HPDF_STATUS HPDF_Page_LineTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
+     HPDF_STATUS HPDF_Page_CurveTo(HPDF_Page page, HPDF_REAL x1, HPDF_REAL y1, HPDF_REAL x2, HPDF_REAL y2, HPDF_REAL x3, HPDF_REAL y3);
      HPDF_STATUS HPDF_Page_Concat(HPDF_Page page, HPDF_REAL a, HPDF_REAL b, HPDF_REAL c, HPDF_REAL d, HPDF_REAL x, HPDF_REAL y);
      HPDF_STATUS HPDF_Page_SetSize(HPDF_Page page, HPDF_PageSizes size, HPDF_PageDirection direction);
        HPDF_REAL HPDF_Page_GetWidth(HPDF_Page page);
@@ -347,7 +348,6 @@ HPDF_Page_SetSlideShow()
 HPDF_Page_New_Content_Stream()
 HPDF_Page_Insert_Shared_Content_Stream()
 Graphics:
-HPDF_Page_CurveTo()
 HPDF_Page_CurveTo2()
 HPDF_Page_CurveTo3()
 HPDF_Page_ExecuteXObject()

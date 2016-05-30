@@ -128,6 +128,11 @@ function page:line(x, y)
     return r ~= 0 and r or nil
 end
 
+function page:curve(x1, y1, x2, y2, x3, y3)
+    local r = lib.HPDF_Page_CurveTo(self.context, x1, y1, x2, y2, x3, y3)
+    return r ~= 0 and r or nil
+end
+
 function page:stroke()
     local r = lib.HPDF_Page_Stroke(self.context)
     return r ~= 0 and r or nil

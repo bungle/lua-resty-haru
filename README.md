@@ -214,6 +214,11 @@ page.linewidth = 10
 page.linecap = "round"
 page:move(200, 300)
 page:line(400, 300)
+page:closepathstroke()
+
+-- Drawing Curves
+page:move(200, 300)
+page:curve(400, 300, 500, 550, 400, 300)
 page:stroke()
 
 -- Loading a Image
@@ -382,7 +387,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_ClosePathEofillStroke~~
 * [x] ~~HPDF_Page_ClosePathFillStroke~~
 * [x] ~~HPDF_Page_Concat~~
-* [ ] HPDF_Page_CurveTo
+* [x] ~~HPDF_Page_CurveTo~~
 * [ ] HPDF_Page_CurveTo2
 * [ ] HPDF_Page_CurveTo3
 * [x] ~~HPDF_Page_DrawImage~~
