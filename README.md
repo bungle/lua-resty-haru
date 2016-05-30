@@ -269,6 +269,9 @@ local annotation = page:textannotation(10, 600, 200, 500, "Test Annotation")
 annotation.opened = true
 annotation.icon   = "help"
 
+-- Setting Permission
+hpdf.permission = "read"
+
 -- Saving PDF
 hpdf:save "demo.pdf"
 ```
