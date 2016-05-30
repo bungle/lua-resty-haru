@@ -313,10 +313,10 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_GetTextLeading~~
 * [x] ~~HPDF_Page_GetTextRenderingMode~~
 * [x] ~~HPDF_Page_GetTextRise~~
-* [ ] HPDF_Page_GetRGBFill
-* [ ] HPDF_Page_GetRGBStroke
-* [ ] HPDF_Page_GetCMYKFill
-* [ ] HPDF_Page_GetCMYKStroke
+* [x] ~~HPDF_Page_GetRGBFill~~
+* [x] ~~HPDF_Page_GetRGBStroke~~
+* [x] ~~HPDF_Page_GetCMYKFill~~
+* [x] ~~HPDF_Page_GetCMYKStroke~~
 * [x] ~~HPDF_Page_GetGrayFill~~
 * [x] ~~HPDF_Page_GetGrayStroke~~
 * [x] ~~HPDF_Page_GetStrokingColorSpace~~
@@ -360,8 +360,8 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_MoveToNextLine~~
 * [x] ~~HPDF_Page_Rectangle~~
 * [x] ~~HPDF_Page_SetCharSpace~~
-* [ ] HPDF_Page_SetCMYKFill
-* [ ] HPDF_Page_SetCMYKStroke
+* [x] ~~HPDF_Page_SetCMYKFill~~
+* [x] ~~HPDF_Page_SetCMYKStroke~~
 * [ ] HPDF_Page_SetDash
 * [ ] HPDF_Page_SetExtGState
 * [x] ~~HPDF_Page_SetFontAndSize~~
@@ -372,8 +372,8 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_SetLineJoin~~
 * [x] ~~HPDF_Page_SetLineWidth~~
 * [x] ~~HPDF_Page_SetMiterLimit~~
-* [ ] HPDF_Page_SetRGBFill
-* [ ] HPDF_Page_SetRGBStroke
+* [x] ~~HPDF_Page_SetRGBFill~~
+* [x] ~~HPDF_Page_SetRGBStroke~~
 * [x] ~~HPDF_Page_SetTextLeading~~
 * [ ] HPDF_Page_SetTextMatrix
 * [x] ~~HPDF_Page_SetTextRenderingMode~~

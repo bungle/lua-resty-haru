@@ -137,20 +137,31 @@ typedef enum _HPDF_ColorSpace {
     HPDF_CS_EOF
 } HPDF_ColorSpace;
 typedef struct _HPDF_Date {
-    HPDF_INT    year;
-    HPDF_INT    month;
-    HPDF_INT    day;
-    HPDF_INT    hour;
-    HPDF_INT    minutes;
-    HPDF_INT    seconds;
-    char        ind;
-    HPDF_INT    off_hour;
-    HPDF_INT    off_minutes;
+    HPDF_INT year;
+    HPDF_INT month;
+    HPDF_INT day;
+    HPDF_INT hour;
+    HPDF_INT minutes;
+    HPDF_INT seconds;
+    char     ind;
+    HPDF_INT off_hour;
+    HPDF_INT off_minutes;
 } HPDF_Date;
 typedef struct _HPDF_Point {
-    HPDF_REAL  x;
-    HPDF_REAL  y;
+    HPDF_REAL x;
+    HPDF_REAL y;
 } HPDF_Point;
+typedef struct _HPDF_RGBColor {
+    HPDF_REAL r;
+    HPDF_REAL g;
+    HPDF_REAL b;
+} HPDF_RGBColor;
+typedef struct _HPDF_CMYKColor {
+    HPDF_REAL c;
+    HPDF_REAL m;
+    HPDF_REAL y;
+    HPDF_REAL k;
+} HPDF_CMYKColor;
         HPDF_Doc HPDF_New(HPDF_Error_Handler user_error_fn, void *user_data);
             void HPDF_Free(HPDF_Doc pdf);
      HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
@@ -223,6 +234,14 @@ typedef struct _HPDF_Point {
        HPDF_REAL HPDF_Page_GetFlat(HPDF_Page page);
      HPDF_UINT16 HPDF_Page_GetGMode(HPDF_Page page);
        HPDF_UINT HPDF_Page_GetGStateDepth(HPDF_Page page);
+   HPDF_RGBColor HPDF_Page_GetRGBStroke(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetRGBStroke(HPDF_Page  page, HPDF_REAL r, HPDF_REAL g, HPDF_REAL b);
+   HPDF_RGBColor HPDF_Page_GetRGBFill(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetRGBFill(HPDF_Page page, HPDF_REAL r, HPDF_REAL  g, HPDF_REAL  b);
+  HPDF_CMYKColor HPDF_Page_GetCMYKStroke(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetCMYKStroke(HPDF_Page page, HPDF_REAL c, HPDF_REAL m, HPDF_REAL y, HPDF_REAL k);
+  HPDF_CMYKColor HPDF_Page_GetCMYKFill(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetCMYKFill(HPDF_Page page, HPDF_REAL c, HPDF_REAL m, HPDF_REAL y, HPDF_REAL k);
      HPDF_STATUS HPDF_Page_Clip(HPDF_Page page);
      HPDF_STATUS HPDF_Page_ClosePath(HPDF_Page page);
      HPDF_STATUS HPDF_Page_ClosePathStroke(HPDF_Page page);
@@ -264,7 +283,6 @@ typedef struct _HPDF_Point {
      HPDF_STATUS HPDF_SetCurrentEncoder(HPDF_Doc pdf, const char *encoding_name);
 HPDF_EncoderType HPDF_Encoder_GetType(HPDF_Encoder encoder);
 HPDF_WritingMode HPDF_Encoder_GetWritingMode(HPDF_Encoder encoder);
-
 ]]
 
 --[[
@@ -305,10 +323,6 @@ HPDF_Page_MeasureText()
 HPDF_Page_GetCurrentFont()
 HPDF_Page_GetTransMatrix()
 HPDF_Page_GetDash()
-HPDF_Page_GetRGBFill()
-HPDF_Page_GetRGBStroke()
-HPDF_Page_GetCMYKFill()
-HPDF_Page_GetCMYKStroke()
 HPDF_Page_GetTextMatrix()
 HPDF_Page_SetSlideShow()
 HPDF_Page_New_Content_Stream()
@@ -320,12 +334,8 @@ HPDF_Page_CurveTo2()
 HPDF_Page_CurveTo3()
 HPDF_Page_ExecuteXObject()
 HPDF_Page_MoveTextPos2()
-HPDF_Page_SetCMYKFill()
-HPDF_Page_SetCMYKStroke()
 HPDF_Page_SetDash()
 HPDF_Page_SetExtGState()
-HPDF_Page_SetRGBFill()
-HPDF_Page_SetRGBStroke()
 HPDF_Page_SetTextMatrix()
 Fonts:
 HPDF_Font_GetUnicodeWidth()

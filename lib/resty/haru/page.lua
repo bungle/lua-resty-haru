@@ -14,6 +14,8 @@ local type = type
 local tonumber = tonumber
 
 local l = ffi_new("HPDF_UINT[1]", 0)
+local rgb = ffi_new "HPDF_RGBColor"
+local cmyk = ffi_new "HPDF_CMYKColor"
 
 local page = {}
 
@@ -265,6 +267,40 @@ function page:__index(n)
         return tonumber(lib.HPDF_Page_GetStrokingColorSpace(self.context));
     elseif n == "fillingcolorspace" then
         return tonumber(lib.HPDF_Page_GetFillingColorSpace(self.context));
+    elseif n == "rgbstroke" then
+        -- TODO: needs to release memory?
+        local c = lib.HPDF_Page_GetRGBStroke(self.context)
+        return {
+            r = c.r,
+            g = c.g,
+            b = c.b
+        }
+    elseif n == "rgbfill" then
+        -- TODO: needs to release memory?
+        local c = lib.HPDF_Page_GetRGBFill(self.context)
+        return {
+            r = c.r,
+            g = c.g,
+            b = c.b
+        }
+    elseif n == "cmykstroke" then
+        -- TODO: needs to release memory?
+        local c = lib.HPDF_Page_GetCMYKStroke(self.context)
+        return {
+            c = c.c,
+            m = c.m,
+            y = c.y,
+            k = c.k
+        }
+    elseif n == "cmykfill" then
+        -- TODO: needs to release memory?
+        local c = lib.HPDF_Page_GetCMYKFill(self.context)
+        return {
+            c = c.c,
+            m = c.m,
+            y = c.y,
+            k = c.k
+        }
     else
         return page[n]
     end
@@ -314,6 +350,40 @@ function page:__newindex(n, v)
             v = linejoin[v]
         end
         lib.HPDF_Page_SetLineJoin(self.context, v)
+    elseif n == "rgbstroke" then
+        local r, g, b = 0, 0, 0
+        if (type(v) == "table") then
+            r = v.r or v[1] or 0
+            g = v.g or v[2] or 0
+            b = v.b or v[3] or 0
+        end
+        r = lib.HPDF_Page_SetRGBStroke(self.context, r, g, b)
+    elseif n == "rgbfill" then
+        local r, g, b = 0, 0, 0
+        if (type(v) == "table") then
+            r = v.r or v[1] or 0
+            g = v.g or v[2] or 0
+            b = v.b or v[3] or 0
+        end
+        r = lib.HPDF_Page_SetRGBFill(self.context, r, g, b)
+    elseif n == "cmykstroke" then
+        local c, m, y, k = 0, 0, 0, 0
+        if (type(v) == "table") then
+            c = v.c or v[1] or 0
+            m = v.m or v[2] or 0
+            y = v.y or v[3] or 0
+            k = v.k or v[5] or 0
+        end
+        r = lib.HPDF_Page_SetCMYKStroke(self.context, c, m, y, k)
+    elseif n == "cmykfill" then
+        local c, m, y, k = 0, 0, 0, 0
+        if (type(v) == "table") then
+            c = v.c or v[1] or 0
+            m = v.m or v[2] or 0
+            y = v.y or v[3] or 0
+            k = v.k or v[5] or 0
+        end
+        r = lib.HPDF_Page_SetCMYKStroke(self.context, c, m, y, k)
     else
         rawset(self, n, v)
     end
