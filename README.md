@@ -8,9 +8,9 @@ Meanwhile checkout [@tavikukko](https://github.com/tavikukko)'s [`lua-resty-hpdf
 ```lua
 -- Some local variable declarations
 local dump     = require "pl.pretty".dump
-local print    = print
 local haru     = require "resty.haru"
 local hpdf     = haru.new()
+local print    = print
 local pages    = hpdf.pages
 local fonts    = hpdf.fonts
 local images   = hpdf.images
@@ -231,7 +231,7 @@ print(logo.bitspercomponent)
 page:image(logo, 450, 450, 100, 100)
 
 -- Creating a Destination
-local dest = page:destination()
+local dest = page:destination();
 
 -- Destination Properties
 dest.xyz = { 10, 20, 10 }
