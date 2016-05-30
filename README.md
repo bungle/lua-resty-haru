@@ -255,6 +255,13 @@ dest:fitbv(20)
 dest:fitv(10)
 dest:fitr(10, 20, 10, 20)
 
+-- Creating Outline
+local outline = hpdf:outline(nil, "Outline")
+
+-- Setting Outline Properties
+outline.destination = dest
+outline.opened = true
+
 -- Saving PDF
 hpdf:save "demo.pdf"
 ```
@@ -314,7 +321,7 @@ hpdf:save "demo.pdf"
 
 ##### Other Functions
 
-* [ ] HPDF_CreateOutline
+* [x] ~~HPDF_CreateOutline~~
 * [x] ~~HPDF_LoadPngImageFromFile~~
 * [ ] HPDF_LoadPngImageFromFile2
 * [ ] HPDF_LoadRawImageFromFile
@@ -465,8 +472,8 @@ hpdf:save "demo.pdf"
 
 ##### Outline
 
-* [ ] HPDF_Outline_SetOpened
-* [ ] HPDF_Outline_SetDestination
+* [x] ~~HPDF_Outline_SetOpened~~
+* [x] ~~HPDF_Outline_SetDestination~~
 
 ##### Destination
 

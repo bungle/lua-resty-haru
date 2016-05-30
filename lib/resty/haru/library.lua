@@ -34,6 +34,7 @@ typedef HPDF_HANDLE HPDF_Dict;
 typedef HPDF_HANDLE HPDF_EmbeddedFile;
 typedef HPDF_HANDLE HPDF_OutputIntent;
 typedef HPDF_HANDLE HPDF_Xref;
+typedef HPDF_Dict HPDF_Outline;
 typedef void (*HPDF_Error_Handler) (HPDF_STATUS error_no, HPDF_STATUS detail_no, void *user_data);
 typedef enum _HPDF_TextAlignment {
     HPDF_TALIGN_LEFT = 0,
@@ -304,6 +305,9 @@ HPDF_Destination HPDF_Page_CreateDestination(HPDF_Page page);
      HPDF_STATUS HPDF_Destination_SetFitBV(HPDF_Destination dst, HPDF_REAL top);
      HPDF_STATUS HPDF_Destination_SetFitV(HPDF_Destination dst, HPDF_REAL left);
      HPDF_STATUS HPDF_Destination_SetFitR(HPDF_Destination dst, HPDF_REAL left, HPDF_REAL bottom, HPDF_REAL right, HPDF_REAL top);
+    HPDF_Outline HPDF_CreateOutline(HPDF_Doc pdf, HPDF_Outline parent, const char *title, HPDF_Encoder encoder);
+     HPDF_STATUS HPDF_Outline_SetOpened(HPDF_Outline outline, HPDF_BOOL opened);
+     HPDF_STATUS HPDF_Outline_SetDestination(HPDF_Outline outline, HPDF_Destination dst);
 ]]
 
 --[[
@@ -326,7 +330,6 @@ HPDF_AddPageLabel()
 HPDF_LoadType1FontFromFile()
 HPDF_LoadTTFontFromFile2()
 Other Functions:
-HPDF_CreateOutline()
 HPDF_LoadPngImageFromFile2()
 HPDF_LoadRawImageFromFile()
 HPDF_LoadRawImageFromMem()
@@ -368,9 +371,6 @@ HPDF_LinkAnnot_SetBorderStyle()
 HPDF_TextAnnot_SetIcon()
 HPDF_TextAnnot_SetOpened()
 HPDF_Annotation_SetBorderStyle()
-Outline:
-HPDF_Outline_SetOpened()
-HPDF_Outline_SetDestination()
 Image:
 HPDF_Image_SetColorMask()
 HPDF_Image_SetMaskImage()

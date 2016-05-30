@@ -3,6 +3,7 @@ local pages = require "resty.haru.pages"
 local fonts = require "resty.haru.fonts"
 local images = require "resty.haru.images"
 local encoders = require "resty.haru.encoders"
+local outline = require "resty.haru.outline"
 local enums = require "resty.haru.enums"
 local pagelayout = enums.pagelayout
 local pagemode = enums.pagemode
@@ -68,6 +69,11 @@ function haru:save(file)
     else
         return nil, r
     end
+end
+
+function haru:outline(parent, title, encoder)
+    return outline.new(lib.HPDF_CreateOutline(self.context, parent, title, type(encoder) == "table" and encoder.context or nil))
+
 end
 
 function haru:__index(n)

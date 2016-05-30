@@ -1,5 +1,6 @@
 local lib = require "resty.haru.library"
 local setmetatable = setmetatable
+local rawset = rawset
 
 local destination = {}
 destination.__index = destination
@@ -47,7 +48,7 @@ function destination:__newindex(n, v)
     if n == "xyz" then
         lib.HPDF_Destination_SetXYZ(self.context, v.left or v[1] or 0, v.top or v[2] or 0, v.zoom or v[2] or 0)
     else
-        return destination[n]
+        rawset(self, n, v)
     end
 end
 
