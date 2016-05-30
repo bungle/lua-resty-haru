@@ -260,14 +260,14 @@ local outline = hpdf:outline(nil, "Outline")
 
 -- Setting Outline Properties
 outline.destination = dest
-outline.opened = true
+outline.opened      = true
 
 -- Creating Annotation
 local annotation = page:textannotation(10, 600, 200, 500, "Test Annotation")
 
 -- Setting Annotation Properties
 annotation.opened = true
-annotation.icon = "help"
+annotation.icon   = "help"
 
 -- Saving PDF
 hpdf:save "demo.pdf"

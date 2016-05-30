@@ -13,8 +13,7 @@ function annotation.new(context)
 end
 
 function annotation:__newindex(n, v)
-    if n == "borderstyle" then
-    elseif n == "icon" then
+    if n == "icon" then
         if type(v) == "string" then
             v = icon[v]
         end
