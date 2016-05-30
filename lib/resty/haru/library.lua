@@ -138,6 +138,30 @@ typedef enum _HPDF_ColorSpace {
     HPDF_CS_PATTERN,
     HPDF_CS_EOF
 } HPDF_ColorSpace;
+typedef enum _HPDF_AnnotHighlightMode {
+    HPDF_ANNOT_NO_HIGHTLIGHT = 0,
+    HPDF_ANNOT_INVERT_BOX,
+    HPDF_ANNOT_INVERT_BORDER,
+    HPDF_ANNOT_DOWN_APPEARANCE,
+    HPDF_ANNOT_HIGHTLIGHT_MODE_EOF
+} HPDF_AnnotHighlightMode;
+typedef enum _HPDF_AnnotIcon {
+    HPDF_ANNOT_ICON_COMMENT = 0,
+    HPDF_ANNOT_ICON_KEY,
+    HPDF_ANNOT_ICON_NOTE,
+    HPDF_ANNOT_ICON_HELP,
+    HPDF_ANNOT_ICON_NEW_PARAGRAPH,
+    HPDF_ANNOT_ICON_PARAGRAPH,
+    HPDF_ANNOT_ICON_INSERT,
+    HPDF_ANNOT_ICON_EOF
+} HPDF_AnnotIcon;
+typedef enum _HPDF_BSSubtype {
+    HPDF_BS_SOLID,
+    HPDF_BS_DASHED,
+    HPDF_BS_BEVELED,
+    HPDF_BS_INSET,
+    HPDF_BS_UNDERLINED
+} HPDF_BSSubtype;
 typedef struct _HPDF_Date {
     HPDF_INT year;
     HPDF_INT month;
@@ -308,6 +332,11 @@ HPDF_Destination HPDF_Page_CreateDestination(HPDF_Page page);
     HPDF_Outline HPDF_CreateOutline(HPDF_Doc pdf, HPDF_Outline parent, const char *title, HPDF_Encoder encoder);
      HPDF_STATUS HPDF_Outline_SetOpened(HPDF_Outline outline, HPDF_BOOL opened);
      HPDF_STATUS HPDF_Outline_SetDestination(HPDF_Outline outline, HPDF_Destination dst);
+ HPDF_Annotation HPDF_Page_CreateTextAnnot(HPDF_Page page, HPDF_Rect rect, const char *text, HPDF_Encoder encoder);
+ HPDF_Annotation HPDF_Page_CreateLinkAnnot(HPDF_Page page, HPDF_Rect rect, HPDF_Destination dst);
+ HPDF_Annotation HPDF_Page_CreateURILinkAnnot(HPDF_Page page, HPDF_Rect rect, const char *uri);
+     HPDF_STATUS HPDF_TextAnnot_SetOpened(HPDF_Annotation annot, HPDF_BOOL open);
+     HPDF_STATUS HPDF_TextAnnot_SetIcon(HPDF_Annotation annot, HPDF_AnnotIcon icon);
 ]]
 
 --[[

@@ -262,6 +262,13 @@ local outline = hpdf:outline(nil, "Outline")
 outline.destination = dest
 outline.opened = true
 
+-- Creating Annotation
+local annotation = page:textannotation(10, 600, 200, 500, "Test Annotation")
+
+-- Setting Annotation Properties
+annotation.opened = true
+annotation.icon = "help"
+
 -- Saving PDF
 hpdf:save "demo.pdf"
 ```
@@ -346,7 +353,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_GetWidth~~
 * [x] ~~HPDF_Page_GetHeight~~
 * [x] ~~HPDF_Page_CreateDestination~~
-* [ ] HPDF_Page_CreateTextAnnot
+* [x] ~~HPDF_Page_CreateTextAnnot~~
 * [ ] HPDF_Page_CreateLinkAnnot
 * [ ] HPDF_Page_CreateURILinkAnnot
 * [x] ~~HPDF_Page_TextWidth~~
@@ -466,8 +473,8 @@ hpdf:save "demo.pdf"
 
 * [ ] HPDF_LinkAnnot_SetHighlightMode
 * [ ] HPDF_LinkAnnot_SetBorderStyle
-* [ ] HPDF_TextAnnot_SetIcon
-* [ ] HPDF_TextAnnot_SetOpened
+* [x] ~~HPDF_TextAnnot_SetIcon~~
+* [x] ~~HPDF_TextAnnot_SetOpened~~
 * [ ] HPDF_Annotation_SetBorderStyle
 
 ##### Outline

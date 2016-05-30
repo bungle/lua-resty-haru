@@ -4,6 +4,7 @@ local lib = require "resty.haru.library"
 local enums = require "resty.haru.enums"
 local fnt = require "resty.haru.font"
 local destination = require "resty.haru.destination"
+local annotation = require "resty.haru.annotation"
 local renderingmode = enums.textrenderingmode
 local alignment = enums.align
 local pagesize = enums.pagesize
@@ -16,7 +17,7 @@ local type = type
 local tonumber = tonumber
 
 local l = ffi_new("HPDF_UINT[1]", 0)
-
+local rect = ffi_new "HPDF_Rect"
 local page = {}
 
 function page.new(context)
@@ -226,6 +227,14 @@ end
 
 function page:destination()
     return destination.new(lib.HPDF_Page_CreateDestination(self.context))
+end
+
+function page:textannotation(left, bottom, right, top, text, encoder)
+    rect.left   = left   or 0
+    rect.bottom = bottom or 0
+    rect.right  = right  or 0
+    rect.top    = top    or 0
+    return annotation.new(lib.HPDF_Page_CreateTextAnnot(self.context, rect, text, encoder))
 end
 
 function page:size(size, direction)

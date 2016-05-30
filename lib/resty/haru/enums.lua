@@ -110,6 +110,32 @@ return {
         indexed            = lib.HPDF_CS_INDEXED,
         pattern            = lib.HPDF_CS_PATTERN,
         eof                = lib.HPDF_CS_EOF
+    },
+    annotation = {
+        highlightmode = {
+            nohighlight    = lib.HPDF_ANNOT_NO_HIGHTLIGHT,
+            inverbox       = lib.HPDF_ANNOT_INVERT_BOX,
+            invertborder   = lib.HPDF_ANNOT_INVERT_BORDER,
+            downappearance = lib.HPDF_ANNOT_DOWN_APPEARANCE,
+            eof            = lib.HPDF_ANNOT_HIGHTLIGHT_MODE_EOF
+        },
+        icon = {
+            comment        = lib.HPDF_ANNOT_ICON_COMMENT,
+            key            = lib.HPDF_ANNOT_ICON_KEY,
+            note           = lib.HPDF_ANNOT_ICON_NOTE,
+            help           = lib.HPDF_ANNOT_ICON_HELP,
+            newparagraph   = lib.HPDF_ANNOT_ICON_NEW_PARAGRAPH,
+            paragraph      = lib.HPDF_ANNOT_ICON_PARAGRAPH,
+            insert         = lib.HPDF_ANNOT_ICON_INSERT,
+            eof            = lib.HPDF_ANNOT_ICON_EOF
+        },
+        borderstyle = {
+            solid          = lib.HPDF_BS_SOLID,
+            dashed         = lib.HPDF_BS_DASHED,
+            beveled        = lib.HPDF_BS_BEVELED,
+            inset          = lib.HPDF_BS_INSET,
+            underlined     = lib.HPDF_BS_UNDERLINED
+        }
     }
 }
 
