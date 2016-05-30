@@ -368,7 +368,6 @@ HPDF_SetPassword()
 HPDF_SetEncryptionMode()
 Page:
 HPDF_Page_SetRotate()
-HPDF_Page_CreateTextAnnot()
 HPDF_Page_CreateLinkAnnot()
 HPDF_Page_CreateURILinkAnnot()
 HPDF_Page_MeasureText()
@@ -397,8 +396,6 @@ HPDF_Encoder_GetUnicode()
 Annotations:
 HPDF_LinkAnnot_SetHighlightMode()
 HPDF_LinkAnnot_SetBorderStyle()
-HPDF_TextAnnot_SetIcon()
-HPDF_TextAnnot_SetOpened()
 HPDF_Annotation_SetBorderStyle()
 Image:
 HPDF_Image_SetColorMask()
