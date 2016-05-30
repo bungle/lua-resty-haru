@@ -200,6 +200,7 @@ typedef struct _HPDF_CMYKColor {
      HPDF_STATUS HPDF_Page_ShowTextNextLineEx(HPDF_Page page, HPDF_REAL word_space, HPDF_REAL char_space, const char *text);
      HPDF_STATUS HPDF_Page_MoveTextPos(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
      HPDF_STATUS HPDF_Page_Stroke(HPDF_Page page);
+       HPDF_Font HPDF_Page_GetCurrentFont(HPDF_Page page);
      HPDF_STATUS HPDF_Page_SetFontAndSize(HPDF_Page page, HPDF_Font font, HPDF_REAL size);
      HPDF_STATUS HPDF_Page_Circle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius);
      HPDF_STATUS HPDF_Page_Rectangle(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL width, HPDF_REAL height);
@@ -293,6 +294,15 @@ typedef struct _HPDF_CMYKColor {
      HPDF_STATUS HPDF_SetCurrentEncoder(HPDF_Doc pdf, const char *encoding_name);
 HPDF_EncoderType HPDF_Encoder_GetType(HPDF_Encoder encoder);
 HPDF_WritingMode HPDF_Encoder_GetWritingMode(HPDF_Encoder encoder);
+HPDF_Destination HPDF_Page_CreateDestination(HPDF_Page page);
+     HPDF_STATUS HPDF_Destination_SetXYZ(HPDF_Destination dst, HPDF_REAL left, HPDF_REAL top, HPDF_REAL zoom);
+     HPDF_STATUS HPDF_Destination_SetFit(HPDF_Destination dst);
+     HPDF_STATUS HPDF_Destination_SetFitB(HPDF_Destination dst);
+     HPDF_STATUS HPDF_Destination_SetFitH(HPDF_Destination dst, HPDF_REAL top);
+     HPDF_STATUS HPDF_Destination_SetFitBH(HPDF_Destination dst, HPDF_REAL top);
+     HPDF_STATUS HPDF_Destination_SetFitBV(HPDF_Destination dst, HPDF_REAL top);
+     HPDF_STATUS HPDF_Destination_SetFitV(HPDF_Destination dst, HPDF_REAL left);
+     HPDF_STATUS HPDF_Destination_SetFitR(HPDF_Destination dst, HPDF_REAL left, HPDF_REAL bottom, HPDF_REAL right, HPDF_REAL top);
 ]]
 
 --[[
@@ -325,7 +335,6 @@ HPDF_SetPassword()
 HPDF_SetEncryptionMode()
 Page:
 HPDF_Page_SetRotate()
-HPDF_Page_CreateDestination()
 HPDF_Page_CreateTextAnnot()
 HPDF_Page_CreateLinkAnnot()
 HPDF_Page_CreateURILinkAnnot()
@@ -362,15 +371,6 @@ HPDF_Annotation_SetBorderStyle()
 Outline:
 HPDF_Outline_SetOpened()
 HPDF_Outline_SetDestination()
-Destination:
-HPDF_Destination_SetXYZ()
-HPDF_Destination_SetFit()
-HPDF_Destination_SetFitH()
-HPDF_Destination_SetFitV()
-HPDF_Destination_SetFitR()
-HPDF_Destination_SetFitB()
-HPDF_Destination_SetFitBH()
-HPDF_Destination_SetFitBV()
 Image:
 HPDF_Image_SetColorMask()
 HPDF_Image_SetMaskImage()

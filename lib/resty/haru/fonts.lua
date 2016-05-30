@@ -10,12 +10,12 @@ local setmetatable = setmetatable
 local fonts = {}
 fonts.__index = fonts
 
-function fonts.new(document)
-    return setmetatable({ document = document, context = document.context }, fonts)
+function fonts.new(context)
+    return setmetatable({ context = context }, fonts)
 end
 
 function fonts:get(name, encoding)
-    return font.new(self.document, lib.HPDF_GetFont(self.context, name, encoding))
+    return font.new(lib.HPDF_GetFont(self.context, name, encoding))
 end
 
 function fonts:load(file, embed)

@@ -20,16 +20,15 @@ local rawset = rawset
 local tonumber = tonumber
 local type = type
 
-
 local date = ffi_new "HPDF_Date"
 local haru = {}
 
 function haru.new()
     local self = setmetatable({ context = ffi_gc(lib.HPDF_New(nil, nil), lib.HPDF_Free) }, haru)
-    self.pages = pages.new(self)
-    self.fonts = fonts.new(self)
-    self.images = images.new(self)
-    self.encoders = encoders.new(self)
+    self.pages = pages.new(self.context)
+    self.fonts = fonts.new(self.context)
+    self.images = images.new(self.context)
+    self.encoders = encoders.new(self.context)
     return self
 end
 

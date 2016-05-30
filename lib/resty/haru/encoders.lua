@@ -5,8 +5,8 @@ local rawset = rawset
 
 local encoders = {}
 
-function encoders.new(document)
-    return setmetatable({ document = document, context = document.context }, encoders)
+function encoders.new(context)
+    return setmetatable({ context = context }, encoders)
 end
 
 function encoders:__index(n)
@@ -15,7 +15,7 @@ function encoders:__index(n)
         if e == nil then
             return nil
         end
-        return encoder.new(self.document, e)
+        return encoder.new(self.context, e)
     else
         return encoders[n]
     end
@@ -35,7 +35,7 @@ function encoders:get(encoding)
     if e == nil then
         return nil
     end
-    return encoder.new(self.document, e)
+    return encoder.new(self.context, e)
 end
 
 return encoders

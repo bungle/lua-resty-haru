@@ -5,8 +5,8 @@ local setmetatable = setmetatable
 
 local image = {}
 
-function image.new(document, context)
-    return setmetatable({ document = document, context = context }, image)
+function image.new(context)
+    return setmetatable({ context = context }, image)
 end
 
 function image:size()
@@ -36,17 +36,5 @@ function image:__index(n)
         return r
     end
 end
-
---[[
-function image:__newindex(n, v)
-    if n == "width" then
-        lib.HPDF_Page_SetWidth(self.context, v)
-    elseif n == "height" then
-        lib.HPDF_Page_SetHeight(self.context, v)
-    else
-        rawset(self, n, v)
-    end
-end
---]]
 
 return image

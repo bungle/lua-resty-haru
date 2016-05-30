@@ -85,7 +85,7 @@ print(dejavu.ascent)
 print(dejavu.descent)
 print(dejavu.xheight)
 print(dejavu.capheight)
- dump(helvetica.bbox)
+ dump(dejavu.bbox)
 
 -- Current Encoder
 local encoder = hpdf.encoder
@@ -164,6 +164,17 @@ page = pages:insert(page)
 -- Setting a Font
 page:font(dejavu, 18)
 
+-- Getting Current Font
+local font = page:font()
+
+print(font.name)
+print(font.encoding)
+print(font.ascent)
+print(font.descent)
+print(font.xheight)
+print(font.capheight)
+ dump(font.bbox)
+
 -- Writing Text
 page:begintext()
 page:text(50, 400, "Hello")
@@ -218,6 +229,26 @@ print(logo.bitspercomponent)
 
 -- Drawing Image
 page:image(logo, 450, 450, 100, 100)
+
+-- Creating a Destination
+local dest = page:destination()
+
+-- Destination Properties
+dest.xyz = { 10, 20, 10 }
+dest.xyz = {
+    left = 10,
+    top  = 20,
+    zoom = 10
+}
+
+-- Calling Destination Methods
+dest:fit()
+dest:fitb()
+dest:fith(20)
+dest:fitbh(20)
+dest:fitbv(20)
+dest:fitv(10)
+dest:fitr(10, 20, 10, 20)
 
 -- Saving PDF
 hpdf:save "demo.pdf"
@@ -302,7 +333,7 @@ hpdf:save "demo.pdf"
 * [ ] HPDF_Page_SetRotate
 * [x] ~~HPDF_Page_GetWidth~~
 * [x] ~~HPDF_Page_GetHeight~~
-* [ ] HPDF_Page_CreateDestination
+* [x] ~~HPDF_Page_CreateDestination~~
 * [ ] HPDF_Page_CreateTextAnnot
 * [ ] HPDF_Page_CreateLinkAnnot
 * [ ] HPDF_Page_CreateURILinkAnnot
@@ -311,7 +342,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_GetGMode~~
 * [x] ~~HPDF_Page_GetCurrentPos~~
 * [x] ~~HPDF_Page_GetCurrentTextPos~~
-* [ ] HPDF_Page_GetCurrentFont
+* [x] ~~HPDF_Page_GetCurrentFont~~
 * [x] ~~HPDF_Page_GetCurrentFontSize~~
 * [ ] HPDF_Page_GetTransMatrix
 * [x] ~~HPDF_Page_GetLineWidth~~
@@ -434,14 +465,14 @@ hpdf:save "demo.pdf"
 
 ##### Destination
 
-* [ ] HPDF_Destination_SetXYZ
-* [ ] HPDF_Destination_SetFit
-* [ ] HPDF_Destination_SetFitH
-* [ ] HPDF_Destination_SetFitV
-* [ ] HPDF_Destination_SetFitR
-* [ ] HPDF_Destination_SetFitB
-* [ ] HPDF_Destination_SetFitBH
-* [ ] HPDF_Destination_SetFitBV
+* [x] ~~HPDF_Destination_SetXYZ~~
+* [x] ~~HPDF_Destination_SetFit~~
+* [x] ~~HPDF_Destination_SetFitH~~
+* [x] ~~HPDF_Destination_SetFitV~~
+* [x] ~~HPDF_Destination_SetFitR~~
+* [x] ~~HPDF_Destination_SetFitB~~
+* [x] ~~HPDF_Destination_SetFitBH~~
+* [x] ~~HPDF_Destination_SetFitBV~~
 
 ##### Image
 

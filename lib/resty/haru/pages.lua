@@ -4,8 +4,8 @@ local setmetatable = setmetatable
 
 local pages = {}
 
-function pages.new(document)
-    return setmetatable({ document = document, context = document.context }, pages)
+function pages.new(context)
+    return setmetatable({ context = context }, pages)
 end
 
 function pages:__index(n)
@@ -14,18 +14,18 @@ function pages:__index(n)
         if p == nil then
             return nil
         end
-        return page.new(self.document, p)
+        return page.new(p)
     else
         return pages[n]
     end
 end
 
 function pages:add()
-    return page.new(self.document, lib.HPDF_AddPage(self.context))
+    return page.new(lib.HPDF_AddPage(self.context))
 end
 
 function pages:insert(page)
-    return page.new(self.document, lib.HPDF_InsertPage(self.context, page.context))
+    return page.new(lib.HPDF_InsertPage(self.context, page.context))
 end
 
 return pages

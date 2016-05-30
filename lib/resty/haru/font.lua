@@ -6,9 +6,8 @@ local setmetatable = setmetatable
 local font = {}
 font.__index = font
 
-function font.new(document, context)
-    local self = setmetatable({ document = document, context = context }, font)
-    return self
+function font.new(context)
+    return setmetatable({ context = context }, font)
 end
 
 function font:__index(n)

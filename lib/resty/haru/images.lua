@@ -7,8 +7,8 @@ local setmetatable = setmetatable
 local images = {}
 images.__index = images
 
-function images.new(document)
-    return setmetatable({ document = document, context = document.context }, images)
+function images.new(context)
+    return setmetatable({ context = context }, images)
 end
 
 function images:load(file)
@@ -20,7 +20,7 @@ function images:load(file)
         context = lib.HPDF_LoadJpegImageFromFile(self.context, file)
     end
     if context == nil then return nil end
-    return image.new(self.document, context)
+    return image.new(context)
 end
 
 return images

@@ -2,6 +2,8 @@ local ffi = require "ffi"
 local ffi_new = ffi.new
 local lib = require "resty.haru.library"
 local enums = require "resty.haru.enums"
+local fnt = require "resty.haru.font"
+local destination = require "resty.haru.destination"
 local renderingmode = enums.textrenderingmode
 local alignment = enums.align
 local pagesize = enums.pagesize
@@ -17,8 +19,8 @@ local l = ffi_new("HPDF_UINT[1]", 0)
 
 local page = {}
 
-function page.new(document, context)
-    return setmetatable({ document = document, context = context }, page)
+function page.new(context)
+    return setmetatable({ context = context }, page)
 end
 
 function page:gsave()
@@ -205,12 +207,20 @@ function page:image(image, x, y, w, h)
 end
 
 function page:font(font, size)
-    local r = lib.HPDF_Page_SetFontAndSize(self.context, font.context, size)
-    if r == 0 then
-        return self
+    if font == nil then
+        return fnt.new(lib.HPDF_Page_GetCurrentFont(self.context))
     else
-        return nil, r
+        local r = lib.HPDF_Page_SetFontAndSize(self.context, font.context, size)
+        if r == 0 then
+            return self
+        else
+            return nil, r
+        end
     end
+end
+
+function page:destination()
+    return destination.new(lib.HPDF_Page_CreateDestination(self.context))
 end
 
 function page:size(size, direction)

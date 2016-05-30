@@ -5,9 +5,8 @@ local tonumber = tonumber
 local encoder = {}
 encoder.__index = encoder
 
-function encoder.new(document, context)
-    local self = setmetatable({ document = document, context = context }, encoder)
-    return self
+function encoder.new(context)
+    return setmetatable({ context = context }, encoder)
 end
 
 function encoder:__index(n)
