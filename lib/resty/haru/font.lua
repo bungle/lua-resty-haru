@@ -26,6 +26,14 @@ function font:__index(n)
         return lib.HPDF_Font_GetXHeight(self.context)
     elseif n == "capheight" then
         return lib.HPDF_Font_GetCapHeight(self.context)
+    elseif n == "bbox" then
+        local b = lib.HPDF_Font_GetBBox(self.context)
+        return {
+            left   = b.left,
+            bottom = b.bottom,
+            right  = b.right,
+            top    = b.top
+        }
     else
         return font[n]
     end

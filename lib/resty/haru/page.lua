@@ -14,8 +14,6 @@ local type = type
 local tonumber = tonumber
 
 local l = ffi_new("HPDF_UINT[1]", 0)
-local rgb = ffi_new "HPDF_RGBColor"
-local cmyk = ffi_new "HPDF_CMYKColor"
 
 local page = {}
 
@@ -130,6 +128,11 @@ end
 
 function page:stroke()
     local r = lib.HPDF_Page_Stroke(self.context)
+    return r ~= 0 and r or nil
+end
+
+function page:concat(a, b, c, d, x, y)
+    local r = lib.HPDF_Page_Concat(self.context, a, b, c, d, x, y)
     return r ~= 0 and r or nil
 end
 

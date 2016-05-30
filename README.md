@@ -7,6 +7,7 @@ Meanwhile checkout [@tavikukko](https://github.com/tavikukko)'s [`lua-resty-hpdf
 
 ```lua
 -- Some local variable declarations
+local dump     = require "pl.pretty".dump
 local print    = print
 local haru     = require "resty.haru"
 local hpdf     = haru.new()
@@ -70,6 +71,7 @@ print(helvetica.ascent)
 print(helvetica.descent)
 print(helvetica.xheight)
 print(helvetica.capheight)
+ dump(helvetica.bbox)
 
 -- Loading a TTF Font
 local name = fonts:load("DejaVuSans.ttf", true)
@@ -81,6 +83,9 @@ print(dejavu.name)
 print(dejavu.encoding)
 print(dejavu.ascent)
 print(dejavu.descent)
+print(dejavu.xheight)
+print(dejavu.capheight)
+ dump(helvetica.bbox)
 
 -- Current Encoder
 local encoder = hpdf.encoder
@@ -119,6 +124,10 @@ print(page.gmode)
 print(page.gdepth)
 print(page.strokingcolorspace)
 print(page.fillingcolorspace)
+ dump(page.rgbfill)
+ dump(page.rgbstroke)
+ dump(page.cmykfill)
+ dump(page.cmykstroke)
 
 local x, y = page:pos()
 print(x, y)
@@ -127,20 +136,24 @@ local x, y = page:textpos()
 print(x, y)
 
 -- Setting Page Properties
-page.width              = page.height
-page.height             = page.width
-page.grayfill           = page.grayfill
-page.graystroke         = page.graystroke
-page.charspace          = page.charspace
-page.wordspace          = page.wordspace
-page.horizontalscaling  = page.horizontalscaling
-page.textleading        = page.textleading
-page.textrise           = page.textrise
-page.textrenderingmode  = page.textrenderingmode
-page.linewidth          = page.linewidth
-page.miterlimit         = page.miterlimit
-page.linecap            = page.linecap
-page.linejoin           = page.linejoin
+page.width             = page.height
+page.height            = page.width
+page.grayfill          = page.grayfill
+page.graystroke        = page.graystroke
+page.charspace         = page.charspace
+page.wordspace         = page.wordspace
+page.horizontalscaling = page.horizontalscaling
+page.textleading       = page.textleading
+page.textrise          = page.textrise
+page.textrenderingmode = page.textrenderingmode
+page.linewidth         = page.linewidth
+page.miterlimit        = page.miterlimit
+page.linecap           = page.linecap
+page.linejoin          = page.linejoin
+page.rgbfill           = page.rgbfill
+page.rgbstroke         = page.rgbstroke
+page.cmykfill          = page.cmykfill
+page.cmykstroke        = page.cmykstroke
 
 -- Setting Page Size
 page:size("a4", "landscape")
@@ -337,7 +350,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_ClosePathStroke~~
 * [x] ~~HPDF_Page_ClosePathEofillStroke~~
 * [x] ~~HPDF_Page_ClosePathFillStroke~~
-* [ ] HPDF_Page_Concat
+* [x] ~~HPDF_Page_Concat~~
 * [ ] HPDF_Page_CurveTo
 * [ ] HPDF_Page_CurveTo2
 * [ ] HPDF_Page_CurveTo3
@@ -391,7 +404,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Font_GetFontName~~
 * [x] ~~HPDF_Font_GetEncodingName~~
 * [ ] HPDF_Font_GetUnicodeWidth
-* [ ] HPDF_Font_GetBBox
+* [x] ~~HPDF_Font_GetBBox~~
 * [x] ~~HPDF_Font_GetAscent~~
 * [x] ~~HPDF_Font_GetDescent~~
 * [x] ~~HPDF_Font_GetXHeight~~

@@ -10,6 +10,7 @@ typedef unsigned int HPDF_UINT;
 typedef unsigned short HPDF_UINT16;
 typedef signed int HPDF_BOOL;
 typedef void *HPDF_HANDLE;
+typedef HPDF_UINT16 HPDF_UNICODE;
 typedef HPDF_HANDLE HPDF_Doc;
 typedef HPDF_HANDLE HPDF_Page;
 typedef HPDF_HANDLE HPDF_Pages;
@@ -151,6 +152,13 @@ typedef struct _HPDF_Point {
     HPDF_REAL x;
     HPDF_REAL y;
 } HPDF_Point;
+typedef  struct _HPDF_Rect {
+    HPDF_REAL  left;
+    HPDF_REAL  bottom;
+    HPDF_REAL  right;
+    HPDF_REAL  top;
+} HPDF_Rect;
+typedef struct _HPDF_Rect HPDF_Box;
 typedef struct _HPDF_RGBColor {
     HPDF_REAL r;
     HPDF_REAL g;
@@ -198,6 +206,7 @@ typedef struct _HPDF_CMYKColor {
      HPDF_STATUS HPDF_Page_Arc(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL radius, HPDF_REAL ang1, HPDF_REAL ang2);
      HPDF_STATUS HPDF_Page_Ellipse(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL x_radius, HPDF_REAL y_radius);
      HPDF_STATUS HPDF_Page_LineTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
+     HPDF_STATUS HPDF_Page_Concat(HPDF_Page page, HPDF_REAL a, HPDF_REAL b, HPDF_REAL c, HPDF_REAL d, HPDF_REAL x, HPDF_REAL y);
      HPDF_STATUS HPDF_Page_SetSize(HPDF_Page page, HPDF_PageSizes size, HPDF_PageDirection direction);
        HPDF_REAL HPDF_Page_GetWidth(HPDF_Page page);
      HPDF_STATUS HPDF_Page_SetWidth(HPDF_Page page, HPDF_REAL value);
@@ -271,6 +280,7 @@ typedef struct _HPDF_CMYKColor {
         HPDF_INT HPDF_Font_GetDescent(HPDF_Font font);
        HPDF_UINT HPDF_Font_GetXHeight(HPDF_Font font);
        HPDF_UINT HPDF_Font_GetCapHeight(HPDF_Font font);
+        HPDF_Box HPDF_Font_GetBBox(HPDF_Font font);
       HPDF_Image HPDF_LoadPngImageFromFile(HPDF_Doc pdf, const char *filename);
       HPDF_Image HPDF_LoadJpegImageFromFile(HPDF_Doc pdf, const char  *filename);
        HPDF_UINT HPDF_Image_GetWidth(HPDF_Image image);
@@ -328,7 +338,6 @@ HPDF_Page_SetSlideShow()
 HPDF_Page_New_Content_Stream()
 HPDF_Page_Insert_Shared_Content_Stream()
 Graphics:
-HPDF_Page_Concat()
 HPDF_Page_CurveTo()
 HPDF_Page_CurveTo2()
 HPDF_Page_CurveTo3()
@@ -339,7 +348,6 @@ HPDF_Page_SetExtGState()
 HPDF_Page_SetTextMatrix()
 Fonts:
 HPDF_Font_GetUnicodeWidth()
-HPDF_Font_GetBBox()
 HPDF_Font_TextWidth()
 HPDF_Font_MeasureText()
 Encodings:
