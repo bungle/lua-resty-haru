@@ -162,6 +162,10 @@ typedef enum _HPDF_BSSubtype {
     HPDF_BS_INSET,
     HPDF_BS_UNDERLINED
 } HPDF_BSSubtype;
+typedef enum  _HPDF_EncryptMode {
+    HPDF_ENCRYPT_R2 = 2,
+    HPDF_ENCRYPT_R3 = 3
+} HPDF_EncryptMode;
 typedef struct _HPDF_Date {
     HPDF_INT year;
     HPDF_INT month;
@@ -211,6 +215,8 @@ typedef struct _HPDF_CMYKColor {
      HPDF_STATUS HPDF_SetInfoDateAttr(HPDF_Doc pdf, HPDF_InfoType type, HPDF_Date value);
      HPDF_STATUS HPDF_SetPermission(HPDF_Doc pdf, HPDF_UINT permission);
      HPDF_STATUS HPDF_SetCompressionMode(HPDF_Doc pdf, HPDF_UINT mode);
+     HPDF_STATUS HPDF_SetEncryptionMode(HPDF_Doc pdf, HPDF_EncryptMode mode, HPDF_UINT key_len);
+     HPDF_STATUS HPDF_SetPassword(HPDF_Doc pdf, const char *owner_passwd, const char *user_passwd);
      HPDF_STATUS HPDF_Page_GSave(HPDF_Page page);
      HPDF_STATUS HPDF_Page_GRestore(HPDF_Page page);
      HPDF_STATUS HPDF_Page_MoveTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
@@ -364,8 +370,6 @@ HPDF_LoadRawImageFromFile()
 HPDF_LoadRawImageFromMem()
 HPDF_LoadPngImageFromMem()
 HPDF_LoadJpegImageFromMem()
-HPDF_SetPassword()
-HPDF_SetEncryptionMode()
 Page:
 HPDF_Page_SetRotate()
 HPDF_Page_CreateLinkAnnot()

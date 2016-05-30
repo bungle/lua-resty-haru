@@ -111,6 +111,10 @@ return {
         pattern            = lib.HPDF_CS_PATTERN,
         eof                = lib.HPDF_CS_EOF
     },
+    encryptionmode = {
+        r2                 = lib.HPDF_ENCRYPT_R2,
+        r3                 = lib.HPDF_ENCRYPT_R3
+    },
     annotation = {
         highlightmode = {
             nohighlight    = lib.HPDF_ANNOT_NO_HIGHTLIGHT,

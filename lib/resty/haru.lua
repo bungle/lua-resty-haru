@@ -8,6 +8,7 @@ local enums = require "resty.haru.enums"
 local pagelayout = enums.pagelayout
 local pagemode = enums.pagemode
 local compressionmode = enums.compressionmode
+local encryptionmode = enums.encryptionmode
 local permission = enums.permission
 local infotype = enums.infotype
 local ffi = require "ffi"
@@ -73,7 +74,6 @@ end
 
 function haru:outline(parent, title, encoder)
     return outline.new(lib.HPDF_CreateOutline(self.context, parent, title, type(encoder) == "table" and encoder.context or nil))
-
 end
 
 function haru:__index(n)
@@ -123,11 +123,23 @@ function haru:__newindex(n, v)
         else
             lib.HPDF_SetInfoAttr(self.context, infotype[n], v)
         end
-    elseif n == "compressionmode" then
+    elseif n == "compression" then
         if type(v) == "string" then
             v = compressionmode[v]
         end
         lib.HPDF_SetCompressionMode(self.context, v)
+    elseif n == "encryption" then
+        if type(v) == "string" then
+            v = encryptionmode[v]
+        end
+        v = v or encryptionmode.R3
+        lib.HPDF_SetEncryptionMode(self.context, v, v == encryptionmode.R3 and 16 or 5)
+    elseif n == "password" then
+        if type(v) == "table" then
+            lib.HPDF_SetPassword(self.context, v.owner or v[1], v.user or v[2])
+        else
+            lib.HPDF_SetPassword(self.context, v, v)
+        end
     else
         rawset(self, n, v)
     end

@@ -31,7 +31,6 @@ hpdf:use "cntfonts"
 hpdf.encoding         = "UTF-8"
 hpdf.pagelayout       = "single"
 hpdf.pagemode         = "outline"
-hpdf.compressionmode  = "all"
 hpdf.author           = "@bungle"
 hpdf.creator          = "lua-resty-haru"
 hpdf.title            = "Demo"
@@ -270,7 +269,13 @@ annotation.opened = true
 annotation.icon   = "help"
 
 -- Setting Permission
-hpdf.permission = "read"
+hpdf.permission  = "read"
+hpdf.encryption  = "r3"
+hpdf.compression = "all"
+hpdf.password    = {
+    owner = "demo-owner",
+    user  = "demo-user"
+}
 
 -- Saving PDF
 hpdf:save "demo.pdf"
@@ -342,9 +347,9 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_SetInfoAttr~~
 * [x] ~~HPDF_GetInfoAttr~~
 * [x] ~~HPDF_SetInfoDateAttr~~
-* [ ] HPDF_SetPassword
+* [x] ~~HPDF_SetPassword~~
 * [x] ~~HPDF_SetPermission~~
-* [ ] HPDF_SetEncryptionMode
+* [x] ~~HPDF_SetEncryptionMode~~
 * [x] ~~HPDF_SetCompressionMode~~
 
 ##### Page
