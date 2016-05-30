@@ -268,14 +268,14 @@ local annotation = page:textannotation(10, 600, 200, 500, "Test Annotation")
 annotation.opened = true
 annotation.icon   = "help"
 
--- Setting Permission
-hpdf.permission  = "read"
-hpdf.encryption  = "r3"
-hpdf.compression = "all"
+-- Setting Encryption and Permission
 hpdf.password    = {
     owner = "demo-owner",
     user  = "demo-user"
 }
+hpdf.encryption  = "r3"
+hpdf.permission  = "read"
+hpdf.compression = "all"
 
 -- Setting Page Labels
 hpdf:pagelabel(0, "upperroman", 1, "");
