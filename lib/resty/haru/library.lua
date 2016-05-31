@@ -215,6 +215,11 @@ typedef struct _HPDF_TransMatrix {
     HPDF_REAL x;
     HPDF_REAL y;
 } HPDF_TransMatrix;
+typedef struct _HPDF_DashMode {
+    HPDF_UINT16 ptn[8];
+    HPDF_UINT   num_ptn;
+    HPDF_UINT   phase;
+} HPDF_DashMode;
         HPDF_Doc HPDF_New(HPDF_Error_Handler user_error_fn, void *user_data);
             void HPDF_Free(HPDF_Doc pdf);
      HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
@@ -304,6 +309,7 @@ typedef struct _HPDF_TransMatrix {
 HPDF_TransMatrix HPDF_Page_GetTextMatrix(HPDF_Page page);
      HPDF_STATUS HPDF_Page_SetTextMatrix(HPDF_Page page, HPDF_REAL a, HPDF_REAL b, HPDF_REAL c, HPDF_REAL d, HPDF_REAL x, HPDF_REAL y);
 HPDF_TransMatrix HPDF_Page_GetTransMatrix(HPDF_Page page);
+   HPDF_DashMode HPDF_Page_GetDash(HPDF_Page page);
      HPDF_STATUS HPDF_Page_Clip(HPDF_Page page);
      HPDF_STATUS HPDF_Page_ClosePath(HPDF_Page page);
      HPDF_STATUS HPDF_Page_ClosePathStroke(HPDF_Page page);
@@ -394,7 +400,6 @@ HPDF_Page_SetRotate()
 HPDF_Page_CreateLinkAnnot()
 HPDF_Page_CreateURILinkAnnot()
 HPDF_Page_MeasureText()
-HPDF_Page_GetDash()
 HPDF_Page_SetSlideShow()
 HPDF_Page_New_Content_Stream()
 HPDF_Page_Insert_Shared_Content_Stream()

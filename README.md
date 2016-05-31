@@ -129,6 +129,7 @@ print(page.fillingcolorspace)
  dump(page.cmykstroke)
  dump(page.textmatrix)
  dump(page.transmatrix)
+ dump(page.dash)
 
 local x, y = page:pos()
 print(x, y)
@@ -383,7 +384,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_GetLineCap~~
 * [x] ~~HPDF_Page_GetLineJoin~~
 * [x] ~~HPDF_Page_GetMiterLimit~~
-* [ ] HPDF_Page_GetDash
+* [x] ~~HPDF_Page_GetDash~~
 * [x] ~~HPDF_Page_GetFlat~~
 * [x] ~~HPDF_Page_GetCharSpace~~
 * [x] ~~HPDF_Page_GetWordSpace~~

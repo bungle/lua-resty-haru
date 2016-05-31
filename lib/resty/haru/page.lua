@@ -336,7 +336,7 @@ function page:__index(n)
             c = m.c,
             d = m.d,
             x = m.x,
-            y = m.y,
+            y = m.y
         }
     elseif n == "transmatrix" then
         local m = lib.HPDF_Page_GetTransMatrix(self.context)
@@ -346,7 +346,15 @@ function page:__index(n)
             c = m.c,
             d = m.d,
             x = m.x,
-            y = m.y,
+            y = m.y
+        }
+    elseif n == "dash" then
+        local d = lib.HPDF_Page_GetDash(self.context)
+        local ptn = d.ptn
+        return {
+            ptn = { ptn[0], ptn[1], ptn[2], ptn[3], ptn[4], ptn[5], ptn[6], ptn[7] },
+            n = d.num_ptn,
+            phase = d.phase
         }
     else
         return page[n]
