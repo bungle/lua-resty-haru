@@ -190,10 +190,10 @@ typedef struct _HPDF_Point {
     HPDF_REAL y;
 } HPDF_Point;
 typedef  struct _HPDF_Rect {
-    HPDF_REAL  left;
-    HPDF_REAL  bottom;
-    HPDF_REAL  right;
-    HPDF_REAL  top;
+    HPDF_REAL left;
+    HPDF_REAL bottom;
+    HPDF_REAL right;
+    HPDF_REAL top;
 } HPDF_Rect;
 typedef struct _HPDF_Rect HPDF_Box;
 typedef struct _HPDF_RGBColor {
@@ -207,6 +207,14 @@ typedef struct _HPDF_CMYKColor {
     HPDF_REAL y;
     HPDF_REAL k;
 } HPDF_CMYKColor;
+typedef struct _HPDF_TransMatrix {
+    HPDF_REAL a;
+    HPDF_REAL b;
+    HPDF_REAL c;
+    HPDF_REAL d;
+    HPDF_REAL x;
+    HPDF_REAL y;
+} HPDF_TransMatrix;
         HPDF_Doc HPDF_New(HPDF_Error_Handler user_error_fn, void *user_data);
             void HPDF_Free(HPDF_Doc pdf);
      HPDF_STATUS HPDF_SaveToFile(HPDF_Doc pdf, const char *file_name);
@@ -293,6 +301,9 @@ typedef struct _HPDF_CMYKColor {
      HPDF_STATUS HPDF_Page_SetCMYKStroke(HPDF_Page page, HPDF_REAL c, HPDF_REAL m, HPDF_REAL y, HPDF_REAL k);
   HPDF_CMYKColor HPDF_Page_GetCMYKFill(HPDF_Page page);
      HPDF_STATUS HPDF_Page_SetCMYKFill(HPDF_Page page, HPDF_REAL c, HPDF_REAL m, HPDF_REAL y, HPDF_REAL k);
+HPDF_TransMatrix HPDF_Page_GetTextMatrix(HPDF_Page page);
+     HPDF_STATUS HPDF_Page_SetTextMatrix(HPDF_Page page, HPDF_REAL a, HPDF_REAL b, HPDF_REAL c, HPDF_REAL d, HPDF_REAL x, HPDF_REAL y);
+HPDF_TransMatrix HPDF_Page_GetTransMatrix(HPDF_Page page);
      HPDF_STATUS HPDF_Page_Clip(HPDF_Page page);
      HPDF_STATUS HPDF_Page_ClosePath(HPDF_Page page);
      HPDF_STATUS HPDF_Page_ClosePathStroke(HPDF_Page page);
@@ -383,10 +394,7 @@ HPDF_Page_SetRotate()
 HPDF_Page_CreateLinkAnnot()
 HPDF_Page_CreateURILinkAnnot()
 HPDF_Page_MeasureText()
-HPDF_Page_GetCurrentFont()
-HPDF_Page_GetTransMatrix()
 HPDF_Page_GetDash()
-HPDF_Page_GetTextMatrix()
 HPDF_Page_SetSlideShow()
 HPDF_Page_New_Content_Stream()
 HPDF_Page_Insert_Shared_Content_Stream()
@@ -397,7 +405,6 @@ HPDF_Page_ExecuteXObject()
 HPDF_Page_MoveTextPos2()
 HPDF_Page_SetDash()
 HPDF_Page_SetExtGState()
-HPDF_Page_SetTextMatrix()
 Fonts:
 HPDF_Font_GetUnicodeWidth()
 HPDF_Font_TextWidth()

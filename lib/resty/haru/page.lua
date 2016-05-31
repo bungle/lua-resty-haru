@@ -328,6 +328,26 @@ function page:__index(n)
             y = c.y,
             k = c.k
         }
+    elseif n == "textmatrix" then
+        local m = lib.HPDF_Page_GetTextMatrix(self.context)
+        return {
+            a = m.a,
+            b = m.b,
+            c = m.c,
+            d = m.d,
+            x = m.x,
+            y = m.y,
+        }
+    elseif n == "transmatrix" then
+        local m = lib.HPDF_Page_GetTransMatrix(self.context)
+        return {
+            a = m.a,
+            b = m.b,
+            c = m.c,
+            d = m.d,
+            x = m.x,
+            y = m.y,
+        }
     else
         return page[n]
     end
@@ -399,7 +419,7 @@ function page:__newindex(n, v)
             c = v.c or v[1] or 0
             m = v.m or v[2] or 0
             y = v.y or v[3] or 0
-            k = v.k or v[5] or 0
+            k = v.k or v[4] or 0
         end
         r = lib.HPDF_Page_SetCMYKStroke(self.context, c, m, y, k)
     elseif n == "cmykfill" then
@@ -408,9 +428,20 @@ function page:__newindex(n, v)
             c = v.c or v[1] or 0
             m = v.m or v[2] or 0
             y = v.y or v[3] or 0
-            k = v.k or v[5] or 0
+            k = v.k or v[4] or 0
         end
         r = lib.HPDF_Page_SetCMYKStroke(self.context, c, m, y, k)
+    elseif n == "textmatrix" then
+        local a, b, c, d, x, y = 0, 0, 0, 0, 0, 0
+        if (type(v) == "table") then
+            a = v.a or v[1] or 0
+            b = v.b or v[2] or 0
+            c = v.c or v[3] or 0
+            d = v.d or v[4] or 0
+            x = v.x or v[5] or 0
+            y = v.y or v[6] or 0
+        end
+        r = lib.HPDF_Page_SetTextMatrix(self.context, a, b, c, d, x, y)
     else
         rawset(self, n, v)
     end

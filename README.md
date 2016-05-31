@@ -374,7 +374,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_GetCurrentTextPos~~
 * [x] ~~HPDF_Page_GetCurrentFont~~
 * [x] ~~HPDF_Page_GetCurrentFontSize~~
-* [ ] HPDF_Page_GetTransMatrix
+* [x] ~~HPDF_Page_GetTransMatrix~~
 * [x] ~~HPDF_Page_GetLineWidth~~
 * [x] ~~HPDF_Page_GetLineCap~~
 * [x] ~~HPDF_Page_GetLineJoin~~
@@ -395,7 +395,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_GetGrayStroke~~
 * [x] ~~HPDF_Page_GetStrokingColorSpace~~
 * [x] ~~HPDF_Page_GetFillingColorSpace~~
-* [ ] HPDF_Page_GetTextMatrix
+* [x] ~~HPDF_Page_GetTextMatrix~~
 * [x] ~~HPDF_Page_GetGStateDepth~~
 * [ ] HPDF_Page_SetSlideShow
 * [ ] HPDF_Page_New_Content_Stream
@@ -449,7 +449,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_SetRGBFill~~
 * [x] ~~HPDF_Page_SetRGBStroke~~
 * [x] ~~HPDF_Page_SetTextLeading~~
-* [ ] HPDF_Page_SetTextMatrix
+* [x] ~~HPDF_Page_SetTextMatrix~~
 * [x] ~~HPDF_Page_SetTextRenderingMode~~
 * [x] ~~HPDF_Page_SetTextRise~~
 * [x] ~~HPDF_Page_SetWordSpace~~
