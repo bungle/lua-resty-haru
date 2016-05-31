@@ -18,6 +18,7 @@ local tonumber = tonumber
 
 local l = ffi_new("HPDF_UINT[1]", 0)
 local rect = ffi_new "HPDF_Rect"
+local dash = ffi_new("HPDF_UINT16[8]", 0)
 local page = {}
 
 function page.new(context)
@@ -352,8 +353,8 @@ function page:__index(n)
         local d = lib.HPDF_Page_GetDash(self.context)
         local ptn = d.ptn
         return {
-            ptn = { ptn[0], ptn[1], ptn[2], ptn[3], ptn[4], ptn[5], ptn[6], ptn[7] },
-            n = d.num_ptn,
+            dash  = { ptn[0], ptn[1], ptn[2], ptn[3], ptn[4], ptn[5], ptn[6], ptn[7] },
+            n     = d.num_ptn,
             phase = d.phase
         }
     else
@@ -450,6 +451,21 @@ function page:__newindex(n, v)
             y = v.y or v[6] or 0
         end
         r = lib.HPDF_Page_SetTextMatrix(self.context, a, b, c, d, x, y)
+    elseif n == "dash" then
+        if type(v) == "table" then
+            local d = v.dash
+            local s = v.n
+            local p = v.phase or 0
+            if not s then
+                s = type(d) == "table" and #d or 0
+            end
+            for i=1, s do
+                dash[i-1] = d[i] or 0
+            end
+            r = lib.HPDF_Page_SetDash(self.context, dash, s, p);
+        elseif v == nil then
+            r = lib.HPDF_Page_SetDash(self.context, nil, 0, 0);
+        end
     else
         rawset(self, n, v)
     end

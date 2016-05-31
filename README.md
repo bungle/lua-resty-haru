@@ -156,6 +156,7 @@ page.rgbfill           = page.rgbfill
 page.rgbstroke         = page.rgbstroke
 page.cmykfill          = page.cmykfill
 page.cmykstroke        = page.cmykstroke
+page.dash              = page.dash
 
 -- Setting Page Size
 page:size("a4", "landscape")
@@ -220,6 +221,18 @@ page:move(200, 300)
 page:line(400, 300)
 page:closepathstroke()
 
+-- Drawing Dashed Lines
+page.linewidth = 2
+page.linecap = "butt"
+page.dash = {
+    dash  = { 8, 7, 2, 7 },
+    phase = 0,
+    n     = 4
+}
+page:move(200, 600)
+page:line(400, 600)
+page:closepathstroke()
+
 -- Drawing Curves
 page:move(200, 300)
 page:curve(400, 300, 500, 550, 400, 300)
@@ -275,8 +288,8 @@ annotation.icon   = "help"
 
 -- Setting Encryption and Permission
 hpdf.password    = {
-    owner = "demo-owner",
-    user  = "demo-user"
+    owner = "owner",
+    user  = "user"
 }
 hpdf.encryption  = "r3"
 hpdf.permission  = "read"
@@ -441,7 +454,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_SetCharSpace~~
 * [x] ~~HPDF_Page_SetCMYKFill~~
 * [x] ~~HPDF_Page_SetCMYKStroke~~
-* [ ] HPDF_Page_SetDash
+* [x] ~~HPDF_Page_SetDash~~
 * [ ] HPDF_Page_SetExtGState
 * [x] ~~HPDF_Page_SetFontAndSize~~
 * [x] ~~HPDF_Page_SetGrayFill~~
