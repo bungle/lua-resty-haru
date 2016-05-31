@@ -127,6 +127,8 @@ print(page.fillingcolorspace)
  dump(page.rgbstroke)
  dump(page.cmykfill)
  dump(page.cmykstroke)
+ dump(page.textmatrix)
+ dump(page.transmatrix)
 
 local x, y = page:pos()
 print(x, y)
@@ -176,6 +178,7 @@ print(font.capheight)
 
 -- Writing Text
 page:begintext()
+page.textmatrix = page.textmatrix
 page:text(50, 400, "Hello")
 page:text(0, 400, 150, 200, "World", "right")
 page:textmove(100, 300)
@@ -187,6 +190,7 @@ page:endtext()
 
 -- Writing Text (alternative)
 page:begintext()
+page.textmatrix = page.textmatrix
 page:textout(50, 450, "Hello")
 page:textrect(0, 450, 150, 200, "World", "right")
 page:textmove(100, 150)
