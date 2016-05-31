@@ -234,6 +234,9 @@ page:line(400, 600)
 page:closepathstroke()
 
 -- Drawing Curves
+page.linewidth = 10
+page.linecap = "round"
+page.dash = nil
 page:move(200, 300)
 page:curve(400, 300, 500, 550, 400, 300)
 page:stroke()
