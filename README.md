@@ -225,9 +225,9 @@ page:closepathstroke()
 page.linewidth = 2
 page.linecap = "butt"
 page.dash = {
-    dash  = { 8, 7, 2, 7 },
-    phase = 0,
-    n     = 4
+    pattern = { 8, 7, 2, 7 },
+    phase   = 0,
+    n       = 4
 }
 page:move(200, 600)
 page:line(400, 600)

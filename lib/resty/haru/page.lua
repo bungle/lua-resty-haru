@@ -353,9 +353,9 @@ function page:__index(n)
         local d = lib.HPDF_Page_GetDash(self.context)
         local ptn = d.ptn
         return {
-            dash  = { ptn[0], ptn[1], ptn[2], ptn[3], ptn[4], ptn[5], ptn[6], ptn[7] },
-            n     = d.num_ptn,
-            phase = d.phase
+            pattern = { ptn[0], ptn[1], ptn[2], ptn[3], ptn[4], ptn[5], ptn[6], ptn[7] },
+            n       = d.num_ptn,
+            phase   = d.phase
         }
     else
         return page[n]
@@ -453,7 +453,7 @@ function page:__newindex(n, v)
         r = lib.HPDF_Page_SetTextMatrix(self.context, a, b, c, d, x, y)
     elseif n == "dash" then
         if type(v) == "table" then
-            local d = v.dash
+            local d = v.pattern
             local s = v.n
             local p = v.phase or 0
             if not s then
