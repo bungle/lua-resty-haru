@@ -252,6 +252,7 @@ typedef struct _HPDF_DashMode {
      HPDF_STATUS HPDF_Page_ShowTextNextLine(HPDF_Page page, const char *text);
      HPDF_STATUS HPDF_Page_ShowTextNextLineEx(HPDF_Page page, HPDF_REAL word_space, HPDF_REAL char_space, const char *text);
      HPDF_STATUS HPDF_Page_MoveTextPos(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
+     HPDF_STATUS HPDF_Page_MoveTextPos2(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
      HPDF_STATUS HPDF_Page_Stroke(HPDF_Page page);
        HPDF_Font HPDF_Page_GetCurrentFont(HPDF_Page page);
      HPDF_STATUS HPDF_Page_SetFontAndSize(HPDF_Page page, HPDF_Font font, HPDF_REAL size);
@@ -261,8 +262,11 @@ typedef struct _HPDF_DashMode {
      HPDF_STATUS HPDF_Page_Ellipse(HPDF_Page page, HPDF_REAL x, HPDF_REAL y, HPDF_REAL x_radius, HPDF_REAL y_radius);
      HPDF_STATUS HPDF_Page_LineTo(HPDF_Page page, HPDF_REAL x, HPDF_REAL y);
      HPDF_STATUS HPDF_Page_CurveTo(HPDF_Page page, HPDF_REAL x1, HPDF_REAL y1, HPDF_REAL x2, HPDF_REAL y2, HPDF_REAL x3, HPDF_REAL y3);
+     HPDF_STATUS HPDF_Page_CurveTo2(HPDF_Page page, HPDF_REAL x2, HPDF_REAL y2, HPDF_REAL x3, HPDF_REAL y3);
+     HPDF_STATUS HPDF_Page_CurveTo3(HPDF_Page page, HPDF_REAL x1, HPDF_REAL y1, HPDF_REAL x3, HPDF_REAL y3);
      HPDF_STATUS HPDF_Page_Concat(HPDF_Page page, HPDF_REAL a, HPDF_REAL b, HPDF_REAL c, HPDF_REAL d, HPDF_REAL x, HPDF_REAL y);
      HPDF_STATUS HPDF_Page_SetSize(HPDF_Page page, HPDF_PageSizes size, HPDF_PageDirection direction);
+     HPDF_STATUS HPDF_Page_SetRotate(HPDF_Page page, HPDF_UINT16 angle);
        HPDF_REAL HPDF_Page_GetWidth(HPDF_Page page);
      HPDF_STATUS HPDF_Page_SetWidth(HPDF_Page page, HPDF_REAL value);
        HPDF_REAL HPDF_Page_GetHeight(HPDF_Page page);
@@ -348,6 +352,7 @@ HPDF_TransMatrix HPDF_Page_GetTransMatrix(HPDF_Page page);
      const char* HPDF_Image_GetColorSpace(HPDF_Image image);
        HPDF_UINT HPDF_Image_GetBitsPerComponent(HPDF_Image image);
       HPDF_Point HPDF_Image_GetSize(HPDF_Image image);
+     HPDF_STATUS HPDF_Image_SetColorMask(HPDF_Image image, HPDF_UINT rmin, HPDF_UINT rmax, HPDF_UINT gmin, HPDF_UINT gmax, HPDF_UINT bmin, HPDF_UINT bmax);
     HPDF_Encoder HPDF_GetEncoder(HPDF_Doc pdf, const char  *encoding_name);
     HPDF_Encoder HPDF_GetCurrentEncoder(HPDF_Doc pdf);
      HPDF_STATUS HPDF_SetCurrentEncoder(HPDF_Doc pdf, const char *encoding_name);
@@ -397,7 +402,6 @@ HPDF_LoadRawImageFromMem()
 HPDF_LoadPngImageFromMem()
 HPDF_LoadJpegImageFromMem()
 Page:
-HPDF_Page_SetRotate()
 HPDF_Page_CreateLinkAnnot()
 HPDF_Page_CreateURILinkAnnot()
 HPDF_Page_MeasureText()
@@ -405,10 +409,7 @@ HPDF_Page_SetSlideShow()
 HPDF_Page_New_Content_Stream()
 HPDF_Page_Insert_Shared_Content_Stream()
 Graphics:
-HPDF_Page_CurveTo2()
-HPDF_Page_CurveTo3()
 HPDF_Page_ExecuteXObject()
-HPDF_Page_MoveTextPos2()
 HPDF_Page_SetExtGState()
 Fonts:
 HPDF_Font_GetUnicodeWidth()

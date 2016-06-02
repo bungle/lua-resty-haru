@@ -2,16 +2,13 @@ local ffi = require "ffi"
 local lib = require "resty.haru.library"
 local ffi_str = ffi.string
 local setmetatable = setmetatable
+local rawset = rawset
+local type = type
 
 local image = {}
 
 function image.new(context)
     return setmetatable({ context = context }, image)
-end
-
-function image:size()
-    local size = lib.HPDF_Image_GetSize(self.context)
-    return size.x, size.y
 end
 
 function image:__index(n)
@@ -20,6 +17,9 @@ function image:__index(n)
         r = lib.HPDF_Image_GetWidth(self.context)
     elseif n == "height" then
         r = lib.HPDF_Image_GetHeight(self.context)
+    elseif n == "size" then
+        local size = lib.HPDF_Image_GetSize(self.context)
+        return { x = size.x, y = size.y }
     elseif n == "colorspace" then
         r = lib.HPDF_Image_GetColorSpace(self.context)
         if r then
@@ -36,5 +36,24 @@ function image:__index(n)
         return r
     end
 end
+
+function image:__newindex(n, v)
+    local r
+    if n == "colormask" then
+        local rmin, rmax, gmin, gmax, bmin, bmax = 0, 0, 0, 0, 0, 0
+        if (type(v) == "table") then
+            rmin = v.rmin or v[1] or 0
+            rmax = v.rmax or v[2] or 0
+            gmin = v.gmin or v[3] or 0
+            gmax = v.gmax or v[4] or 0
+            bmin = v.bmin or v[5] or 0
+            bmax = v.bmax or v[6] or 0
+        end
+        r = lib.HPDF_Image_SetColorMask(self.context, rmin, rmax, gmin, gmax, bmin, bmax)
+    else
+        rawset(self, n, v)
+    end
+end
+
 
 return image

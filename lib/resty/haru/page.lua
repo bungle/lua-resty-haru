@@ -135,6 +135,16 @@ function page:curve(x1, y1, x2, y2, x3, y3)
     return r ~= 0 and r or nil
 end
 
+function page:curve2(x2, y2, x3, y3)
+    local r = lib.HPDF_Page_CurveTo2(self.context, x2, y2, x3, y3)
+    return r ~= 0 and r or nil
+end
+
+function page:curve3(x1, y1, x3, y3)
+    local r = lib.HPDF_Page_CurveTo2(self.context, x1, y1, x3, y3)
+    return r ~= 0 and r or nil
+end
+
 function page:stroke()
     local r = lib.HPDF_Page_Stroke(self.context)
     return r ~= 0 and r or nil
@@ -194,6 +204,11 @@ end
 
 function page:textmove(x, y)
     local r = lib.HPDF_Page_MoveTextPos(self.context, x, y)
+    return r ~= 0 and r or nil
+end
+
+function page:textmove2(x, y)
+    local r = lib.HPDF_Page_MoveTextPos2(self.context, x, y)
     return r ~= 0 and r or nil
 end
 
@@ -373,6 +388,8 @@ function page:__newindex(n, v)
         r = lib.HPDF_Page_SetWidth(self.context, v)
     elseif n == "height" then
         r = lib.HPDF_Page_SetHeight(self.context, v)
+    elseif n == "rotate" then
+        r = lib.HPDF_Page_SetRotate(self.context, v)
     elseif n == "grayfill" then
         r = lib.HPDF_Page_SetGrayFill(self.context, v)
     elseif n == "graystroke" then

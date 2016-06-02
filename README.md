@@ -157,6 +157,7 @@ page.rgbstroke         = page.rgbstroke
 page.cmykfill          = page.cmykfill
 page.cmykstroke        = page.cmykstroke
 page.dash              = page.dash
+page.rotate            = 90
 
 -- Setting Page Size
 page:size("a4", "landscape")
@@ -243,14 +244,23 @@ page:stroke()
 
 -- Loading a Image
 local logo = images:load "logo.png"
-local w, h = logo:size()
-print(w, h)
 
 -- Image Properties
 print(logo.width)
 print(logo.height)
 print(logo.colorspace)
 print(logo.bitspercomponent)
+ dump(logo.size)
+
+-- Setting Image Properties
+logo.colormask = {
+    rmin = 50,
+    rmax = 150,
+    gmin = 50,
+    gmax = 150,
+    bmin = 50,
+    bmax = 150
+}
 
 -- Drawing Image
 page:image(logo, 450, 450, 100, 100)
@@ -381,7 +391,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_SetWidth~~
 * [x] ~~HPDF_Page_SetHeight~~
 * [x] ~~HPDF_Page_SetSize~~
-* [ ] HPDF_Page_SetRotate
+* [x] ~~HPDF_Page_SetRotate~~
 * [x] ~~HPDF_Page_GetWidth~~
 * [x] ~~HPDF_Page_GetHeight~~
 * [x] ~~HPDF_Page_CreateDestination~~
@@ -434,8 +444,8 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_ClosePathFillStroke~~
 * [x] ~~HPDF_Page_Concat~~
 * [x] ~~HPDF_Page_CurveTo~~
-* [ ] HPDF_Page_CurveTo2
-* [ ] HPDF_Page_CurveTo3
+* [x] ~~HPDF_Page_CurveTo2~~
+* [x] ~~HPDF_Page_CurveTo3~~
 * [x] ~~HPDF_Page_DrawImage~~
 * [x] ~~HPDF_Page_Ellipse~~
 * [x] ~~HPDF_Page_EndPath~~
@@ -450,7 +460,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Page_GSave~~
 * [x] ~~HPDF_Page_LineTo~~
 * [x] ~~HPDF_Page_MoveTextPos~~
-* [ ] HPDF_Page_MoveTextPos2
+* [x] ~~HPDF_Page_MoveTextPos2~~
 * [x] ~~HPDF_Page_MoveTo~~
 * [x] ~~HPDF_Page_MoveToNextLine~~
 * [x] ~~HPDF_Page_Rectangle~~
@@ -532,7 +542,7 @@ hpdf:save "demo.pdf"
 * [x] ~~HPDF_Image_GetHeight~~
 * [x] ~~HPDF_Image_GetBitsPerComponent~~
 * [x] ~~HPDF_Image_GetColorSpace~~
-* [ ] HPDF_Image_SetColorMask
+* [x] ~~HPDF_Image_SetColorMask~~
 * [ ] HPDF_Image_SetMaskImage
 
 ## License
