@@ -19,7 +19,7 @@ function image:__index(n)
         r = lib.HPDF_Image_GetHeight(self.context)
     elseif n == "size" then
         local size = lib.HPDF_Image_GetSize(self.context)
-        return { x = size.x, y = size.y }
+        return { width = size.x, height = size.y }
     elseif n == "colorspace" then
         r = lib.HPDF_Image_GetColorSpace(self.context)
         if r then
