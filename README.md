@@ -316,13 +316,12 @@ hpdf:save "demo.pdf"
 
 ## TODO
 
+The most of the bindings are implemented, but there are a few that are still work in progress.
+
 ##### Basic Functions
 
-* [x] ~~HPDF_New~~
-* [x] ~~HPDF_Free~~
 * [ ] HPDF_NewDoc
 * [ ] HPDF_FreeDoc
-* [x] ~~HPDF_SaveToFile~~
 * [ ] HPDF_SaveToStream
 * [ ] HPDF_GetStreamSize
 * [ ] HPDF_ReadFromStream
@@ -335,213 +334,54 @@ hpdf:save "demo.pdf"
 ##### Pages Handling
 
 * [ ] HPDF_SetPagesConfiguration
-* [x] ~~HPDF_SetPageLayout~~
-* [x] ~~HPDF_GetPageLayout~~
-* [x] ~~HPDF_SetPageMode~~
-* [x] ~~HPDF_GetPageMode~~
 * [ ] HPDF_SetOpenAction
-* [x] ~~HPDF_GetCurrentPage~~
-* [x] ~~HPDF_AddPage~~
-* [x] ~~HPDF_InsertPage~~
 
 ##### Font Handling
 
-* [x] ~~HPDF_AddPageLabel~~ (why is this here?)
-* [x] ~~HPDF_GetFont~~
 * [ ] HPDF_LoadType1FontFromFile
-* [x] ~~HPDF_LoadTTFontFromFile~~
 * [ ] HPDF_LoadTTFontFromFile2
-* [x] ~~HPDF_UseJPFonts~~
-* [x] ~~HPDF_UseKRFonts~~
-* [x] ~~HPDF_UseCNSFonts~~
-* [x] ~~HPDF_UseCNTFonts~~
-
-##### Encodings
-
-* [x] ~~HPDF_GetEncoder~~
-* [x] ~~HPDF_GetCurrentEncoder~~
-* [x] ~~HPDF_SetCurrentEncoder~~
-* [x] ~~HPDF_UseJPEncodings~~
-* [x] ~~HPDF_UseKREncodings~~
-* [x] ~~HPDF_UseCNSEncodings~~
-* [x] ~~HPDF_UseCNTEncodings~~
-* [x] ~~HPDF_UseUTFEncodings~~
 
 ##### Other Functions
 
-* [x] ~~HPDF_CreateOutline~~
-* [x] ~~HPDF_LoadPngImageFromFile~~
 * [ ] HPDF_LoadPngImageFromFile2
 * [ ] HPDF_LoadRawImageFromFile
 * [ ] HPDF_LoadRawImageFromMem
 * [ ] HPDF_LoadPngImageFromMem
 * [ ] HPDF_LoadJpegImageFromMem
-* [x] ~~HPDF_LoadJpegImageFromFile~~
-* [x] ~~HPDF_SetInfoAttr~~
-* [x] ~~HPDF_GetInfoAttr~~
-* [x] ~~HPDF_SetInfoDateAttr~~
-* [x] ~~HPDF_SetPassword~~
-* [x] ~~HPDF_SetPermission~~
-* [x] ~~HPDF_SetEncryptionMode~~
-* [x] ~~HPDF_SetCompressionMode~~
 
 ##### Page
 
-* [x] ~~HPDF_Page_SetWidth~~
-* [x] ~~HPDF_Page_SetHeight~~
-* [x] ~~HPDF_Page_SetSize~~
-* [x] ~~HPDF_Page_SetRotate~~
-* [x] ~~HPDF_Page_GetWidth~~
-* [x] ~~HPDF_Page_GetHeight~~
-* [x] ~~HPDF_Page_CreateDestination~~
-* [x] ~~HPDF_Page_CreateTextAnnot~~
 * [ ] HPDF_Page_CreateLinkAnnot
 * [ ] HPDF_Page_CreateURILinkAnnot
-* [x] ~~HPDF_Page_TextWidth~~
 * [ ] HPDF_Page_MeasureText
-* [x] ~~HPDF_Page_GetGMode~~
-* [x] ~~HPDF_Page_GetCurrentPos~~
-* [x] ~~HPDF_Page_GetCurrentTextPos~~
-* [x] ~~HPDF_Page_GetCurrentFont~~
-* [x] ~~HPDF_Page_GetCurrentFontSize~~
-* [x] ~~HPDF_Page_GetTransMatrix~~
-* [x] ~~HPDF_Page_GetLineWidth~~
-* [x] ~~HPDF_Page_GetLineCap~~
-* [x] ~~HPDF_Page_GetLineJoin~~
-* [x] ~~HPDF_Page_GetMiterLimit~~
-* [x] ~~HPDF_Page_GetDash~~
-* [x] ~~HPDF_Page_GetFlat~~
-* [x] ~~HPDF_Page_GetCharSpace~~
-* [x] ~~HPDF_Page_GetWordSpace~~
-* [x] ~~HPDF_Page_GetHorizontalScalling~~
-* [x] ~~HPDF_Page_GetTextLeading~~
-* [x] ~~HPDF_Page_GetTextRenderingMode~~
-* [x] ~~HPDF_Page_GetTextRise~~
-* [x] ~~HPDF_Page_GetRGBFill~~
-* [x] ~~HPDF_Page_GetRGBStroke~~
-* [x] ~~HPDF_Page_GetCMYKFill~~
-* [x] ~~HPDF_Page_GetCMYKStroke~~
-* [x] ~~HPDF_Page_GetGrayFill~~
-* [x] ~~HPDF_Page_GetGrayStroke~~
-* [x] ~~HPDF_Page_GetStrokingColorSpace~~
-* [x] ~~HPDF_Page_GetFillingColorSpace~~
-* [x] ~~HPDF_Page_GetTextMatrix~~
-* [x] ~~HPDF_Page_GetGStateDepth~~
 * [ ] HPDF_Page_SetSlideShow
 * [ ] HPDF_Page_New_Content_Stream
 * [ ] HPDF_Page_Insert_Shared_Content_Stream
 
 ##### Graphics
 
-* [x] ~~HPDF_Page_Arc~~
-* [x] ~~HPDF_Page_BeginText~~
-* [x] ~~HPDF_Page_Circle~~
-* [x] ~~HPDF_Page_Clip~~
-* [x] ~~HPDF_Page_ClosePath~~
-* [x] ~~HPDF_Page_ClosePathStroke~~
-* [x] ~~HPDF_Page_ClosePathEofillStroke~~
-* [x] ~~HPDF_Page_ClosePathFillStroke~~
-* [x] ~~HPDF_Page_Concat~~
-* [x] ~~HPDF_Page_CurveTo~~
-* [x] ~~HPDF_Page_CurveTo2~~
-* [x] ~~HPDF_Page_CurveTo3~~
-* [x] ~~HPDF_Page_DrawImage~~
-* [x] ~~HPDF_Page_Ellipse~~
-* [x] ~~HPDF_Page_EndPath~~
-* [x] ~~HPDF_Page_EndText~~
-* [x] ~~HPDF_Page_Eoclip~~
-* [x] ~~HPDF_Page_Eofill~~
-* [x] ~~HPDF_Page_EofillStroke~~
 * [ ] HPDF_Page_ExecuteXObject
-* [x] ~~HPDF_Page_Fill~~
-* [x] ~~HPDF_Page_FillStroke~~
-* [x] ~~HPDF_Page_GRestore~~
-* [x] ~~HPDF_Page_GSave~~
-* [x] ~~HPDF_Page_LineTo~~
-* [x] ~~HPDF_Page_MoveTextPos~~
-* [x] ~~HPDF_Page_MoveTextPos2~~
-* [x] ~~HPDF_Page_MoveTo~~
-* [x] ~~HPDF_Page_MoveToNextLine~~
-* [x] ~~HPDF_Page_Rectangle~~
-* [x] ~~HPDF_Page_SetCharSpace~~
-* [x] ~~HPDF_Page_SetCMYKFill~~
-* [x] ~~HPDF_Page_SetCMYKStroke~~
-* [x] ~~HPDF_Page_SetDash~~
 * [ ] HPDF_Page_SetExtGState
-* [x] ~~HPDF_Page_SetFontAndSize~~
-* [x] ~~HPDF_Page_SetGrayFill~~
-* [x] ~~HPDF_Page_SetGrayStroke~~
-* [x] ~~HPDF_Page_SetHorizontalScalling~~
-* [x] ~~HPDF_Page_SetLineCap~~
-* [x] ~~HPDF_Page_SetLineJoin~~
-* [x] ~~HPDF_Page_SetLineWidth~~
-* [x] ~~HPDF_Page_SetMiterLimit~~
-* [x] ~~HPDF_Page_SetRGBFill~~
-* [x] ~~HPDF_Page_SetRGBStroke~~
-* [x] ~~HPDF_Page_SetTextLeading~~
-* [x] ~~HPDF_Page_SetTextMatrix~~
-* [x] ~~HPDF_Page_SetTextRenderingMode~~
-* [x] ~~HPDF_Page_SetTextRise~~
-* [x] ~~HPDF_Page_SetWordSpace~~
-* [x] ~~HPDF_Page_ShowText~~
-* [x] ~~HPDF_Page_ShowTextNextLine~~
-* [x] ~~HPDF_Page_ShowTextNextLineEx~~
-* [x] ~~HPDF_Page_Stroke~~
-* [x] ~~HPDF_Page_TextOut~~
-* [x] ~~HPDF_Page_TextRect~~
 
 ##### Fonts
 
-* [x] ~~HPDF_Font_GetFontName~~
-* [x] ~~HPDF_Font_GetEncodingName~~
 * [ ] HPDF_Font_GetUnicodeWidth
-* [x] ~~HPDF_Font_GetBBox~~
-* [x] ~~HPDF_Font_GetAscent~~
-* [x] ~~HPDF_Font_GetDescent~~
-* [x] ~~HPDF_Font_GetXHeight~~
-* [x] ~~HPDF_Font_GetCapHeight~~
 * [ ] HPDF_Font_TextWidth
 * [ ] HPDF_Font_MeasureText
 
 ##### Encodings
 
-* [x] ~~HPDF_Encoder_GetType~~
 * [ ] HPDF_Encoder_GetByteType
 * [ ] HPDF_Encoder_GetUnicode
-* [x] ~~HPDF_Encoder_GetWritingMode~~
 
 ##### Annotations
 
 * [ ] HPDF_LinkAnnot_SetHighlightMode
 * [ ] HPDF_LinkAnnot_SetBorderStyle
-* [x] ~~HPDF_TextAnnot_SetIcon~~
-* [x] ~~HPDF_TextAnnot_SetOpened~~
 * [ ] HPDF_Annotation_SetBorderStyle
-
-##### Outline
-
-* [x] ~~HPDF_Outline_SetOpened~~
-* [x] ~~HPDF_Outline_SetDestination~~
-
-##### Destination
-
-* [x] ~~HPDF_Destination_SetXYZ~~
-* [x] ~~HPDF_Destination_SetFit~~
-* [x] ~~HPDF_Destination_SetFitH~~
-* [x] ~~HPDF_Destination_SetFitV~~
-* [x] ~~HPDF_Destination_SetFitR~~
-* [x] ~~HPDF_Destination_SetFitB~~
-* [x] ~~HPDF_Destination_SetFitBH~~
-* [x] ~~HPDF_Destination_SetFitBV~~
 
 ##### Image
 
-* [x] ~~HPDF_Image_GetSize~~
-* [x] ~~HPDF_Image_GetWidth~~
-* [x] ~~HPDF_Image_GetHeight~~
-* [x] ~~HPDF_Image_GetBitsPerComponent~~
-* [x] ~~HPDF_Image_GetColorSpace~~
-* [x] ~~HPDF_Image_SetColorMask~~
 * [ ] HPDF_Image_SetMaskImage
 
 ## License
