@@ -1,11 +1,11 @@
-local ffi = require "ffi"
-local lib = require "resty.haru.library"
-local ffi_str = ffi.string
+local ffi          = require "ffi"
+local lib          = require "resty.haru.library"
+local ffi_str      = ffi.string
 local setmetatable = setmetatable
-local rawset = rawset
-local type = type
+local rawset       = rawset
+local type         = type
 
-local image = {}
+local image        = {}
 
 function image.new(context)
     return setmetatable({ context = context }, image)

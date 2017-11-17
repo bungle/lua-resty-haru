@@ -1,11 +1,11 @@
-local lib = require "resty.haru.library"
-local enums = require "resty.haru.enums"
-local icon = enums.annotation.icon
+local lib          = require "resty.haru.library"
+local enums        = require "resty.haru.enums"
+local icon         = enums.annotation.icon
 local setmetatable = setmetatable
-local rawset = rawset
-local type = type
+local rawset       = rawset
+local type         = type
 
-local annotation = {}
+local annotation   = {}
 annotation.__index = annotation
 
 function annotation.new(context)

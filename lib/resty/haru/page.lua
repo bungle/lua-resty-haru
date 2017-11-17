@@ -1,25 +1,25 @@
-local ffi = require "ffi"
-local ffi_new = ffi.new
-local lib = require "resty.haru.library"
-local enums = require "resty.haru.enums"
-local fnt = require "resty.haru.font"
-local destination = require "resty.haru.destination"
-local annotation = require "resty.haru.annotation"
+local ffi           = require "ffi"
+local ffi_new       = ffi.new
+local lib           = require "resty.haru.library"
+local enums         = require "resty.haru.enums"
+local fnt           = require "resty.haru.font"
+local destination   = require "resty.haru.destination"
+local annotation    = require "resty.haru.annotation"
 local renderingmode = enums.textrenderingmode
-local alignment = enums.align
-local pagesize = enums.pagesize
+local alignment     = enums.align
+local pagesize      = enums.pagesize
 local pagedirection = enums.pagedirection
-local linecap = enums.linecap
-local linejoin = enums.linejoin
-local setmetatable = setmetatable
-local rawset = rawset
-local type = type
-local tonumber = tonumber
+local linecap       = enums.linecap
+local linejoin      = enums.linejoin
+local setmetatable  = setmetatable
+local rawset        = rawset
+local type          = type
+local tonumber      = tonumber
 
-local l = ffi_new("HPDF_UINT[1]", 0)
-local rect = ffi_new "HPDF_Rect"
-local dash = ffi_new("HPDF_UINT16[8]", 0)
-local page = {}
+local l             = ffi_new("HPDF_UINT[1]", 0)
+local rect          = ffi_new "HPDF_Rect"
+local dash          = ffi_new("HPDF_UINT16[8]", 0)
+local page          = {}
 
 function page.new(context)
     return setmetatable({ context = context }, page)

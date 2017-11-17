@@ -1,14 +1,13 @@
-local ffi = require "ffi"
-local ffi_str = ffi.string
-local lib = require "resty.haru.library"
-local font = require "resty.haru.font"
-local sub = string.sub
-local lower = string.lower
-
+local ffi          = require "ffi"
+local ffi_str      = ffi.string
+local lib          = require "resty.haru.library"
+local font         = require "resty.haru.font"
+local sub          = string.sub
+local lower        = string.lower
 local setmetatable = setmetatable
 
-local fonts = {}
-fonts.__index = fonts
+local fonts        = {}
+fonts.__index      = fonts
 
 function fonts.new(context)
     return setmetatable({ context = context }, fonts)

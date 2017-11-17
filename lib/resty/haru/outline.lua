@@ -1,9 +1,9 @@
-local lib = require "resty.haru.library"
+local lib          = require "resty.haru.library"
 local setmetatable = setmetatable
-local rawset = rawset
+local rawset       = rawset
 
-local outline = {}
-outline.__index = outline
+local outline      = {}
+outline.__index    = outline
 
 function outline.new(context)
     return setmetatable({ context = context }, outline)

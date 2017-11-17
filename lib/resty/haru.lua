@@ -1,30 +1,30 @@
-local lib = require "resty.haru.library"
-local pages = require "resty.haru.pages"
-local fonts = require "resty.haru.fonts"
-local images = require "resty.haru.images"
-local encoders = require "resty.haru.encoders"
-local outline = require "resty.haru.outline"
-local enums = require "resty.haru.enums"
-local pagelayout = enums.pagelayout
-local pagemode = enums.pagemode
+local lib             = require "resty.haru.library"
+local pages           = require "resty.haru.pages"
+local fonts           = require "resty.haru.fonts"
+local images          = require "resty.haru.images"
+local encoders        = require "resty.haru.encoders"
+local outline         = require "resty.haru.outline"
+local enums           = require "resty.haru.enums"
+local pagelayout      = enums.pagelayout
+local pagemode        = enums.pagemode
 local compressionmode = enums.compressionmode
-local encryptionmode = enums.encryptionmode
-local permission = enums.permission
-local infotype = enums.infotype
-local numberstyle = enums.numberstyle
-local ffi = require "ffi"
-local ffi_gc = ffi.gc
-local ffi_str = ffi.string
-local ffi_new = ffi.new
-local setmetatable = setmetatable
-local lower = string.lower
-local byte = string.byte
-local rawset = rawset
-local tonumber = tonumber
-local type = type
+local encryptionmode  = enums.encryptionmode
+local permission      = enums.permission
+local infotype        = enums.infotype
+local numberstyle     = enums.numberstyle
+local ffi             = require "ffi"
+local ffi_gc          = ffi.gc
+local ffi_str         = ffi.string
+local ffi_new         = ffi.new
+local setmetatable    = setmetatable
+local lower           = string.lower
+local byte            = string.byte
+local rawset          = rawset
+local tonumber        = tonumber
+local type            = type
 
-local date = ffi_new "HPDF_Date"
-local haru = {}
+local date            = ffi_new "HPDF_Date"
+local haru            = {}
 
 function haru.new()
     local self = setmetatable({ context = ffi_gc(lib.HPDF_New(nil, nil), lib.HPDF_Free) }, haru)

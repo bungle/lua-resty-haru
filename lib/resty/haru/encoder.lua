@@ -1,9 +1,9 @@
-local lib = require "resty.haru.library"
+local lib          = require "resty.haru.library"
 local setmetatable = setmetatable
-local tonumber = tonumber
+local tonumber     = tonumber
 
-local encoder = {}
-encoder.__index = encoder
+local encoder      = {}
+encoder.__index    = encoder
 
 function encoder.new(context)
     return setmetatable({ context = context }, encoder)

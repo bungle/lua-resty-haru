@@ -1,8 +1,8 @@
-local lib = require "resty.haru.library"
-local page = require "resty.haru.page"
+local lib          = require "resty.haru.library"
+local page         = require "resty.haru.page"
 local setmetatable = setmetatable
 
-local pages = {}
+local pages        = {}
 
 function pages.new(context)
     return setmetatable({ context = context }, pages)

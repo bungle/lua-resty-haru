@@ -1,8 +1,8 @@
-local lib = require "resty.haru.library"
-local setmetatable = setmetatable
-local rawset = rawset
+local lib           = require "resty.haru.library"
+local setmetatable  = setmetatable
+local rawset        = rawset
 
-local destination = {}
+local destination   = {}
 destination.__index = destination
 
 function destination.new(context)

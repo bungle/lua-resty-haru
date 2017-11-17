@@ -1,4 +1,4 @@
-local ffi = require "ffi"
+local ffi      = require "ffi"
 local ffi_cdef = ffi.cdef
 local ffi_load = ffi.load
 

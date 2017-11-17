@@ -1,11 +1,11 @@
-local lib = require "resty.haru.library"
-local image = require "resty.haru.image"
-local sub = string.sub
-local lower = string.lower
+local lib          = require "resty.haru.library"
+local image        = require "resty.haru.image"
+local sub          = string.sub
+local lower        = string.lower
 local setmetatable = setmetatable
 
-local images = {}
-images.__index = images
+local images       = {}
+images.__index     = images
 
 function images.new(context)
     return setmetatable({ context = context }, images)

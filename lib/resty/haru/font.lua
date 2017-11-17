@@ -1,10 +1,10 @@
-local lib = require "resty.haru.library"
-local ffi = require "ffi"
-local ffi_str = ffi.string
+local lib          = require "resty.haru.library"
+local ffi          = require "ffi"
+local ffi_str      = ffi.string
 local setmetatable = setmetatable
 
-local font = {}
-font.__index = font
+local font         = {}
+font.__index       = font
 
 function font.new(context)
     return setmetatable({ context = context }, font)

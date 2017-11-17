@@ -1,9 +1,9 @@
-local lib = require "resty.haru.library"
-local encoder = require "resty.haru.encoder"
+local lib          = require "resty.haru.library"
+local encoder      = require "resty.haru.encoder"
 local setmetatable = setmetatable
-local rawset = rawset
+local rawset       = rawset
 
-local encoders = {}
+local encoders     = {}
 
 function encoders.new(context)
     return setmetatable({ context = context }, encoders)
