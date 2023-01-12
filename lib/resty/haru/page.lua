@@ -18,7 +18,7 @@ local tonumber      = tonumber
 
 local l             = ffi_new("HPDF_UINT[1]", 0)
 local rect          = ffi_new "HPDF_Rect"
-local dash          = ffi_new("HPDF_UINT16[8]", 0)
+local dash          = ffi_new("HPDF_REAL[8]", 0)
 local page          = {}
 
 function page.new(context)

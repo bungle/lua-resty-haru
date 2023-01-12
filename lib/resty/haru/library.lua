@@ -314,7 +314,7 @@ HPDF_TransMatrix HPDF_Page_GetTextMatrix(HPDF_Page page);
      HPDF_STATUS HPDF_Page_SetTextMatrix(HPDF_Page page, HPDF_REAL a, HPDF_REAL b, HPDF_REAL c, HPDF_REAL d, HPDF_REAL x, HPDF_REAL y);
 HPDF_TransMatrix HPDF_Page_GetTransMatrix(HPDF_Page page);
    HPDF_DashMode HPDF_Page_GetDash(HPDF_Page page);
-     HPDF_STATUS HPDF_Page_SetDash(HPDF_Page page, const HPDF_UINT16 *dash_ptn, HPDF_UINT num_elem, HPDF_UINT phase);
+     HPDF_STATUS HPDF_Page_SetDash(HPDF_Page page, const HPDF_REAL *dash_ptn, HPDF_UINT num_elem, HPDF_REAL phase);
      HPDF_STATUS HPDF_Page_Clip(HPDF_Page page);
      HPDF_STATUS HPDF_Page_ClosePath(HPDF_Page page);
      HPDF_STATUS HPDF_Page_ClosePathStroke(HPDF_Page page);
