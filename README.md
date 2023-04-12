@@ -2,6 +2,11 @@
 
 LuaJIT FFI Bindings to Haru – Free PDF Library. This library is almost done as you can see on [TODO](#todo). Some missing API bindings will be added shortly, or on request.
 
+## Requirements
+
+- LuaJIT - [original](https://luajit.org) or [OpenResty's branch](https://github.com/openresty/luajit2)
+- [libharu](https://github.com/libharu/libharu) version 2.4 or later
+
 ## Synopsis
 
 ```lua
